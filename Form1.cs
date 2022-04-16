@@ -17,9 +17,9 @@ namespace GameFacePrototype
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BTNIniciar_Click(object sender, EventArgs e)
         {
-            label1.Text = textBox1.Text.ToString();
+
         }
     }
 }

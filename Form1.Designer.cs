@@ -37,12 +37,13 @@ namespace GameFacePrototype
             // 
             // BTNIniciar
             // 
-            this.BTNIniciar.Location = new System.Drawing.Point(514, 25);
+            this.BTNIniciar.Location = new System.Drawing.Point(552, 25);
             this.BTNIniciar.Name = "BTNIniciar";
             this.BTNIniciar.Size = new System.Drawing.Size(75, 23);
             this.BTNIniciar.TabIndex = 0;
             this.BTNIniciar.Text = "button1";
             this.BTNIniciar.UseVisualStyleBackColor = true;
+            this.BTNIniciar.Click += new System.EventHandler(this.BTNIniciar_Click);
             // 
             // button2
             // 
