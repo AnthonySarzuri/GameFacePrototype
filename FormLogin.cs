@@ -10,19 +10,11 @@ using System.Windows.Forms;
 
 namespace GameFacePrototype
 {
-    public partial class Form1 : Form
+    public partial class FormLogin : Form
     {
-        public Form1()
+        public FormLogin()
         {
             InitializeComponent();
-        }
-
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            FormLogin login = new FormLogin();
-            login.Show();
-            this.Hide();
         }
     }
 }
