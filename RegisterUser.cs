@@ -40,6 +40,9 @@ namespace GameFacePrototype
             {
                 //Aquí le cambiomos para ir a registrar gustos en ves de este Message box : )
                 MessageBox.Show("Usuario registrado exitosamente");
+                SeleccionGustos seleccionGustos = new SeleccionGustos();    
+                seleccionGustos.Show();
+                this.Hide();
             }
         }
     }
