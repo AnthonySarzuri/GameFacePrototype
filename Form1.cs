@@ -23,5 +23,12 @@ namespace GameFacePrototype
             login.Show();
             this.Hide();
         }
+
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            RegisterUser registerUser = new RegisterUser();
+            registerUser.Show();
+            this.Hide();
+        }
     }
 }
