@@ -37,5 +37,12 @@ namespace GameFacePrototype
             register.Show();
             this.Hide();
         }
+
+        private void lblPasswordGet_Click(object sender, EventArgs e)
+        {
+            EnterEmail enterEmail = new EnterEmail();   
+            enterEmail.Show();
+            this.Hide();
+        }
     }
 }
