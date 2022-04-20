@@ -16,7 +16,8 @@ namespace GameFacePrototype
         {
             InitializeComponent();
         }
-
+        //Valida que el campo no este vacio
+        //cuando tengamos la base aumentare las demas validaciones
         private void btnSendCode_Click(object sender, EventArgs e)
         {
             if (tbEnterEmail.Text !="")

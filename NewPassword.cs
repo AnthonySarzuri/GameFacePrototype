@@ -17,6 +17,7 @@ namespace GameFacePrototype
             InitializeComponent();
         }
 
+        //de momento solo valida que los campos sean iguales cuando tengamos la base de datos agregare mas validaciones
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
             if (tbNewPassword.Text == tbRepeatNewPassword.Text)
