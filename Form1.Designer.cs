@@ -37,26 +37,26 @@ namespace GameFacePrototype
             // 
             // BTNIniciar
             // 
-            this.BTNIniciar.Location = new System.Drawing.Point(552, 25);
+            this.BTNIniciar.Location = new System.Drawing.Point(499, 25);
             this.BTNIniciar.Name = "BTNIniciar";
-            this.BTNIniciar.Size = new System.Drawing.Size(75, 23);
+            this.BTNIniciar.Size = new System.Drawing.Size(101, 23);
             this.BTNIniciar.TabIndex = 0;
-            this.BTNIniciar.Text = "button1";
+            this.BTNIniciar.Text = "Iniciar Sesion";
             this.BTNIniciar.UseVisualStyleBackColor = true;
             this.BTNIniciar.Click += new System.EventHandler(this.BTNIniciar_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(670, 25);
+            this.button2.Location = new System.Drawing.Point(646, 25);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(99, 23);
             this.button2.TabIndex = 1;
-            this.button2.Text = "button2";
+            this.button2.Text = "Registrarse";
             this.button2.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(376, 65);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(100, 50);
             this.pictureBox1.TabIndex = 2;
@@ -66,7 +66,7 @@ namespace GameFacePrototype
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(787, 467);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.BTNIniciar);

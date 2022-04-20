@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace GameFacePrototype
 {
-    public partial class Form1 : Form
+    public partial class PrivateInterface : Form
     {
-        public Form1()
+        public PrivateInterface()
         {
             InitializeComponent();
-        }
-
-        private void BTNIniciar_Click(object sender, EventArgs e)
-        {
-            Login login = new Login();
-            login.Show();
-            this.Hide();
         }
     }
 }
