@@ -30,5 +30,12 @@ namespace GameFacePrototype
                 lblError.Text = "Todo esta mal:(";
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Register register = new Register();
+            register.Show();
+            this.Hide();
+        }
     }
 }

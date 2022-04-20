@@ -35,6 +35,7 @@ namespace GameFacePrototype
             this.lblPasswordEmpty = new System.Windows.Forms.Label();
             this.lblUserEmpty = new System.Windows.Forms.Label();
             this.lblError = new System.Windows.Forms.Label();
+            this.lblRegister = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // tbUser
@@ -86,11 +87,22 @@ namespace GameFacePrototype
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 5;
             // 
+            // lblRegister
+            // 
+            this.lblRegister.AutoSize = true;
+            this.lblRegister.Location = new System.Drawing.Point(279, 419);
+            this.lblRegister.Name = "lblRegister";
+            this.lblRegister.Size = new System.Drawing.Size(205, 13);
+            this.lblRegister.TabIndex = 6;
+            this.lblRegister.Text = "¿¡No tienes una cuenta aún!? ¡Registrate!";
+            this.lblRegister.Click += new System.EventHandler(this.label1_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 496);
+            this.Controls.Add(this.lblRegister);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.lblUserEmpty);
             this.Controls.Add(this.lblPasswordEmpty);
@@ -112,5 +124,6 @@ namespace GameFacePrototype
         private System.Windows.Forms.Label lblPasswordEmpty;
         private System.Windows.Forms.Label lblUserEmpty;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Label lblRegister;
     }
 }
