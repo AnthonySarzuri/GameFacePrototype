@@ -30,13 +30,14 @@ namespace GameFacePrototype
 
         private void btnconfirm_Click(object sender, EventArgs e)
         {
-            if(cont == 3)
+            if (cont == 3)
             {
                 MessageBox.Show("SE REGISTRARON TUS GUSTOS CON EXITO :)");
-                
+
                 this.Close();
-                //Intanciar un form xd
-                //jaja xdsalu2
+                PrivateInterface inter = new PrivateInterface();
+                inter.Show();
+
             }
             else
             {
@@ -55,7 +56,7 @@ namespace GameFacePrototype
             else
             {
                 var = false;
-                cont= cont - 1;
+                cont = cont - 1;
             }
         }
 

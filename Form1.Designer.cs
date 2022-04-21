@@ -37,9 +37,10 @@ namespace GameFacePrototype
             // 
             // BTNIniciar
             // 
-            this.BTNIniciar.Location = new System.Drawing.Point(499, 25);
+            this.BTNIniciar.Location = new System.Drawing.Point(665, 31);
+            this.BTNIniciar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BTNIniciar.Name = "BTNIniciar";
-            this.BTNIniciar.Size = new System.Drawing.Size(101, 23);
+            this.BTNIniciar.Size = new System.Drawing.Size(135, 28);
             this.BTNIniciar.TabIndex = 0;
             this.BTNIniciar.Text = "Iniciar Sesion";
             this.BTNIniciar.UseVisualStyleBackColor = true;
@@ -47,9 +48,10 @@ namespace GameFacePrototype
             // 
             // btnRegister
             // 
-            this.btnRegister.Location = new System.Drawing.Point(646, 25);
+            this.btnRegister.Location = new System.Drawing.Point(861, 31);
+            this.btnRegister.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnRegister.Name = "btnRegister";
-            this.btnRegister.Size = new System.Drawing.Size(99, 23);
+            this.btnRegister.Size = new System.Drawing.Size(132, 28);
             this.btnRegister.TabIndex = 1;
             this.btnRegister.Text = "Registrarse";
             this.btnRegister.UseVisualStyleBackColor = true;
@@ -57,20 +59,22 @@ namespace GameFacePrototype
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(16, 15);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(133, 62);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 467);
+            this.ClientSize = new System.Drawing.Size(1049, 575);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btnRegister);
             this.Controls.Add(this.BTNIniciar);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

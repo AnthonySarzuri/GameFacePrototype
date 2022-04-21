@@ -33,7 +33,7 @@ namespace GameFacePrototype
 
         private void label1_Click(object sender, EventArgs e)
         {
-            Register register = new Register();
+            RegisterUser register = new RegisterUser();
             register.Show();
             this.Hide();
         }

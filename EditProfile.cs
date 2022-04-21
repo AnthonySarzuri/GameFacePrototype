@@ -21,7 +21,7 @@ namespace GameFacePrototype
             TBMailEdit.Text = "Escriba su Correo";
         }
 
-        
+
 
         private void TBUserEdit_TextChanged(object sender, EventArgs e)
         {
@@ -53,8 +53,8 @@ namespace GameFacePrototype
 
         private void BTNPasswordChange_Click(object sender, EventArgs e)
         {
-            ChangePassword Change = new ChangePassword();
-            Change.Show();
+            //ChangePassword Change = new ChangePassword();
+            //Change.Show();
         }
     }
 }

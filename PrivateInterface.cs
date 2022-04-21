@@ -16,5 +16,12 @@ namespace GameFacePrototype
         {
             InitializeComponent();
         }
+
+        private void btnEditProfile_Click(object sender, EventArgs e)
+        {
+            EditProfile edit = new EditProfile();
+            edit.Show();
+            this.Hide();
+        }
     }
 }
