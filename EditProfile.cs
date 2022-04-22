@@ -56,5 +56,12 @@ namespace GameFacePrototype
             //ChangePassword Change = new ChangePassword();
             //Change.Show();
         }
+
+        private void btnDeleteProfile_Click(object sender, EventArgs e)
+        {
+            DeleteProfile delete = new DeleteProfile();
+            delete.Show();
+            this.Hide();
+        }
     }
 }
