@@ -70,6 +70,7 @@
             this.tbRegisterCellphoneNumber.Name = "tbRegisterCellphoneNumber";
             this.tbRegisterCellphoneNumber.Size = new System.Drawing.Size(227, 24);
             this.tbRegisterCellphoneNumber.TabIndex = 2;
+            this.tbRegisterCellphoneNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbRegisterCellphoneNumber_KeyPress);
             // 
             // tbRegisterUserName
             // 
