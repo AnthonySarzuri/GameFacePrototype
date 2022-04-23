@@ -25,9 +25,9 @@ namespace GameFacePrototype
 
         private void BTNPasswordChange_Click(object sender, EventArgs e)
         {
-            //ChangePassword Change = new ChangePassword();
-            //Change.Show();
-            //this.Hide();
+            ChangePassword Change = new ChangePassword();
+            Change.Show();
+            this.Hide();
         }
 
         private void btnDeleteProfile_Click(object sender, EventArgs e)
