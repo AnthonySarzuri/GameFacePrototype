@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,18 @@ namespace GameFacePrototype
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                eliminarUsuario();
+                MessageBox.Show("Hasta luego.");
+                Login login = new Login();
+                login.Show();
+                this.Hide();
+            }
+            catch (Exception E) 
+            {
+                MessageBox.Show("Ocurrió un error.");
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -27,6 +39,23 @@ namespace GameFacePrototype
             EditProfile edit = new EditProfile();
             edit.Show();
             this.Hide();
+        }
+
+        //Método para "eliminar" un perfil - usuario
+
+        private void eliminarUsuario() 
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_DeleteUser", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand.Parameters.Add("@Id", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@Id"].Value = Global.IdUser;
+
+            da.Fill(dt);
         }
     }
 }
