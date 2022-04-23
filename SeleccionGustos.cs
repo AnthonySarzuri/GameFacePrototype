@@ -189,5 +189,10 @@ namespace GameFacePrototype
                 cont = cont - 1;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            label3.Text = Global.IdUser.ToString(); 
+        }
     }
 }

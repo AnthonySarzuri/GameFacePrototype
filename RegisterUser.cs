@@ -65,9 +65,11 @@ namespace GameFacePrototype
                 try
                 {
                     registarUsuario();
+                    obtenerId();
                     SeleccionGustos seleccionGustos = new SeleccionGustos();
                     seleccionGustos.Show();
                     this.Hide();
+
                 }
                 catch (Exception E)
                 {
@@ -100,6 +102,39 @@ namespace GameFacePrototype
 
             da.Fill(dt);
             numAuto++;
+        }
+
+        private void obtenerId()
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_GetId", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                da.SelectCommand.Parameters.Add("@Mail", SqlDbType.NVarChar, 50);
+
+                da.SelectCommand.Parameters["@Mail"].Value = tbRegisterEmail.Text;
+
+
+                da.Fill(dt);
+                if (dt.Rows.Count >= 1)
+                {
+                    int iduser;
+                    iduser = (int)(dt.Rows[0][0]);
+                    Global.IdUser = iduser;
+                }
+                
+
+
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show("Ha ocurrido un error", "Lo Sentimos :(");
+            }
         }
 
         private void tbRegisterCellphoneNumber_KeyPress(object sender, KeyPressEventArgs e)

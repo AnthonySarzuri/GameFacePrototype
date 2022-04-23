@@ -41,6 +41,10 @@ namespace GameFacePrototype
                     PrivateInterface inter = new PrivateInterface();
                     inter.Show();
                     this.Hide();
+
+                    int iduser;
+                    iduser = (int)(dt.Rows[0][0]);
+                    Global.IdUser = iduser;
                 }
                 else
                 {

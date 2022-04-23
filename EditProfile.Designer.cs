@@ -63,7 +63,7 @@ namespace GameFacePrototype
             // TBMailEdit
             // 
             this.TBMailEdit.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBMailEdit.Location = new System.Drawing.Point(281, 245);
+            this.TBMailEdit.Location = new System.Drawing.Point(281, 216);
             this.TBMailEdit.Margin = new System.Windows.Forms.Padding(2);
             this.TBMailEdit.Name = "TBMailEdit";
             this.TBMailEdit.Size = new System.Drawing.Size(202, 34);
@@ -108,7 +108,7 @@ namespace GameFacePrototype
             this.btnEditProfile.Name = "btnEditProfile";
             this.btnEditProfile.Size = new System.Drawing.Size(100, 23);
             this.btnEditProfile.TabIndex = 7;
-            this.btnEditProfile.Text = "Cambiar Perfil";
+            this.btnEditProfile.Text = "ConfirmarCambios";
             this.btnEditProfile.UseVisualStyleBackColor = true;
             this.btnEditProfile.Click += new System.EventHandler(this.btnEditProfile_Click);
             // 

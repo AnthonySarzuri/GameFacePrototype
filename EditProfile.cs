@@ -85,18 +85,21 @@ namespace GameFacePrototype
             SqlDataAdapter da = new SqlDataAdapter("SP_EditProfile", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
+            da.SelectCommand.Parameters.Add("@id", SqlDbType.Int);
             da.SelectCommand.Parameters.Add("@userName", SqlDbType.NVarChar, 50);
             da.SelectCommand.Parameters.Add("@mobile", SqlDbType.NVarChar, 50);
             da.SelectCommand.Parameters.Add("@birthDate", SqlDbType.Date);
             da.SelectCommand.Parameters.Add("@email", SqlDbType.NVarChar, 50);
             da.SelectCommand.Parameters.Add("@profilePicture", SqlDbType.Image);
 
+            da.SelectCommand.Parameters["@id"].Value = Global.IdUser;
             da.SelectCommand.Parameters["@userName"].Value = TBUserEdit.Text;
             da.SelectCommand.Parameters["@mobile"].Value = TBPhoneEdit.Text;
             da.SelectCommand.Parameters["@birthDate"].Value = DTPbirthday.Value;
             da.SelectCommand.Parameters["@email"].Value = TBMailEdit.Text;
             System.IO.MemoryStream ms = new System.IO.MemoryStream();
             PBProfilePicture.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            da.SelectCommand.Parameters["@profilePicture"].Value = ms.GetBuffer();
 
             da.Fill(dt);
         }
