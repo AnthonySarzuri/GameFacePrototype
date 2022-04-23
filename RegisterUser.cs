@@ -28,7 +28,9 @@ namespace GameFacePrototype
             this.Close();
             menu.Show();
         }
+
         //Se agregaran más validaciones cuando usemos la BD
+
         private void btnRegisterUser_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(tbRegisterEmail.Text) || string.IsNullOrEmpty(tbRegisterUserName.Text) ||

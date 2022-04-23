@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -17,44 +18,16 @@ namespace GameFacePrototype
             InitializeComponent();
             TBUserEdit.Text = "Escriba su nombre aqui";
             TBPhoneEdit.Text = "Escriba su Telefono Aqui";
-            TBBirthEdit.Text = "Escriba su Fecha de Nacimiento";
             TBMailEdit.Text = "Escriba su Correo";
         }
 
-
-
-        private void TBUserEdit_TextChanged(object sender, EventArgs e)
-        {
-            TBUserEdit.Text = "";
-            string usuario = "";
-            usuario = TBUserEdit.Text;
-        }
-
-        private void TBPhoneEdit_TextChanged(object sender, EventArgs e)
-        {
-            TBPhoneEdit.Text = "";
-            string phone = "";
-            phone = TBPhoneEdit.Text;
-        }
-
-        private void TBBirthEdit_TextChanged(object sender, EventArgs e)
-        {
-            TBBirthEdit.Text = "";
-            string birth = "";
-            birth = TBBirthEdit.Text;
-        }
-
-        private void TBMailEdit_TextChanged(object sender, EventArgs e)
-        {
-            TBBirthEdit.Text = "";
-            string mail = "";
-            mail = TBBirthEdit.Text;
-        }
+        //Ir a cambiar contraseña
 
         private void BTNPasswordChange_Click(object sender, EventArgs e)
         {
             //ChangePassword Change = new ChangePassword();
             //Change.Show();
+            //this.Hide();
         }
 
         private void btnDeleteProfile_Click(object sender, EventArgs e)
@@ -62,6 +35,83 @@ namespace GameFacePrototype
             DeleteProfile delete = new DeleteProfile();
             delete.Show();
             this.Hide();
+        }
+
+        private void btnEditProfile_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(TBUserEdit.Text) && string.IsNullOrEmpty(TBPhoneEdit.Text) &&
+                string.IsNullOrEmpty(TBMailEdit.Text))
+            {
+                MessageBox.Show("Ingrese al menos un campo.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (!TBMailEdit.Text.Contains("@gmail.com"))
+            {
+                MessageBox.Show("No es un correo electrónico valido.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (TBUserEdit.Text.Length < 3)
+            {
+                MessageBox.Show("El nombre de usuario ingresado es muy pequeño", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else 
+            {
+                try
+                {
+                    editarPerfil();
+                }
+                catch (Exception E)
+                {
+                    MessageBox.Show("Ocurrió un error.");
+                }
+            }
+        }
+
+        private void TBPhoneEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar <= 47 || (e.KeyChar >= 58 && e.KeyChar <= 255))
+            {
+                MessageBox.Show("Solo se pueden ingresar números", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        //Método para editar perfil
+
+        private void editarPerfil() 
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_EditProfile", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand.Parameters.Add("@userName", SqlDbType.NVarChar, 50);
+            da.SelectCommand.Parameters.Add("@mobile", SqlDbType.NVarChar, 50);
+            da.SelectCommand.Parameters.Add("@birthDate", SqlDbType.Date);
+            da.SelectCommand.Parameters.Add("@email", SqlDbType.NVarChar, 50);
+            da.SelectCommand.Parameters.Add("@profilePicture", SqlDbType.Image);
+
+            da.SelectCommand.Parameters["@userName"].Value = TBUserEdit.Text;
+            da.SelectCommand.Parameters["@mobile"].Value = TBPhoneEdit.Text;
+            da.SelectCommand.Parameters["@birthDate"].Value = DTPbirthday.Value;
+            da.SelectCommand.Parameters["@email"].Value = TBMailEdit.Text;
+            System.IO.MemoryStream ms = new System.IO.MemoryStream();
+            PBProfilePicture.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            da.Fill(dt);
+        }
+
+        //Método para importar imágenes por el explorador de archivos
+
+        private void PBProfilePicture_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog open = new OpenFileDialog();
+            //Filtros de imágenes
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            if (open.ShowDialog() == DialogResult.OK)
+            {
+                PBProfilePicture.Image = new Bitmap(open.FileName);
+            }
         }
     }
 }
