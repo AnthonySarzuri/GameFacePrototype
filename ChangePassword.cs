@@ -80,7 +80,11 @@ namespace GameFacePrototype
                                 da.Fill(dt);
 
                                 MessageBox.Show("Contraseña actualizada");
-                                Application.Exit();
+
+                                EditProfile EditPro = new EditProfile();
+                                EditPro.Show();
+                                this.Hide();
+
                             }
                             else
                             {
