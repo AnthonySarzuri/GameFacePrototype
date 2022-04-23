@@ -30,5 +30,12 @@ namespace GameFacePrototype
             registerUser.Show();
             this.Hide();
         }
+
+        private void btnTestPost_Click(object sender, EventArgs e)
+        {
+            CreatePostTest createPostTest = new CreatePostTest();   
+            createPostTest.Show();
+            this.Hide();
+        }
     }
 }

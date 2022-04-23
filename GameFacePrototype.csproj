@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CommentsTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommentsTest.designer.cs">
+      <DependentUpon>CommentsTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreatePostTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreatePostTest.designer.cs">
+      <DependentUpon>CreatePostTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="DeleteProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +89,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Posts.cs" />
     <Compile Include="SeleccionGustos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +122,18 @@
     <Compile Include="RegisterUser.Designer.cs">
       <DependentUpon>RegisterUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="ShowPostTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ShowPostTest.designer.cs">
+      <DependentUpon>ShowPostTest.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CommentsTest.resx">
+      <DependentUpon>CommentsTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreatePostTest.resx">
+      <DependentUpon>CreatePostTest.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DeleteProfile.resx">
       <DependentUpon>DeleteProfile.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +172,9 @@
     </Compile>
     <EmbeddedResource Include="RegisterUser.resx">
       <DependentUpon>RegisterUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ShowPostTest.resx">
+      <DependentUpon>ShowPostTest.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
