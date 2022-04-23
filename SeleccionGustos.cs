@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -13,186 +14,186 @@ namespace GameFacePrototype
     public partial class SeleccionGustos : Form
     {
         public int cont = 0;
-        public bool img1 = false;
-        public bool img2 = false;
-        public bool img3 = false;
-        public bool img4 = false;
-        public bool img5 = false;
-        public bool img6 = false;
-        public bool img7 = false;
-        public bool img8 = false;
-        public bool img9 = false;
 
         public SeleccionGustos()
         {
             InitializeComponent();
+            btnconfirm.Enabled = false;
+            fill();
         }
 
         private void btnconfirm_Click(object sender, EventArgs e)
         {
-            if (cont == 3)
+            parameters(Global1.array);
+            MessageBox.Show("Usted se ha registrado exitosamente!!!");
+            PrivateInterface inter = new PrivateInterface();
+            inter.Show();
+            this.Hide();
+        }
+
+        public static class Global1
+        {
+            public static int cont;
+            public static string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            public static SqlConnection dataConnection = new SqlConnection(sConexion);
+            public static SqlDataAdapter da;
+            public static int idCategory = 0;
+            public static int[] array=new int[7];
+            public static DataTable dt = new DataTable();
+
+        }
+
+        public void contar()
+        {
+            Global1.cont++;
+            labelTitle.Text = Global1.cont.ToString();
+            if (Global1.cont >= 3)
             {
-                MessageBox.Show("SE REGISTRARON TUS GUSTOS CON EXITO :)");
+                btnconfirm.Enabled = true;
+            }
+        }
 
-                this.Close();
-                PrivateInterface inter = new PrivateInterface();
-                inter.Show();
+        public void descontar()
+        {
+            Global1.cont--;
+            if (Global1.cont <= 3)
+            {
+                btnconfirm.Enabled = false;
+            }
+        }
 
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbThriller.Checked == true)
+            {
+                contar();
+                arraySave(1);
             }
             else
             {
-                MessageBox.Show("TE FALTAN CATEGORIAS POR SELECCIONAR");
+                descontar();
+                arrayDelete(1);
             }
         }
 
-        public void validarImg(bool var)
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
         {
-            if (var == false)
+            if (cbArcade.Checked == true)
             {
-                var = true;
-                cont++;
 
+                contar();
+                arraySave(3);
             }
             else
             {
-                var = false;
-                cont = cont - 1;
+                descontar();
+                arrayDelete(3);
             }
         }
 
-        private void pb1_Click(object sender, EventArgs e)
+        private void cbAction_CheckedChanged(object sender, EventArgs e)
         {
-            if (img1 == false)
+            if (cbAction.Checked == true)
             {
-                img1 = true;
-                cont++;
-
+                contar();
+                arraySave(2);
             }
             else
             {
-                img1 = false;
-                cont = cont - 1;
+                descontar();
+                arrayDelete(2);
             }
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void cbSports_CheckedChanged(object sender, EventArgs e)
         {
-            if (img2 == false)
+            if (cbSports.Checked == true)
             {
-                img2 = true;
-                cont++;
-
+                contar();
+                arraySave(4);
             }
             else
             {
-                img2 = false;
-                cont = cont - 1;
+                descontar();
+                arrayDelete(4);
             }
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void cbRPG_CheckedChanged(object sender, EventArgs e)
         {
-            if (img3 == false)
+            if (cbRPG.Checked == true)
             {
-                img3 = true;
-                cont++;
-
+                contar();
+                arraySave(5);
             }
             else
             {
-                img3 = false;
-                cont = cont - 1;
+                descontar();
+                arrayDelete(5);
             }
         }
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            if (img6 == false)
-            {
-                img6 = true;
-                cont++;
 
+        private void cbSimulators_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbSimulators.Checked == true)
+            {
+                contar();
+                arraySave(6);
             }
             else
             {
-                img6 = false;
-                cont = cont - 1;
+                descontar();
+                arrayDelete(6);
             }
         }
-        private void pictureBox4_Click(object sender, EventArgs e)
+
+
+        public void parameters(int[] idcat)
         {
-            if (img5 == false)
+            for (int i=0;i<Global1.array.Length; i++)
             {
-                img5 = true;
-                cont++;
-
-            }
-            else
-            {
-                img5 = false;
-                cont = cont - 1;
+                if (Global1.array[i] != 0)
+                {
+                    Global1.da = new SqlDataAdapter("SP_AddPreferences", Global1.dataConnection);
+                    Global1.da.SelectCommand.CommandType = CommandType.StoredProcedure;
+                    Global1.da.SelectCommand.Parameters.Add("@idUser", SqlDbType.Int);
+                    Global1.da.SelectCommand.Parameters.Add("@idCategory", SqlDbType.Int);
+                    Global1.da.SelectCommand.Parameters["@idUser"].Value = Global.IdUser;
+                    Global1.da.SelectCommand.Parameters["@idCategory"].Value = i;
+                    Global1.da.Fill(Global1.dt);
+                }
+                
             }
         }
-        private void pictureBox5_Click(object sender, EventArgs e)
+
+        public void arraySave(int id)
         {
-            if (img4 == false)
-            {
-                img4 = true;
-                cont++;
+            Global1.array[id] = 1;
 
-            }
-            else
-            {
-                img4 = false;
-                cont = cont - 1;
-            }
         }
 
-        private void pictureBox6_Click(object sender, EventArgs e)
+        public void arrayDelete(int id)
         {
-            if (img9 == false)
-            {
-                img9 = true;
-                cont++;
+            Global1.array[id] = 0;
 
-            }
-            else
-            {
-                img9 = false;
-                cont = cont - 1;
-            }
         }
-        private void pictureBox7_Click(object sender, EventArgs e)
+
+        public void fill()
         {
-            if (img8 == false)
+            for(int i = 0; i < 7; i++)
             {
-                img8 = true;
-                cont++;
-
-            }
-            else
-            {
-                img8 = false;
-                cont = cont - 1;
+                Global1.array[i] = 0;
             }
         }
-        private void pictureBox8_Click(object sender, EventArgs e)
+
+        
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (img7 == false)
-            {
-                img7 = true;
-                cont++;
 
-            }
-            else
-            {
-                img7 = false;
-                cont = cont - 1;
-            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            label3.Text = Global.IdUser.ToString(); 
-        }
+       
     }
 }
