@@ -44,6 +44,13 @@ namespace GameFacePrototype
             this.Hide();
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            PrivateInterface privateInterface = new PrivateInterface();
+            privateInterface.Show();
+            this.Hide();
+        }
+
 
 
         //post de muestra

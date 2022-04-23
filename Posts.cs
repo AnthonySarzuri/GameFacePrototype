@@ -304,22 +304,26 @@ namespace GameFacePrototype
 
             Validarreaccion();
 
-            if (mensaje == "1")
-            {
-                addLike();
-            }
-            else if (condicion == "False")
-            {
-                addLike();
-            }
-            else if (condicion == "True" && idReaccion != "1")
-            {
+            //if (mensaje == "1")
+            //{
+            //    addLike();
+            //}
+            //else if (condicion == "False")
+            //{
+            //    addLike();
+            //}
+            //else if (condicion == "True" && idReaccion != "1")
+            //{
 
-                addLike();
-            }
-            else if (condicion == "True" && idReaccion == "1")
+            //    addLike();
+            //}
+            if (condicion == "True" && idReaccion == "1")
             {
                 removeLike();
+            }
+            else
+            {
+                addLike();
             }
         }
 
@@ -328,21 +332,25 @@ namespace GameFacePrototype
 
             Validarreaccion();
 
-            if (mensaje == "1")
-            {
-                addDislike();
-            }
-            else if (condicion == "False")
-            {
-                addDislike();
-            }
-            else if (condicion == "True" && idReaccion != "2")
-            {
-                addDislike();
-            }
-            else if (condicion == "True" && idReaccion == "2")
+            //if (mensaje == "1")
+            //{
+            //    addDislike();
+            //}
+            //else if (condicion == "False")
+            //{
+            //    addDislike();
+            //}
+            //else if (condicion == "True" && idReaccion != "2")
+            //{
+            //    addDislike();
+            //}
+            if (condicion == "True" && idReaccion == "2")
             {
                 removeDislike();
+            }
+            else
+            {
+                addDislike();
             }
         }
 

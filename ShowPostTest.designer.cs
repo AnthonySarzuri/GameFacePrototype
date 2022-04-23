@@ -31,6 +31,7 @@
             this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.btnComentarioPrueba = new System.Windows.Forms.Button();
             this.btnMostrar = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.PanelPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -38,12 +39,13 @@
             // 
             this.PanelPrincipal.AutoScroll = true;
             this.PanelPrincipal.AutoSize = true;
+            this.PanelPrincipal.Controls.Add(this.btnBack);
             this.PanelPrincipal.Controls.Add(this.btnComentarioPrueba);
             this.PanelPrincipal.Controls.Add(this.btnMostrar);
             this.PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelPrincipal.Location = new System.Drawing.Point(0, 0);
             this.PanelPrincipal.Name = "PanelPrincipal";
-            this.PanelPrincipal.Size = new System.Drawing.Size(1093, 1070);
+            this.PanelPrincipal.Size = new System.Drawing.Size(1093, 1061);
             this.PanelPrincipal.TabIndex = 21;
             // 
             // btnComentarioPrueba
@@ -66,12 +68,22 @@
             this.btnMostrar.UseVisualStyleBackColor = true;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click_1);
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(41, 926);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(153, 68);
+            this.btnBack.TabIndex = 23;
+            this.btnBack.Text = "Regresar";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // ShowPostTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1093, 1070);
+            this.ClientSize = new System.Drawing.Size(1093, 1061);
             this.Controls.Add(this.PanelPrincipal);
             this.Name = "ShowPostTest";
             this.Text = "Form1";
@@ -85,5 +97,6 @@
         private System.Windows.Forms.Panel PanelPrincipal;
         private System.Windows.Forms.Button btnComentarioPrueba;
         private System.Windows.Forms.Button btnMostrar;
+        private System.Windows.Forms.Button btnBack;
     }
 }
