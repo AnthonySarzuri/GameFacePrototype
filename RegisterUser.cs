@@ -55,13 +55,13 @@ namespace GameFacePrototype
             {
                 MessageBox.Show("La contraseña ingresada es muy pequeña", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (tbRegisterCellphoneNumber.Text.Length < 7) 
+            else if (tbRegisterCellphoneNumber.Text.Length < 7 && !string.IsNullOrEmpty(tbRegisterCellphoneNumber.Text)) 
             {
                 MessageBox.Show("El número de celular ingresado es muy pequeño", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             else
             {
-                //Aquí le cambiomos para ir a registrar gustos en ves de este Message box : )
+                
                 try
                 {
                     registarUsuario();
