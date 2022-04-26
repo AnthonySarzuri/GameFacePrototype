@@ -9,5 +9,7 @@ namespace GameFacePrototype
     public class Global
     {
         static public int IdUser;
+        static public int IdPost;
+        static public int IdComments;
     }
 }

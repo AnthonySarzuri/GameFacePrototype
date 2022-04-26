@@ -59,8 +59,9 @@ namespace GameFacePrototype
             SqlDataAdapter da = new SqlDataAdapter("SP_ShowPost", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-
             da.SelectCommand.Parameters.Add("@idPost", SqlDbType.Int);
+            da.SelectCommand.Parameters.Add("@like", SqlDbType.Int).Direction = ParameterDirection.Output;
+            da.SelectCommand.Parameters.Add("@dislike", SqlDbType.Int).Direction = ParameterDirection.Output;
 
             da.SelectCommand.Parameters["@idPost"].Value = 1;
 
@@ -118,7 +119,7 @@ namespace GameFacePrototype
             like.Size = new Size(75, 45);
 
             //Megusta label
-            likes.Text = dt.Rows[0][4].ToString();
+            likes.Text = da.SelectCommand.Parameters["@like"].Value.ToString();
             likes.Location = new Point(60, 615);
 
             //NoMegusta boton
@@ -129,7 +130,7 @@ namespace GameFacePrototype
 
             //NoMegusta label
 
-            dislikes.Text = dt.Rows[0][5].ToString();
+            dislikes.Text = da.SelectCommand.Parameters["@dislike"].Value.ToString();
             dislikes.Location = new Point(160, 615);
 
             //Comentarios boton
@@ -139,7 +140,7 @@ namespace GameFacePrototype
             btnComment.Size = new Size(75, 45);
 
             //Comentarios label
-            lblComments.Text = dt.Rows[0][6].ToString();
+            
             lblComments.Location = new Point(260, 615);
 
             //Share boton
@@ -149,7 +150,6 @@ namespace GameFacePrototype
 
             //Share label
 
-            shares.Text = dt.Rows[0][7].ToString();
             shares.Location = new Point(360, 615);
 
 
@@ -304,19 +304,7 @@ namespace GameFacePrototype
 
             Validarreaccion();
 
-            //if (mensaje == "1")
-            //{
-            //    addLike();
-            //}
-            //else if (condicion == "False")
-            //{
-            //    addLike();
-            //}
-            //else if (condicion == "True" && idReaccion != "1")
-            //{
-
-            //    addLike();
-            //}
+            
             if (condicion == "True" && idReaccion == "1")
             {
                 removeLike();
@@ -325,6 +313,7 @@ namespace GameFacePrototype
             {
                 addLike();
             }
+            ShowPost();
         }
 
         private void Dislike_Click(object sender, EventArgs e)
@@ -332,18 +321,7 @@ namespace GameFacePrototype
 
             Validarreaccion();
 
-            //if (mensaje == "1")
-            //{
-            //    addDislike();
-            //}
-            //else if (condicion == "False")
-            //{
-            //    addDislike();
-            //}
-            //else if (condicion == "True" && idReaccion != "2")
-            //{
-            //    addDislike();
-            //}
+           
             if (condicion == "True" && idReaccion == "2")
             {
                 removeDislike();
@@ -352,6 +330,7 @@ namespace GameFacePrototype
             {
                 addDislike();
             }
+            ShowPost();
         }
 
         private void ShowPost()
@@ -364,19 +343,17 @@ namespace GameFacePrototype
 
 
             da.SelectCommand.Parameters.Add("@idPost", SqlDbType.Int);
-
             da.SelectCommand.Parameters["@idPost"].Value = 1;
+            da.SelectCommand.Parameters.Add("@like", SqlDbType.Int).Direction = ParameterDirection.Output;
+            da.SelectCommand.Parameters.Add("@dislike", SqlDbType.Int).Direction = ParameterDirection.Output;
 
 
             da.Fill(dt);
             name.Text = dt.Rows[0][0].ToString();
             creationDate.Text = dt.Rows[0][1].ToString();
             description.Text = dt.Rows[0][2].ToString();
-            likes.Text = dt.Rows[0][4].ToString();
-            dislikes.Text = dt.Rows[0][5].ToString();
-            comments.Text = dt.Rows[0][6].ToString();
-            shares.Text = dt.Rows[0][7].ToString();
-
+            likes.Text = da.SelectCommand.Parameters["@like"].Value.ToString();
+            dislikes.Text = da.SelectCommand.Parameters["@dislike"].Value.ToString();
             try
             {
                 byte[] mybyte = new byte[0];
@@ -431,12 +408,13 @@ namespace GameFacePrototype
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
             da.SelectCommand.Parameters.Add("@idPost", SqlDbType.Int);
             da.SelectCommand.Parameters.Add("@idUsuario", SqlDbType.Int);
+            
 
             da.SelectCommand.Parameters["@idPost"].Value = 1;
             da.SelectCommand.Parameters["@idUsuario"].Value = 6;
             da.Fill(dt);
 
-            ShowPost();
+            
 
         }
         private void removeLike()
@@ -453,7 +431,7 @@ namespace GameFacePrototype
             da.SelectCommand.Parameters["@idUsuario"].Value = 6;
             da.Fill(dt);
 
-            ShowPost();
+           
         }
         private void addDislike()
         {
@@ -469,9 +447,6 @@ namespace GameFacePrototype
             da.SelectCommand.Parameters["@idPost"].Value = 1;
             da.SelectCommand.Parameters["@idUsuario"].Value = 6;
             da.Fill(dt);
-
-            ShowPost();
-
         }
         private void removeDislike()
         {
@@ -487,8 +462,6 @@ namespace GameFacePrototype
             da.SelectCommand.Parameters["@idPost"].Value = 1;
             da.SelectCommand.Parameters["@idUsuario"].Value = 6;
             da.Fill(dt);
-
-            ShowPost();
         }
     }
 }
