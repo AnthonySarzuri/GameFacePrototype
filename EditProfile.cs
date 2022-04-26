@@ -16,9 +16,6 @@ namespace GameFacePrototype
         public EditProfile()
         {
             InitializeComponent();
-            TBUserEdit.Text = "Escriba su nombre aqui";
-            TBPhoneEdit.Text = "Escriba su Telefono Aqui";
-            TBMailEdit.Text = "Escriba su Correo";
         }
 
         //Ir a cambiar contraseña
@@ -40,15 +37,15 @@ namespace GameFacePrototype
         private void btnEditProfile_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(TBUserEdit.Text) && string.IsNullOrEmpty(TBPhoneEdit.Text) &&
-                string.IsNullOrEmpty(TBMailEdit.Text))
+                string.IsNullOrEmpty(TBMailEdit.Text) && string.IsNullOrEmpty(TBBiographyEdit.Text))
             {
                 MessageBox.Show("Ingrese al menos un campo.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (!TBMailEdit.Text.Contains("@gmail.com"))
+            else if (!TBMailEdit.Text.Contains("@gmail.com") && !string.IsNullOrEmpty(TBMailEdit.Text))
             {
                 MessageBox.Show("No es un correo electrónico valido.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-            else if (TBUserEdit.Text.Length < 3)
+            else if (TBUserEdit.Text.Length < 3 && !string.IsNullOrEmpty(TBUserEdit.Text))
             {
                 MessageBox.Show("El nombre de usuario ingresado es muy pequeño", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
@@ -114,6 +111,17 @@ namespace GameFacePrototype
             if (open.ShowDialog() == DialogResult.OK)
             {
                 PBProfilePicture.Image = new Bitmap(open.FileName);
+            }
+        }
+
+        //Verificación de ingreso de fecha válida
+
+        private void DTPbirthday_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime hoy = DateTime.Today;
+            if (DTPbirthday.Value.AddYears(13) >= hoy)
+            {
+                MessageBox.Show("Fecha de cumpleaños no válida, debes ser de 13 años o mayor", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

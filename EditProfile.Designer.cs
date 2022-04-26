@@ -38,13 +38,14 @@ namespace GameFacePrototype
             this.btnDeleteProfile = new System.Windows.Forms.Button();
             this.btnEditProfile = new System.Windows.Forms.Button();
             this.DTPbirthday = new System.Windows.Forms.DateTimePicker();
+            this.TBBiographyEdit = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
             // TBUserEdit
             // 
             this.TBUserEdit.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBUserEdit.Location = new System.Drawing.Point(281, 85);
+            this.TBUserEdit.Location = new System.Drawing.Point(278, 49);
             this.TBUserEdit.Margin = new System.Windows.Forms.Padding(2);
             this.TBUserEdit.Name = "TBUserEdit";
             this.TBUserEdit.Size = new System.Drawing.Size(264, 34);
@@ -53,7 +54,7 @@ namespace GameFacePrototype
             // TBPhoneEdit
             // 
             this.TBPhoneEdit.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBPhoneEdit.Location = new System.Drawing.Point(281, 157);
+            this.TBPhoneEdit.Location = new System.Drawing.Point(278, 121);
             this.TBPhoneEdit.Margin = new System.Windows.Forms.Padding(2);
             this.TBPhoneEdit.Name = "TBPhoneEdit";
             this.TBPhoneEdit.Size = new System.Drawing.Size(120, 30);
@@ -63,7 +64,7 @@ namespace GameFacePrototype
             // TBMailEdit
             // 
             this.TBMailEdit.Font = new System.Drawing.Font("Century Gothic", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TBMailEdit.Location = new System.Drawing.Point(281, 216);
+            this.TBMailEdit.Location = new System.Drawing.Point(278, 180);
             this.TBMailEdit.Margin = new System.Windows.Forms.Padding(2);
             this.TBMailEdit.Name = "TBMailEdit";
             this.TBMailEdit.Size = new System.Drawing.Size(202, 34);
@@ -114,16 +115,26 @@ namespace GameFacePrototype
             // 
             // DTPbirthday
             // 
-            this.DTPbirthday.Location = new System.Drawing.Point(420, 160);
+            this.DTPbirthday.Location = new System.Drawing.Point(417, 124);
             this.DTPbirthday.Name = "DTPbirthday";
             this.DTPbirthday.Size = new System.Drawing.Size(200, 20);
             this.DTPbirthday.TabIndex = 8;
+            this.DTPbirthday.ValueChanged += new System.EventHandler(this.DTPbirthday_ValueChanged);
+            // 
+            // TBBiographyEdit
+            // 
+            this.TBBiographyEdit.Font = new System.Drawing.Font("Century Gothic", 16.2F);
+            this.TBBiographyEdit.Location = new System.Drawing.Point(278, 230);
+            this.TBBiographyEdit.Name = "TBBiographyEdit";
+            this.TBBiographyEdit.Size = new System.Drawing.Size(252, 34);
+            this.TBBiographyEdit.TabIndex = 9;
             // 
             // EditProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 399);
+            this.Controls.Add(this.TBBiographyEdit);
             this.Controls.Add(this.DTPbirthday);
             this.Controls.Add(this.btnEditProfile);
             this.Controls.Add(this.btnDeleteProfile);
@@ -152,5 +163,6 @@ namespace GameFacePrototype
         private System.Windows.Forms.Button btnDeleteProfile;
         private System.Windows.Forms.Button btnEditProfile;
         private System.Windows.Forms.DateTimePicker DTPbirthday;
+        private System.Windows.Forms.TextBox TBBiographyEdit;
     }
 }
