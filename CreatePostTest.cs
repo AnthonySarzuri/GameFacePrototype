@@ -23,7 +23,7 @@ namespace GameFacePrototype
         {
             OpenFileDialog op = new OpenFileDialog();
 
-            op.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            op.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
             if (op.ShowDialog() == DialogResult.OK)
             {
                pictureBox1.Image = new Bitmap(op.FileName);
@@ -50,17 +50,14 @@ namespace GameFacePrototype
             pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
 
             da.SelectCommand.Parameters["@picture"].Value = ms.GetBuffer();
-            da.SelectCommand.Parameters["@idUsuario"].Value = 5;
+            da.SelectCommand.Parameters["@idUsuario"].Value = Global.IdUser;
 
             da.Fill(dt);
-        }
-
-        private void btMostrar_Click_1(object sender, EventArgs e)
-        {
-            ShowPostTest form1 = new ShowPostTest();
+            Profile form1 = new Profile();
             form1.Show();
             this.Hide();
-
         }
+
+
     }
 }

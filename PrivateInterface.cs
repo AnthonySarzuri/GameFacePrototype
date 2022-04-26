@@ -21,17 +21,10 @@ namespace GameFacePrototype
 
         private void btnEditProfile_Click(object sender, EventArgs e)
         {
-            EditProfile edit = new EditProfile();
-            edit.Show();
-            this.Hide();
+           
         }
 
-        private void btnMostrarPosts_Click(object sender, EventArgs e)
-        {
-            CreatePostTest createPostTest = new CreatePostTest();
-            createPostTest.Show();
-            this.Hide();
-        }
+       
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -58,5 +51,13 @@ namespace GameFacePrototype
 
             da.Fill(dt);
         }
+
+        private void bntProfile_Click(object sender, EventArgs e)
+        {
+            Profile profile = new Profile();
+            profile.Show();
+            this.Hide();
+        }
+        
     }
 }

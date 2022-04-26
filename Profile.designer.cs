@@ -1,6 +1,6 @@
 ﻿namespace GameFacePrototype
 {
-    partial class ShowPostTest
+    partial class Profile
     {
         /// <summary>
         /// Required designer variable.
@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.PanelPrincipal = new System.Windows.Forms.Panel();
+            this.btnEditProfilePicture = new System.Windows.Forms.Button();
             this.btnComentarioPrueba = new System.Windows.Forms.Button();
-            this.btnMostrar = new System.Windows.Forms.Button();
-            this.btnBack = new System.Windows.Forms.Button();
+            this.btnNewPost = new System.Windows.Forms.Button();
             this.PanelPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -39,53 +39,53 @@
             // 
             this.PanelPrincipal.AutoScroll = true;
             this.PanelPrincipal.AutoSize = true;
-            this.PanelPrincipal.Controls.Add(this.btnBack);
+            this.PanelPrincipal.Controls.Add(this.btnNewPost);
+            this.PanelPrincipal.Controls.Add(this.btnEditProfilePicture);
             this.PanelPrincipal.Controls.Add(this.btnComentarioPrueba);
-            this.PanelPrincipal.Controls.Add(this.btnMostrar);
             this.PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelPrincipal.Location = new System.Drawing.Point(0, 0);
             this.PanelPrincipal.Name = "PanelPrincipal";
             this.PanelPrincipal.Size = new System.Drawing.Size(1093, 1061);
             this.PanelPrincipal.TabIndex = 21;
             // 
+            // btnEditProfilePicture
+            // 
+            this.btnEditProfilePicture.Location = new System.Drawing.Point(928, 30);
+            this.btnEditProfilePicture.Name = "btnEditProfilePicture";
+            this.btnEditProfilePicture.Size = new System.Drawing.Size(153, 72);
+            this.btnEditProfilePicture.TabIndex = 24;
+            this.btnEditProfilePicture.Text = "Editar perfil";
+            this.btnEditProfilePicture.UseVisualStyleBackColor = true;
+            this.btnEditProfilePicture.Click += new System.EventHandler(this.btnEditProfilePicture_Click);
+            // 
             // btnComentarioPrueba
             // 
-            this.btnComentarioPrueba.Location = new System.Drawing.Point(41, 833);
+            this.btnComentarioPrueba.Location = new System.Drawing.Point(12, 208);
             this.btnComentarioPrueba.Name = "btnComentarioPrueba";
-            this.btnComentarioPrueba.Size = new System.Drawing.Size(180, 59);
+            this.btnComentarioPrueba.Size = new System.Drawing.Size(153, 59);
             this.btnComentarioPrueba.TabIndex = 22;
             this.btnComentarioPrueba.Text = "Comentario Prueba";
             this.btnComentarioPrueba.UseVisualStyleBackColor = true;
             this.btnComentarioPrueba.Click += new System.EventHandler(this.btnComentarioPrueba_Click);
             // 
-            // btnMostrar
+            // btnNewPost
             // 
-            this.btnMostrar.Location = new System.Drawing.Point(41, 710);
-            this.btnMostrar.Name = "btnMostrar";
-            this.btnMostrar.Size = new System.Drawing.Size(155, 66);
-            this.btnMostrar.TabIndex = 21;
-            this.btnMostrar.Text = "Mostrar";
-            this.btnMostrar.UseVisualStyleBackColor = true;
-            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click_1);
+            this.btnNewPost.Location = new System.Drawing.Point(12, 46);
+            this.btnNewPost.Name = "btnNewPost";
+            this.btnNewPost.Size = new System.Drawing.Size(153, 76);
+            this.btnNewPost.TabIndex = 25;
+            this.btnNewPost.Text = "Nueva Publicacion +";
+            this.btnNewPost.UseVisualStyleBackColor = true;
+            this.btnNewPost.Click += new System.EventHandler(this.btnNewPost_Click);
             // 
-            // btnBack
-            // 
-            this.btnBack.Location = new System.Drawing.Point(41, 926);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(153, 68);
-            this.btnBack.TabIndex = 23;
-            this.btnBack.Text = "Regresar";
-            this.btnBack.UseVisualStyleBackColor = true;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
-            // 
-            // ShowPostTest
+            // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1093, 1061);
             this.Controls.Add(this.PanelPrincipal);
-            this.Name = "ShowPostTest";
+            this.Name = "Profile";
             this.Text = "Form1";
             this.PanelPrincipal.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -96,7 +96,7 @@
         #endregion
         private System.Windows.Forms.Panel PanelPrincipal;
         private System.Windows.Forms.Button btnComentarioPrueba;
-        private System.Windows.Forms.Button btnMostrar;
-        private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnEditProfilePicture;
+        private System.Windows.Forms.Button btnNewPost;
     }
 }
