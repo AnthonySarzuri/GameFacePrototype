@@ -22,6 +22,7 @@ namespace GameFacePrototype
             Login login = new Login();
             login.Show();
             this.Hide();
+            login.FormClosing += Login_FormClosing;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -30,6 +31,10 @@ namespace GameFacePrototype
             registerUser.Show();
             this.Hide();
         }
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
 
+            this.Show();
+        }
     }
 }

@@ -94,7 +94,17 @@ namespace GameFacePrototype
                 description.BorderStyle = BorderStyle.FixedSingle;
 
                 //pictureBoxProfile
+                try
+                {
+                    byte[] mybyte = new byte[0];
+                    mybyte = (byte[])dt.Rows[RowPost][4];
+                    MemoryStream ms = new MemoryStream(mybyte);
+                    profilePicture.Image = Image.FromStream(ms);
+                }
+                catch
+                {
 
+                }
                 profilePicture.SizeMode = PictureBoxSizeMode.StretchImage;
                 profilePicture.Location = new Point(10, 10);
                 profilePicture.Size = new Size(70, 62);
@@ -105,17 +115,18 @@ namespace GameFacePrototype
                 try
                 {
                     byte[] mybyte = new byte[0];
-                    mybyte = (byte[])dt.Rows[RowPost][4];
+                    mybyte = (byte[])dt.Rows[RowPost][5];
                     MemoryStream ms = new MemoryStream(mybyte);
                     picture.Image = Image.FromStream(ms);
+                    picture.Size = new Size(500, 350);
                 }
                 catch
                 {
-                    MessageBox.Show("No se encuentra esa imagen");
+                    picture.Size = new Size(0, 0);
                 }
+
                 picture.BorderStyle = BorderStyle.FixedSingle;
                 picture.Location = new Point(50, 220);
-                picture.Size = new Size(500, 350);
                 picture.SizeMode = PictureBoxSizeMode.StretchImage;
 
                 //Megusta boton
@@ -159,9 +170,10 @@ namespace GameFacePrototype
 
 
                 //Post Entero
+                //post.Size = new Size(600, 900);
+                post.AutoSize = true;
                 post.Margin = new Padding(50);
                 post.Location = new Point(250, position);
-                post.Size = new Size(600, 900);
                 post.Visible = true;
                 post.BorderStyle = BorderStyle.FixedSingle;
                 post.Controls.Add(name);
@@ -249,11 +261,22 @@ namespace GameFacePrototype
                 byte[] mybyte = new byte[0];
                 mybyte = (byte[])dt.Rows[0][3];
                 MemoryStream ms = new MemoryStream(mybyte);
+                profilePicture.Image = Image.FromStream(ms);
+            }
+            catch
+            {
+
+            }
+            try
+            {
+                byte[] mybyte = new byte[0];
+                mybyte = (byte[])dt.Rows[0][4];
+                MemoryStream ms = new MemoryStream(mybyte);
                 picture.Image = Image.FromStream(ms);
             }
             catch
             {
-                MessageBox.Show("No se encuentra esa imagen");
+                
             }
 
         }

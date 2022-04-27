@@ -27,10 +27,7 @@ namespace GameFacePrototype
        
 
         private void button1_Click(object sender, EventArgs e)
-        {
-
-           
-             
+        {          
             Application.Exit();
         }
         private void lastConnected()
@@ -57,7 +54,12 @@ namespace GameFacePrototype
             Profile profile = new Profile();
             profile.Show();
             this.Hide();
+            profile.FormClosing += Profile_FormClosing;
         }
-        
+
+        private void Profile_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Show();
+        }
     }
 }

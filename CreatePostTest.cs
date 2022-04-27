@@ -46,16 +46,27 @@ namespace GameFacePrototype
 
             da.SelectCommand.Parameters["@Description"].Value = tbdescripcion.Text;
 
-            System.IO.MemoryStream ms = new System.IO.MemoryStream();
-            pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+            if(pictureBox1.Image!=null)
+            {
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
 
-            da.SelectCommand.Parameters["@picture"].Value = ms.GetBuffer();
+                pictureBox1.Image.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+
+                da.SelectCommand.Parameters["@picture"].Value = ms.GetBuffer();
+            }
+            else
+            {
+                System.IO.MemoryStream ms = new System.IO.MemoryStream();
+                da.SelectCommand.Parameters["@picture"].Value = ms;
+            }
+            
             da.SelectCommand.Parameters["@idUsuario"].Value = Global.IdUser;
 
             da.Fill(dt);
             Profile form1 = new Profile();
             form1.Show();
             this.Hide();
+            
         }
 
 

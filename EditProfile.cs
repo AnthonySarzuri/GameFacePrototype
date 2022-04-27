@@ -107,7 +107,7 @@ namespace GameFacePrototype
         {
             OpenFileDialog open = new OpenFileDialog();
             //Filtros de imágenes
-            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp)|*.jpg; *.jpeg; *.gif; *.bmp";
+            open.Filter = "Image Files(*.jpg; *.jpeg; *.gif; *.bmp; *.png)|*.jpg; *.jpeg; *.gif; *.bmp; *.png";
             if (open.ShowDialog() == DialogResult.OK)
             {
                 PBProfilePicture.Image = new Bitmap(open.FileName);

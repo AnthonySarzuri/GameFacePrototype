@@ -72,6 +72,12 @@ namespace GameFacePrototype
             EditProfile edit = new EditProfile();
             edit.Show();
             this.Hide();
+            edit.FormClosing += Edit_FormClosing;
+        }
+
+        private void Edit_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Show();
         }
 
         private void btnNewPost_Click(object sender, EventArgs e)
@@ -79,6 +85,7 @@ namespace GameFacePrototype
             CreatePostTest createPostTest = new CreatePostTest();
             createPostTest.Show();
             this.Hide();
+            createPostTest.FormClosing += Edit_FormClosing;
         }
     }
 }

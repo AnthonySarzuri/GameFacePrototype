@@ -41,6 +41,7 @@ namespace GameFacePrototype
                     PrivateInterface inter = new PrivateInterface();
                     inter.Show();
                     this.Hide();
+                    
 
                     int iduser;
                     iduser = (int)(dt.Rows[0][0]);
@@ -74,5 +75,8 @@ namespace GameFacePrototype
             enterEmail.Show();
             this.Hide();
         }
+
+
+      
     }
 }
