@@ -38,14 +38,15 @@ namespace GameFacePrototype
                 da.Fill(dt);
                 if (dt.Rows.Count >= 1)
                 {
-                    PrivateInterface inter = new PrivateInterface();
-                    inter.Show();
-                    this.Hide();
-                    
-
                     int iduser;
                     iduser = (int)(dt.Rows[0][0]);
                     Global.IdUser = iduser;
+
+
+                    PrivateInterface inter = new PrivateInterface();
+                    inter.Show();
+                    this.Hide();                  
+                   
                 }
                 else
                 {

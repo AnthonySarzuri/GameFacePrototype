@@ -56,7 +56,7 @@ namespace GameFacePrototype
 
         }
 
-        public Panel generarPost()
+        public Panel generarPostUser()
         {
 
 
@@ -199,7 +199,151 @@ namespace GameFacePrototype
             }
             return post;
         }
+        public Panel generarPostFriend()
+        {
 
+
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_ShowPostUserFriends", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand.Parameters.Add("@idUser", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@idUser"].Value = Global.IdUser;
+
+            int iduser=Global.IdUser;
+
+            da.Fill(dt);
+            idPost = int.Parse(dt.Rows[RowPost][0].ToString());
+            int otro=int.Parse(dt.Rows[RowPost][0].ToString());
+
+            try
+            {
+                //UserName
+                string nombre = dt.Rows[RowPost][1].ToString();
+                name.Text = dt.Rows[RowPost][1].ToString();
+                name.Location = new Point(100, 10);
+
+                //CreationDate
+                string creacion=dt.Rows[RowPost][2].ToString();
+                creationDate.Text = dt.Rows[RowPost][2].ToString();
+                creationDate.Location = new Point(200, 10);
+
+                //Description
+                string hola = dt.Rows[RowPost][3].ToString();
+                description.Text = dt.Rows[RowPost][3].ToString();
+                description.Location = new Point(20, 100);
+                description.Size = new Size(550, 100);
+                description.BorderStyle = BorderStyle.FixedSingle;
+
+                //pictureBoxProfile
+                try
+                {
+                    byte[] mybyte = new byte[0];
+                    mybyte = (byte[])dt.Rows[RowPost][4];
+                    MemoryStream ms = new MemoryStream(mybyte);
+                    profilePicture.Image = Image.FromStream(ms);
+                }
+                catch
+                {
+
+                }
+                profilePicture.SizeMode = PictureBoxSizeMode.StretchImage;
+                profilePicture.Location = new Point(10, 10);
+                profilePicture.Size = new Size(70, 62);
+                profilePicture.BorderStyle = BorderStyle.FixedSingle;
+
+                //pictureBoxImagen
+
+                try
+                {
+                    byte[] mybyte = new byte[0];
+                    mybyte = (byte[])dt.Rows[RowPost][5];
+                    MemoryStream ms = new MemoryStream(mybyte);
+                    picture.Image = Image.FromStream(ms);
+                    picture.Size = new Size(500, 350);
+                }
+                catch
+                {
+                    picture.Size = new Size(0, 0);
+                }
+
+                picture.BorderStyle = BorderStyle.FixedSingle;
+                picture.Location = new Point(50, 220);
+                picture.SizeMode = PictureBoxSizeMode.StretchImage;
+
+                //Megusta boton
+                like.Click += Like_Click;
+                like.Text = "Like";
+                like.Location = new Point(80, 600);
+                like.Size = new Size(75, 45);
+
+                //Megusta label
+                //likes.Text = da.SelectCommand.Parameters["@like"].Value.ToString();
+                likes.Location = new Point(60, 615);
+
+                //NoMegusta boton
+                dislike.Click += Dislike_Click;
+                dislike.Text = "Dislike";
+                dislike.Location = new Point(180, 600);
+                dislike.Size = new Size(75, 45);
+
+                //NoMegusta label
+
+                //dislikes.Text = da.SelectCommand.Parameters["@dislike"].Value.ToString();
+                dislikes.Location = new Point(160, 615);
+
+                //Comentarios boton
+                btnComment.Click += BtnComment_Click;
+                btnComment.Text = "Comentarios";
+                btnComment.Location = new Point(280, 600);
+                btnComment.Size = new Size(75, 45);
+
+                //Comentarios label
+
+                lblComments.Location = new Point(260, 615);
+
+                //Share boton
+                share.Text = "Share";
+                share.Location = new Point(380, 600);
+                share.Size = new Size(75, 45);
+
+                //Share label
+                shares.Location = new Point(360, 615);
+
+
+                //Post Entero
+                //post.Size = new Size(600, 900);
+                post.AutoSize = true;
+                post.Margin = new Padding(50);
+                post.Location = new Point(100, position);
+                post.Visible = true;
+                post.BorderStyle = BorderStyle.FixedSingle;
+                post.Controls.Add(name);
+                post.Controls.Add(creationDate);
+                post.Controls.Add(picture);
+                post.Controls.Add(description);
+                post.Controls.Add(profilePicture);
+                post.Controls.Add(like);
+                post.Controls.Add(likes);
+                post.Controls.Add(dislike);
+                post.Controls.Add(dislikes);
+                post.Controls.Add(btnComment);
+                post.Controls.Add(lblComments);
+                post.Controls.Add(share);
+                post.Controls.Add(shares);
+                post.Controls.Add(getComment());
+                RefreshPost();
+                return post;
+            }
+            catch
+            {
+                MessageBox.Show("no hay este post");
+            }
+            return post;
+        }
 
         private void Like_Click(object sender, EventArgs e)
         {

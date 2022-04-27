@@ -16,7 +16,7 @@ namespace GameFacePrototype
     public partial class Profile : Form
     {
 
-        List<Posts> lisposts = new List<Posts>();
+        
 
         public Profile()
         {
@@ -38,14 +38,13 @@ namespace GameFacePrototype
 
 
             int posicion = 0;
-            int aux = 1000;
+            int aux = 900;
 
             for (int i = 1; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {
 
                 Posts publi = new Posts(i, (i - 1), posicion);
-                publi.generarPost();
-                lisposts.Add(publi);
+                publi.generarPostUser();
                 PanelPrincipal.Controls.Add(publi.post);
                 posicion = aux * i;
             }

@@ -59,6 +59,7 @@ namespace GameFacePrototype
             // 
             // panelRight
             // 
+            this.panelRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelRight.Controls.Add(this.bntProfile);
             this.panelRight.Controls.Add(this.button1);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
@@ -69,6 +70,7 @@ namespace GameFacePrototype
             // 
             // panelLeft
             // 
+            this.panelLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLeft.Location = new System.Drawing.Point(0, 0);
             this.panelLeft.Name = "panelLeft";
@@ -80,6 +82,7 @@ namespace GameFacePrototype
             this.mainPanel.AutoScroll = true;
             this.mainPanel.AutoSize = true;
             this.mainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.mainPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainPanel.Location = new System.Drawing.Point(302, 0);
             this.mainPanel.Name = "mainPanel";
@@ -93,9 +96,9 @@ namespace GameFacePrototype
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1532, 993);
             this.Controls.Add(this.mainPanel);
-            this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelRight);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Controls.Add(this.panelLeft);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PrivateInterface";
             this.Text = "PrivateInterface";
