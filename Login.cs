@@ -38,6 +38,9 @@ namespace GameFacePrototype
                 da.Fill(dt);
                 if (dt.Rows.Count >= 1)
                 {
+                    //Aqui di la vuelata la parte donde se declara el Login y la parte donde se declara la pantalla de PrivateInterface 
+                    //para que el login se declare antes de que se habra la siguiente pantalla lo necesitaba para que funcionen los posts
+                    //pero si necesitan que este al reves por alguna razón entonces solo vuelvanlo a poner debajo
                     int iduser;
                     iduser = (int)(dt.Rows[0][0]);
                     Global.IdUser = iduser;
