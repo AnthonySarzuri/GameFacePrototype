@@ -44,7 +44,7 @@ namespace GameFacePrototype
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
             da.SelectCommand.Parameters.Add("@IdUser", SqlDbType.Int);
 
-            da.SelectCommand.Parameters["@IdUser"].Value = 1;
+            da.SelectCommand.Parameters["@IdUser"].Value = Global.IdUser;
 
             da.Fill(dt);
         }

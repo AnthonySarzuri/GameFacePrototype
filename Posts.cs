@@ -173,7 +173,7 @@ namespace GameFacePrototype
                 //post.Size = new Size(600, 900);
                 post.AutoSize = true;
                 post.Margin = new Padding(50);
-                post.Location = new Point(250, position);
+                post.Location = new Point(100, position);
                 post.Visible = true;
                 post.BorderStyle = BorderStyle.FixedSingle;
                 post.Controls.Add(name);
