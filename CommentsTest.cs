@@ -30,10 +30,29 @@ namespace GameFacePrototype
             da.SelectCommand.Parameters.Add("@idPost", SqlDbType.Int);
             
             da.SelectCommand.Parameters["@commentary"].Value = txtcommentary.Text;
-            da.SelectCommand.Parameters["@idUser"].Value = 1;
+            da.SelectCommand.Parameters["@idUser"].Value = Global.IdUser;
             da.SelectCommand.Parameters["@idPost"].Value = 1;
 
             da.Fill(dt);
+
+            SqlDataAdapter da1 = new SqlDataAdapter("SP_SelectComment", dataConnection);
+            da1.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da1.SelectCommand.Parameters.Add("@idUser", SqlDbType.Int);
+            da1.SelectCommand.Parameters.Add("@idPost", SqlDbType.Int);
+
+            da1.SelectCommand.Parameters["@idUser"].Value = Global.IdUser;
+            da1.SelectCommand.Parameters["@idPost"].Value = 1;
+
+            da1.Fill(dt);
+
+            if (dt.Rows.Count >= 1)
+            {
+
+                int idcomment;
+                idcomment = (int)(dt.Rows[0][0]);
+                Global.IdComment = idcomment;
+            }
+
         }
 
         private void btndelete_Click(object sender, EventArgs e)
@@ -47,11 +66,16 @@ namespace GameFacePrototype
             da.SelectCommand.Parameters.Add("@IdPost", SqlDbType.Int);
             da.SelectCommand.Parameters.Add("@Id", SqlDbType.Int);
 
-            da.SelectCommand.Parameters["@IdUser"].Value = 1;
+            da.SelectCommand.Parameters["@IdUser"].Value = Global.IdUser;
             da.SelectCommand.Parameters["@IdPost"].Value = 1;
-            da.SelectCommand.Parameters["@Id"].Value = 1;
+            da.SelectCommand.Parameters["@Id"].Value = Global.IdComment;
 
             da.Fill(dt);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            label1.Text = Global.IdComment.ToString();
         }
     }
 }
