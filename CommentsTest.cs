@@ -73,9 +73,6 @@ namespace GameFacePrototype
             da.Fill(dt);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            label1.Text = Global.IdComment.ToString();
-        }
+       
     }
 }
