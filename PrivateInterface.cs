@@ -54,7 +54,6 @@ namespace GameFacePrototype
         }
 
        
-
         private void button1_Click(object sender, EventArgs e)
         {          
             Application.Exit();
@@ -89,6 +88,75 @@ namespace GameFacePrototype
         private void Profile_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Show();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            tbSearch.Text = "";
+        }
+
+        private void panelRight_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PrivateInterface_Load(object sender, EventArgs e)
+        {
+            btnLimpiar.Enabled = false;
+            btnBuscar.Enabled = false;
+        }
+
+        private void tbSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (tbSearch.Text == "")
+            {
+                btnLimpiar.Enabled = false;
+                btnBuscar.Enabled = false;
+            }
+            else
+            {
+                btnLimpiar.Enabled = true;
+                btnBuscar.Enabled = true;
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_SearchPeople", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                da.SelectCommand.Parameters.Add("@ParamSearch", SqlDbType.NVarChar, 50);
+
+                da.SelectCommand.Parameters["@ParamSearch"].Value = tbSearch.Text;
+
+                da.Fill(dt);
+                if (dt.Rows.Count >= 1)
+                {
+                    dgShowUsers.DataSource = dt;
+                }
+                else
+                {
+                    lblNotFound.Text = "No se encontró a ningún usuario con ese nombre o id";
+                    tbSearch.Text = "";
+                }
+
+
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show("Ha ocurrido un error", "Lo Sentimos :(");
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
