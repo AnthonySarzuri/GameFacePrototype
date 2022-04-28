@@ -108,6 +108,7 @@ namespace GameFacePrototype
 
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
+            
             if (tbSearch.Text == "")
             {
                 btnLimpiar.Enabled = false;
@@ -118,10 +119,12 @@ namespace GameFacePrototype
                 btnLimpiar.Enabled = true;
                 btnBuscar.Enabled = true;
             }
+            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            lblNotFound.Text = "";
             DataTable dt = new DataTable();
             string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
 
@@ -144,6 +147,7 @@ namespace GameFacePrototype
                 {
                     lblNotFound.Text = "No se encontró a ningún usuario con ese nombre o id";
                     tbSearch.Text = "";
+                    dgShowUsers.Columns.Clear();
                 }
 
 
