@@ -29,7 +29,6 @@ namespace GameFacePrototype
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditProfile));
             this.TBUserEdit = new System.Windows.Forms.TextBox();
             this.TBPhoneEdit = new System.Windows.Forms.TextBox();
             this.TBMailEdit = new System.Windows.Forms.TextBox();
@@ -40,6 +39,7 @@ namespace GameFacePrototype
             this.DTPbirthday = new System.Windows.Forms.DateTimePicker();
             this.TBBiographyEdit = new System.Windows.Forms.TextBox();
             this.BTNBack = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,7 +84,6 @@ namespace GameFacePrototype
             // 
             // PBProfilePicture
             // 
-            this.PBProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("PBProfilePicture.Image")));
             this.PBProfilePicture.Location = new System.Drawing.Point(40, 85);
             this.PBProfilePicture.Margin = new System.Windows.Forms.Padding(2);
             this.PBProfilePicture.Name = "PBProfilePicture";
@@ -141,11 +140,22 @@ namespace GameFacePrototype
             this.BTNBack.UseVisualStyleBackColor = true;
             this.BTNBack.Click += new System.EventHandler(this.BTNBack_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(600, 361);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(89, 26);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Editar Gustos";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // EditProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 399);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.BTNBack);
             this.Controls.Add(this.TBBiographyEdit);
             this.Controls.Add(this.DTPbirthday);
@@ -178,5 +188,6 @@ namespace GameFacePrototype
         private System.Windows.Forms.DateTimePicker DTPbirthday;
         private System.Windows.Forms.TextBox TBBiographyEdit;
         private System.Windows.Forms.Button BTNBack;
+        private System.Windows.Forms.Button button1;
     }
 }

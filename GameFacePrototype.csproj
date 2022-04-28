@@ -70,6 +70,12 @@
     <Compile Include="DeleteProfile.Designer.cs">
       <DependentUpon>DeleteProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="EditPreferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditPreferences.Designer.cs">
+      <DependentUpon>EditPreferences.cs</DependentUpon>
+    </Compile>
     <Compile Include="EditProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteProfile.resx">
       <DependentUpon>DeleteProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditPreferences.resx">
+      <DependentUpon>EditPreferences.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EditProfile.resx">
       <DependentUpon>EditProfile.cs</DependentUpon>
