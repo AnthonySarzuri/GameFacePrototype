@@ -96,6 +96,12 @@
     </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Posts.cs" />
+    <Compile Include="ProfileThird.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProfileThird.Designer.cs">
+      <DependentUpon>ProfileThird.cs</DependentUpon>
+    </Compile>
     <Compile Include="SeleccionGustos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PrivateInterface.resx">
       <DependentUpon>PrivateInterface.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileThird.resx">
+      <DependentUpon>ProfileThird.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SeleccionGustos.resx">
       <DependentUpon>SeleccionGustos.cs</DependentUpon>

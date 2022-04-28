@@ -39,6 +39,7 @@ namespace GameFacePrototype
             this.btnEditProfile = new System.Windows.Forms.Button();
             this.DTPbirthday = new System.Windows.Forms.DateTimePicker();
             this.TBBiographyEdit = new System.Windows.Forms.TextBox();
+            this.BTNBack = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -115,6 +116,7 @@ namespace GameFacePrototype
             // 
             // DTPbirthday
             // 
+            this.DTPbirthday.CustomFormat = "dd-MM-yyyy";
             this.DTPbirthday.Location = new System.Drawing.Point(417, 124);
             this.DTPbirthday.Name = "DTPbirthday";
             this.DTPbirthday.Size = new System.Drawing.Size(200, 20);
@@ -129,11 +131,22 @@ namespace GameFacePrototype
             this.TBBiographyEdit.Size = new System.Drawing.Size(252, 34);
             this.TBBiographyEdit.TabIndex = 9;
             // 
+            // BTNBack
+            // 
+            this.BTNBack.Location = new System.Drawing.Point(658, 12);
+            this.BTNBack.Name = "BTNBack";
+            this.BTNBack.Size = new System.Drawing.Size(31, 23);
+            this.BTNBack.TabIndex = 10;
+            this.BTNBack.Text = "X";
+            this.BTNBack.UseVisualStyleBackColor = true;
+            this.BTNBack.Click += new System.EventHandler(this.BTNBack_Click);
+            // 
             // EditProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(701, 399);
+            this.Controls.Add(this.BTNBack);
             this.Controls.Add(this.TBBiographyEdit);
             this.Controls.Add(this.DTPbirthday);
             this.Controls.Add(this.btnEditProfile);
@@ -164,5 +177,6 @@ namespace GameFacePrototype
         private System.Windows.Forms.Button btnEditProfile;
         private System.Windows.Forms.DateTimePicker DTPbirthday;
         private System.Windows.Forms.TextBox TBBiographyEdit;
+        private System.Windows.Forms.Button BTNBack;
     }
 }

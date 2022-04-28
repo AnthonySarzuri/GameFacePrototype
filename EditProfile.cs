@@ -122,7 +122,15 @@ namespace GameFacePrototype
             if (DTPbirthday.Value.AddYears(13) >= hoy)
             {
                 MessageBox.Show("Fecha de cumpleaños no válida, debes ser de 13 años o mayor", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                DTPbirthday.Value = hoy.AddYears(-13);
             }
+        }
+
+        private void BTNBack_Click(object sender, EventArgs e)
+        {
+            Profile profile = new Profile();
+            profile.Show();
+            this.Close();
         }
     }
 }
