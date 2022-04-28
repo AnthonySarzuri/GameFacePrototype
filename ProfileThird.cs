@@ -22,6 +22,7 @@ namespace GameFacePrototype
             {
                 showUserData();
                 generarPost();
+                showUserLastConnect();
             }
             catch (Exception E) 
             {
@@ -85,6 +86,30 @@ namespace GameFacePrototype
                 publi.generarPostUser();
                 PanelPosts.Controls.Add(publi.post);
                 posicion = aux * i;
+            }
+        }
+
+        private void showUserLastConnect()
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_LastConnectedShow", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.Add("@id", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@id"].Value = Global.IdUserThird;
+            da.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                LBLLastDay.Text = dt.Rows[0]["Lastconnecteddate"].ToString();
+                LBLLastTime.Text = dt.Rows[0]["Lastconnectedtime"].ToString();
+            }
+            else
+            {
+                MessageBox.Show("Datos No Encontrados");
+
             }
         }
 
