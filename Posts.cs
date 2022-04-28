@@ -80,7 +80,7 @@ namespace GameFacePrototype
 
                 name.Text = dt.Rows[RowPost][2].ToString();
                 name.Location = new Point(100, 10);
-                name.Click += Name_Click;
+               
 
                 //CreationDate
 
@@ -110,7 +110,7 @@ namespace GameFacePrototype
                 profilePicture.Location = new Point(10, 10);
                 profilePicture.Size = new Size(70, 62);
                 profilePicture.BorderStyle = BorderStyle.FixedSingle;
-                profilePicture.Click += ProfilePicture_Click;
+               
 
                 //pictureBoxImagen
 
