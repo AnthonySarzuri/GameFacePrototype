@@ -33,7 +33,7 @@
             this.LBLShowUser = new System.Windows.Forms.Label();
             this.LBLShowUserId = new System.Windows.Forms.Label();
             this.LBLShowBirthday = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.PanelPosts = new System.Windows.Forms.Panel();
             this.BTNAddFriend = new System.Windows.Forms.Button();
             this.BTNShowFriends = new System.Windows.Forms.Button();
             this.BTNBack = new System.Windows.Forms.Button();
@@ -79,12 +79,13 @@
             this.LBLShowBirthday.TabIndex = 9;
             this.LBLShowBirthday.Text = "label3";
             // 
-            // panel1
+            // PanelPosts
             // 
-            this.panel1.Location = new System.Drawing.Point(11, 247);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(584, 191);
-            this.panel1.TabIndex = 10;
+            this.PanelPosts.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.PanelPosts.Location = new System.Drawing.Point(0, 212);
+            this.PanelPosts.Name = "PanelPosts";
+            this.PanelPosts.Size = new System.Drawing.Size(607, 238);
+            this.PanelPosts.TabIndex = 10;
             // 
             // BTNAddFriend
             // 
@@ -132,7 +133,7 @@
             this.Controls.Add(this.BTNBack);
             this.Controls.Add(this.BTNShowFriends);
             this.Controls.Add(this.BTNAddFriend);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.PanelPosts);
             this.Controls.Add(this.LBLShowBirthday);
             this.Controls.Add(this.LBLShowUserId);
             this.Controls.Add(this.LBLShowUser);
@@ -151,7 +152,7 @@
         private System.Windows.Forms.Label LBLShowUser;
         private System.Windows.Forms.Label LBLShowUserId;
         private System.Windows.Forms.Label LBLShowBirthday;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel PanelPosts;
         private System.Windows.Forms.Button BTNAddFriend;
         private System.Windows.Forms.Button BTNShowFriends;
         private System.Windows.Forms.Button BTNBack;
