@@ -35,14 +35,14 @@ namespace GameFacePrototype
 
             da.Fill(dt);
 
-            int global = Global.IdUser;
+            
             int posicion = 0;
             int aux = 900;
             int count = int.Parse(dt.Rows[0][0].ToString());
 
             for (int i = 1; i <=count ; i++)
             {
-                Posts publi = new Posts((i - 1), posicion);
+                Posts publi = new Posts(Global.IdUser,(i - 1), posicion);
                 publi.generarPostFriend();
                 mainPanel.Controls.Add(publi.post);
                 posicion = aux * i;

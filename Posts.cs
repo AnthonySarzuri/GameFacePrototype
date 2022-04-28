@@ -15,9 +15,10 @@ namespace GameFacePrototype
     internal class Posts
     {
         //variables para validar
+        private string condicionShare;
         private string condicion;
         private string idReaccion;
-        private string mensaje;
+
         //variables para Crear el post
         private Label name = new Label();
         private Label creationDate = new Label();
@@ -45,11 +46,13 @@ namespace GameFacePrototype
         private int idUserFriend;
         private int RowPost;
         private int idPost;
+        private int idUser;
 
         public Posts() { }
 
-        public Posts(int RowPost, int posicion)
+        public Posts(int idUser,int RowPost, int posicion)
         {
+            this.idUser = idUser;
             this.RowPost = RowPost;
             this.position = posicion;
 
@@ -57,7 +60,6 @@ namespace GameFacePrototype
 
         public Panel generarPostUser()
         {
-
 
             DataTable dt = new DataTable();
             string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
@@ -67,7 +69,7 @@ namespace GameFacePrototype
 
             da.SelectCommand.Parameters.Add("@idUser", SqlDbType.Int);
 
-            da.SelectCommand.Parameters["@idUser"].Value = Global.IdUser;
+            da.SelectCommand.Parameters["@idUser"].Value = idUser;
 
 
             da.Fill(dt);
@@ -163,6 +165,7 @@ namespace GameFacePrototype
                 lblComments.Location = new Point(260, 615);
 
                 //Share boton
+                share.Click += Share_Click;
                 share.Text = "Share";
                 share.Location = new Point(380, 600);
                 share.Size = new Size(75, 45);
@@ -202,8 +205,7 @@ namespace GameFacePrototype
             return post;
         }
 
-     
-
+      
         public Panel generarPostFriend()
         {
 
@@ -216,7 +218,7 @@ namespace GameFacePrototype
 
             da.SelectCommand.Parameters.Add("@idUser", SqlDbType.Int);
 
-            da.SelectCommand.Parameters["@idUser"].Value = Global.IdUser;
+            da.SelectCommand.Parameters["@idUser"].Value = idUser;
 
             
 
@@ -312,6 +314,7 @@ namespace GameFacePrototype
                 lblComments.Location = new Point(260, 615);
 
                 //Share boton
+                share.Click += Share_Click;
                 share.Text = "Share";
                 share.Location = new Point(380, 600);
                 share.Size = new Size(75, 45);
@@ -365,6 +368,8 @@ namespace GameFacePrototype
         }
         private void Like_Click(object sender, EventArgs e)
         {
+            condicion = "";
+            idReaccion = "";
 
             Validarreaccion();
 
@@ -382,6 +387,8 @@ namespace GameFacePrototype
 
         private void Dislike_Click(object sender, EventArgs e)
         {
+            condicion = "";
+            idReaccion = "";
 
             Validarreaccion();
 
@@ -396,6 +403,23 @@ namespace GameFacePrototype
             }
             RefreshPost();
         }
+
+        private void Share_Click(object sender, EventArgs e)
+        {
+            condicionShare = "";
+            
+            ValidarShare();
+            if (condicionShare=="True")
+            {
+                removeShare();
+            }
+            else
+            {
+                addShare();
+            }       
+            RefreshPost();
+        }
+
 
         public void RefreshPost()
         {
@@ -439,29 +463,50 @@ namespace GameFacePrototype
             string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
             SqlConnection dataConnection = new SqlConnection(sConexion);
 
-            SqlDataAdapter da = new SqlDataAdapter("SP_ShowReactionCondition", dataConnection);
+            SqlDataAdapter da = new SqlDataAdapter("SP_ValidateReaction", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
             da.SelectCommand.Parameters.Add("@idPost", SqlDbType.Int);
             da.SelectCommand.Parameters.Add("@idusuario", SqlDbType.Int);
-            da.SelectCommand.Parameters.Add("@mensaje", SqlDbType.VarChar, 1).Direction = ParameterDirection.Output;
+            da.SelectCommand.Parameters.Add("@mensaje", SqlDbType.Int).Direction = ParameterDirection.Output;
 
 
             da.SelectCommand.Parameters["@idPost"].Value = idPost;
             da.SelectCommand.Parameters["@idusuario"].Value = Global.IdUser;
 
             da.Fill(dt);
-            if (da.SelectCommand.Parameters["@mensaje"].Value.ToString() == "0")
+            if (int.Parse(da.SelectCommand.Parameters["@mensaje"].Value.ToString())==1) 
             {
-                mensaje = da.SelectCommand.Parameters["@mensaje"].Value.ToString();
                 condicion = dt.Rows[0][0].ToString();
                 idReaccion = dt.Rows[0][1].ToString();
             }
-            else
+               
+                
+           
+        }
+
+        private void ValidarShare()
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+
+            SqlDataAdapter da = new SqlDataAdapter("SP_ValidateShare", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.Add("@idPost", SqlDbType.Int);
+            da.SelectCommand.Parameters.Add("@idusuario", SqlDbType.Int);
+            da.SelectCommand.Parameters.Add("@mensaje", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            da.SelectCommand.Parameters["@idPost"].Value = idPost;
+            da.SelectCommand.Parameters["@idusuario"].Value = Global.IdUser;
+
+            da.Fill(dt);
+
+            if (int.Parse(da.SelectCommand.Parameters["@mensaje"].Value.ToString()) == 1)
             {
-                mensaje = da.SelectCommand.Parameters["@mensaje"].Value.ToString();
+                condicionShare = dt.Rows[0][0].ToString();
             }
-
-
+             
+           
         }
         private void addLike()
         {
@@ -528,7 +573,38 @@ namespace GameFacePrototype
             da.SelectCommand.Parameters["@idUsuario"].Value = Global.IdUser;
             da.Fill(dt);
         }
+        private void addShare()
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            SqlConnection dataConnection = new SqlConnection(sConexion);
 
+            SqlDataAdapter da = new SqlDataAdapter("SP_AddShare", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.Add("@idPost", SqlDbType.Int);
+            da.SelectCommand.Parameters.Add("@idUsuario", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@idPost"].Value = idPost;
+            da.SelectCommand.Parameters["@idUsuario"].Value = Global.IdUser;
+            da.Fill(dt);
+        }
+        private void removeShare()
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+
+            SqlDataAdapter da = new SqlDataAdapter("SP_RemoveShare", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.Add("@idPost", SqlDbType.Int);
+            da.SelectCommand.Parameters.Add("@idUsuario", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@idPost"].Value = idPost;
+            da.SelectCommand.Parameters["@idUsuario"].Value = Global.IdUser;
+            da.Fill(dt);
+        }
+
+        //comments
         private Panel getComment()
         {
             //Profile PictureComentarios

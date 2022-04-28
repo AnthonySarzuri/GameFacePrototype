@@ -14,12 +14,14 @@ namespace GameFacePrototype
 {
     public partial class ProfileThird : Form
     {
+        
         public ProfileThird()
         {
             InitializeComponent();
             try
             {
                 showUserData();
+                generarPost();
             }
             catch (Exception E) 
             {
@@ -59,6 +61,36 @@ namespace GameFacePrototype
                 MessageBox.Show("Datos No Encontrados");
 
             }
+        }
+        private void generarPost()
+        {
+
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_CountPostUser", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.Add("@idUser", SqlDbType.Int);
+            da.SelectCommand.Parameters["@idUser"].Value = Global.IdUserThird;
+            da.Fill(dt);
+
+
+            int posicion = 0;
+            int aux = 900;
+
+            for (int i = 1; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
+            {
+
+                Posts publi = new Posts(Global.IdUserThird, (i - 1), posicion);
+                publi.generarPostUser();
+                PanelPosts.Controls.Add(publi.post);
+                posicion = aux * i;
+            }
+        }
+
+        private void ProfileThird_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
