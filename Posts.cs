@@ -42,16 +42,15 @@ namespace GameFacePrototype
         public Panel post = new Panel();
         private Panel commentPanel = new Panel();
         private int position;
-        private int idUser;
+        private int idUserFriend;
         private int RowPost;
         private int idPost;
 
         public Posts() { }
 
-        public Posts(int idUser, int RowPost, int posicion)
+        public Posts(int RowPost, int posicion)
         {
             this.RowPost = RowPost;
-            this.idUser = idUser;
             this.position = posicion;
 
         }
@@ -73,22 +72,24 @@ namespace GameFacePrototype
 
             da.Fill(dt);
             idPost = int.Parse(dt.Rows[RowPost][0].ToString());
+            idUserFriend= int.Parse(dt.Rows[RowPost][1].ToString());
 
             try
             {
                 //UserName
 
-                name.Text = dt.Rows[RowPost][1].ToString();
+                name.Text = dt.Rows[RowPost][2].ToString();
                 name.Location = new Point(100, 10);
+                name.Click += Name_Click;
 
                 //CreationDate
 
-                creationDate.Text = dt.Rows[RowPost][2].ToString();
+                creationDate.Text = dt.Rows[RowPost][3].ToString();
                 creationDate.Location = new Point(200, 10);
 
                 //Description
 
-                description.Text = dt.Rows[RowPost][3].ToString();
+                description.Text = dt.Rows[RowPost][4].ToString();
                 description.Location = new Point(20, 100);
                 description.Size = new Size(550, 100);
                 description.BorderStyle = BorderStyle.FixedSingle;
@@ -97,7 +98,7 @@ namespace GameFacePrototype
                 try
                 {
                     byte[] mybyte = new byte[0];
-                    mybyte = (byte[])dt.Rows[RowPost][4];
+                    mybyte = (byte[])dt.Rows[RowPost][5];
                     MemoryStream ms = new MemoryStream(mybyte);
                     profilePicture.Image = Image.FromStream(ms);
                 }
@@ -109,13 +110,14 @@ namespace GameFacePrototype
                 profilePicture.Location = new Point(10, 10);
                 profilePicture.Size = new Size(70, 62);
                 profilePicture.BorderStyle = BorderStyle.FixedSingle;
+                profilePicture.Click += ProfilePicture_Click;
 
                 //pictureBoxImagen
 
                 try
                 {
                     byte[] mybyte = new byte[0];
-                    mybyte = (byte[])dt.Rows[RowPost][5];
+                    mybyte = (byte[])dt.Rows[RowPost][6];
                     MemoryStream ms = new MemoryStream(mybyte);
                     picture.Image = Image.FromStream(ms);
                     picture.Size = new Size(500, 350);
@@ -199,6 +201,9 @@ namespace GameFacePrototype
             }
             return post;
         }
+
+     
+
         public Panel generarPostFriend()
         {
 
@@ -213,27 +218,28 @@ namespace GameFacePrototype
 
             da.SelectCommand.Parameters["@idUser"].Value = Global.IdUser;
 
-            int iduser=Global.IdUser;
+            
 
             da.Fill(dt);
             idPost = int.Parse(dt.Rows[RowPost][0].ToString());
-            int otro=int.Parse(dt.Rows[RowPost][0].ToString());
+            idUserFriend = int.Parse(dt.Rows[RowPost][1].ToString());
 
             try
             {
                 //UserName
-                string nombre = dt.Rows[RowPost][1].ToString();
-                name.Text = dt.Rows[RowPost][1].ToString();
-                name.Location = new Point(100, 10);
+              
+                name.Text = dt.Rows[RowPost][2].ToString();
+                name.Location = new Point(100, 10); 
+                name.Click += Name_Click;
 
                 //CreationDate
-                string creacion=dt.Rows[RowPost][2].ToString();
-                creationDate.Text = dt.Rows[RowPost][2].ToString();
+
+                creationDate.Text = dt.Rows[RowPost][3].ToString();
                 creationDate.Location = new Point(200, 10);
 
                 //Description
-                string hola = dt.Rows[RowPost][3].ToString();
-                description.Text = dt.Rows[RowPost][3].ToString();
+              
+                description.Text = dt.Rows[RowPost][4].ToString();
                 description.Location = new Point(20, 100);
                 description.Size = new Size(550, 100);
                 description.BorderStyle = BorderStyle.FixedSingle;
@@ -242,7 +248,7 @@ namespace GameFacePrototype
                 try
                 {
                     byte[] mybyte = new byte[0];
-                    mybyte = (byte[])dt.Rows[RowPost][4];
+                    mybyte = (byte[])dt.Rows[RowPost][5];
                     MemoryStream ms = new MemoryStream(mybyte);
                     profilePicture.Image = Image.FromStream(ms);
                 }
@@ -260,7 +266,7 @@ namespace GameFacePrototype
                 try
                 {
                     byte[] mybyte = new byte[0];
-                    mybyte = (byte[])dt.Rows[RowPost][5];
+                    mybyte = (byte[])dt.Rows[RowPost][6];
                     MemoryStream ms = new MemoryStream(mybyte);
                     picture.Image = Image.FromStream(ms);
                     picture.Size = new Size(500, 350);
@@ -345,6 +351,18 @@ namespace GameFacePrototype
             return post;
         }
 
+        private void ProfilePicture_Click(object sender, EventArgs e)
+        {
+            Global.IdUserThird= idUserFriend;
+            ProfileThird profileThird = new ProfileThird();
+            profileThird.Show();
+        }
+        private void Name_Click(object sender, EventArgs e)
+        {
+            Global.IdUserThird = idUserFriend;
+            ProfileThird profileThird = new ProfileThird(); 
+            profileThird.Show();
+        }
         private void Like_Click(object sender, EventArgs e)
         {
 
@@ -392,7 +410,7 @@ namespace GameFacePrototype
             da.SelectCommand.Parameters["@idPost"].Value = idPost;
             da.SelectCommand.Parameters.Add("@like", SqlDbType.Int).Direction = ParameterDirection.Output;
             da.SelectCommand.Parameters.Add("@dislike", SqlDbType.Int).Direction = ParameterDirection.Output;
-
+            da.SelectCommand.Parameters.Add("@shares", SqlDbType.Int).Direction = ParameterDirection.Output;
 
             da.Fill(dt);
             name.Text = dt.Rows[0][0].ToString();
@@ -400,17 +418,7 @@ namespace GameFacePrototype
             description.Text = dt.Rows[0][2].ToString();
             likes.Text = da.SelectCommand.Parameters["@like"].Value.ToString();
             dislikes.Text = da.SelectCommand.Parameters["@dislike"].Value.ToString();
-            try
-            {
-                byte[] mybyte = new byte[0];
-                mybyte = (byte[])dt.Rows[0][3];
-                MemoryStream ms = new MemoryStream(mybyte);
-                profilePicture.Image = Image.FromStream(ms);
-            }
-            catch
-            {
-
-            }
+            shares.Text = da.SelectCommand.Parameters["@shares"].Value.ToString();
             try
             {
                 byte[] mybyte = new byte[0];

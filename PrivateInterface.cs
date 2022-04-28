@@ -42,7 +42,7 @@ namespace GameFacePrototype
 
             for (int i = 1; i <=count ; i++)
             {
-                Posts publi = new Posts(i, (i - 1), posicion);
+                Posts publi = new Posts((i - 1), posicion);
                 publi.generarPostFriend();
                 mainPanel.Controls.Add(publi.post);
                 posicion = aux * i;

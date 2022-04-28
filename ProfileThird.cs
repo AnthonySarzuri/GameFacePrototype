@@ -23,7 +23,7 @@ namespace GameFacePrototype
             }
             catch (Exception E) 
             {
-                MessageBox.Show("Ocurrió un error.");
+                
             }
         }
 
@@ -38,7 +38,11 @@ namespace GameFacePrototype
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_ShowUserId", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            da.SelectCommand.Parameters.Add("@idUser", SqlDbType.NVarChar, 50);
+            da.SelectCommand.Parameters.Add("@id", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@id"].Value = Global.IdUserThird;
+            da.Fill(dt);
+
             if (dt.Rows.Count > 0)
             {
                 LBLShowUserId.Text = dt.Rows[0]["IdUser"].ToString();

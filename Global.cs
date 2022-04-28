@@ -12,5 +12,6 @@ namespace GameFacePrototype
         static public int IdPost;
         static public int IdComments;
         static public int IdComment;
+        static public int IdUserThird;
     }
 }

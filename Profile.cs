@@ -43,7 +43,7 @@ namespace GameFacePrototype
             for (int i = 1; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {
 
-                Posts publi = new Posts(i, (i - 1), posicion);
+                Posts publi = new Posts((i - 1), posicion);
                 publi.generarPostUser();
                 PanelPrincipal.Controls.Add(publi.post);
                 posicion = aux * i;
