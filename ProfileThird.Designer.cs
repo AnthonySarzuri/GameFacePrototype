@@ -38,9 +38,9 @@
             this.BTNBack = new System.Windows.Forms.Button();
             this.LBLShowBiography = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.PanelPosts = new System.Windows.Forms.Panel();
-            this.LBLLastDay = new System.Windows.Forms.Label();
             this.LBLLastTime = new System.Windows.Forms.Label();
+            this.LBLLastDay = new System.Windows.Forms.Label();
+            this.PanelPosts = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -48,10 +48,10 @@
             // PBProfilePicture
             // 
             this.PBProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("PBProfilePicture.Image")));
-            this.PBProfilePicture.Location = new System.Drawing.Point(15, 16);
-            this.PBProfilePicture.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.PBProfilePicture.Location = new System.Drawing.Point(11, 13);
+            this.PBProfilePicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PBProfilePicture.Name = "PBProfilePicture";
-            this.PBProfilePicture.Size = new System.Drawing.Size(195, 174);
+            this.PBProfilePicture.Size = new System.Drawing.Size(146, 141);
             this.PBProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PBProfilePicture.TabIndex = 6;
             this.PBProfilePicture.TabStop = false;
@@ -59,59 +59,54 @@
             // LBLShowUser
             // 
             this.LBLShowUser.AutoSize = true;
-            this.LBLShowUser.Location = new System.Drawing.Point(287, 15);
-            this.LBLShowUser.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBLShowUser.Location = new System.Drawing.Point(215, 12);
             this.LBLShowUser.Name = "LBLShowUser";
-            this.LBLShowUser.Size = new System.Drawing.Size(46, 17);
+            this.LBLShowUser.Size = new System.Drawing.Size(35, 13);
             this.LBLShowUser.TabIndex = 7;
             this.LBLShowUser.Text = "label1";
             // 
             // LBLShowUserId
             // 
             this.LBLShowUserId.AutoSize = true;
-            this.LBLShowUserId.Location = new System.Drawing.Point(287, 46);
-            this.LBLShowUserId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBLShowUserId.Location = new System.Drawing.Point(215, 37);
             this.LBLShowUserId.Name = "LBLShowUserId";
-            this.LBLShowUserId.Size = new System.Drawing.Size(46, 17);
+            this.LBLShowUserId.Size = new System.Drawing.Size(35, 13);
             this.LBLShowUserId.TabIndex = 8;
             this.LBLShowUserId.Text = "label2";
             // 
             // LBLShowBirthday
             // 
             this.LBLShowBirthday.AutoSize = true;
-            this.LBLShowBirthday.Location = new System.Drawing.Point(287, 78);
-            this.LBLShowBirthday.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBLShowBirthday.Location = new System.Drawing.Point(215, 63);
             this.LBLShowBirthday.Name = "LBLShowBirthday";
-            this.LBLShowBirthday.Size = new System.Drawing.Size(46, 17);
+            this.LBLShowBirthday.Size = new System.Drawing.Size(35, 13);
             this.LBLShowBirthday.TabIndex = 9;
             this.LBLShowBirthday.Text = "label3";
             // 
             // BTNAddFriend
             // 
-            this.BTNAddFriend.Location = new System.Drawing.Point(36, 196);
-            this.BTNAddFriend.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTNAddFriend.Location = new System.Drawing.Point(27, 159);
             this.BTNAddFriend.Name = "BTNAddFriend";
-            this.BTNAddFriend.Size = new System.Drawing.Size(37, 28);
+            this.BTNAddFriend.Size = new System.Drawing.Size(28, 23);
             this.BTNAddFriend.TabIndex = 11;
             this.BTNAddFriend.Text = "+";
             this.BTNAddFriend.UseVisualStyleBackColor = true;
+            this.BTNAddFriend.Click += new System.EventHandler(this.BTNAddFriend_Click);
             // 
             // BTNShowFriends
             // 
-            this.BTNShowFriends.Location = new System.Drawing.Point(95, 196);
-            this.BTNShowFriends.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTNShowFriends.Location = new System.Drawing.Point(71, 159);
             this.BTNShowFriends.Name = "BTNShowFriends";
-            this.BTNShowFriends.Size = new System.Drawing.Size(100, 28);
+            this.BTNShowFriends.Size = new System.Drawing.Size(75, 23);
             this.BTNShowFriends.TabIndex = 12;
             this.BTNShowFriends.Text = "Amigos";
             this.BTNShowFriends.UseVisualStyleBackColor = true;
             // 
             // BTNBack
             // 
-            this.BTNBack.Location = new System.Drawing.Point(1089, 10);
-            this.BTNBack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BTNBack.Location = new System.Drawing.Point(817, 8);
             this.BTNBack.Name = "BTNBack";
-            this.BTNBack.Size = new System.Drawing.Size(41, 28);
+            this.BTNBack.Size = new System.Drawing.Size(31, 23);
             this.BTNBack.TabIndex = 13;
             this.BTNBack.Text = "X";
             this.BTNBack.UseVisualStyleBackColor = true;
@@ -120,10 +115,9 @@
             // LBLShowBiography
             // 
             this.LBLShowBiography.AutoSize = true;
-            this.LBLShowBiography.Location = new System.Drawing.Point(287, 107);
-            this.LBLShowBiography.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LBLShowBiography.Location = new System.Drawing.Point(215, 87);
             this.LBLShowBiography.Name = "LBLShowBiography";
-            this.LBLShowBiography.Size = new System.Drawing.Size(46, 17);
+            this.LBLShowBiography.Size = new System.Drawing.Size(35, 13);
             this.LBLShowBiography.TabIndex = 14;
             this.LBLShowBiography.Text = "label1";
             // 
@@ -141,48 +135,47 @@
             this.panel1.Controls.Add(this.BTNAddFriend);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1147, 296);
+            this.panel1.Size = new System.Drawing.Size(860, 240);
             this.panel1.TabIndex = 15;
+            // 
+            // LBLLastTime
+            // 
+            this.LBLLastTime.AutoSize = true;
+            this.LBLLastTime.Location = new System.Drawing.Point(27, 210);
+            this.LBLLastTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LBLLastTime.Name = "LBLLastTime";
+            this.LBLLastTime.Size = new System.Drawing.Size(35, 13);
+            this.LBLLastTime.TabIndex = 16;
+            this.LBLLastTime.Text = "label5";
+            // 
+            // LBLLastDay
+            // 
+            this.LBLLastDay.AutoSize = true;
+            this.LBLLastDay.Location = new System.Drawing.Point(27, 188);
+            this.LBLLastDay.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.LBLLastDay.Name = "LBLLastDay";
+            this.LBLLastDay.Size = new System.Drawing.Size(35, 13);
+            this.LBLLastDay.TabIndex = 15;
+            this.LBLLastDay.Text = "label4";
             // 
             // PanelPosts
             // 
             this.PanelPosts.AutoScroll = true;
             this.PanelPosts.AutoSize = true;
             this.PanelPosts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelPosts.Location = new System.Drawing.Point(0, 296);
-            this.PanelPosts.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PanelPosts.Location = new System.Drawing.Point(0, 240);
             this.PanelPosts.Name = "PanelPosts";
-            this.PanelPosts.Size = new System.Drawing.Size(1147, 628);
+            this.PanelPosts.Size = new System.Drawing.Size(860, 511);
             this.PanelPosts.TabIndex = 16;
-            // 
-            // LBLLastDay
-            // 
-            this.LBLLastDay.AutoSize = true;
-            this.LBLLastDay.Location = new System.Drawing.Point(36, 232);
-            this.LBLLastDay.Name = "LBLLastDay";
-            this.LBLLastDay.Size = new System.Drawing.Size(46, 17);
-            this.LBLLastDay.TabIndex = 15;
-            this.LBLLastDay.Text = "label4";
-            // 
-            // LBLLastTime
-            // 
-            this.LBLLastTime.AutoSize = true;
-            this.LBLLastTime.Location = new System.Drawing.Point(36, 259);
-            this.LBLLastTime.Name = "LBLLastTime";
-            this.LBLLastTime.Size = new System.Drawing.Size(46, 17);
-            this.LBLLastTime.TabIndex = 16;
-            this.LBLLastTime.Text = "label5";
             // 
             // ProfileThird
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1147, 924);
+            this.ClientSize = new System.Drawing.Size(860, 751);
             this.Controls.Add(this.PanelPosts);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "ProfileThird";
             this.Text = "ProfileThird";
             this.Load += new System.EventHandler(this.ProfileThird_Load);

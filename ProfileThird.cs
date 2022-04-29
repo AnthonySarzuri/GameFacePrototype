@@ -60,7 +60,6 @@ namespace GameFacePrototype
             else
             {
                 MessageBox.Show("Datos No Encontrados");
-
             }
         }
         private void generarPost()
@@ -116,6 +115,35 @@ namespace GameFacePrototype
         private void ProfileThird_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void BTNAddFriend_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddFriend();
+            }
+            catch (Exception E) 
+            {
+                MessageBox.Show("Ocurrió un error");
+            }
+        }
+
+        private void AddFriend() 
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_AddFriendId", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand.Parameters.Add("@SourceId", SqlDbType.Int);
+            da.SelectCommand.Parameters.Add("@DestinyId", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@SourceId"].Value = Global.IdUser;
+            da.SelectCommand.Parameters["@DestinyId"].Value = Global.IdUserThird;
+
+            da.Fill(dt);
         }
     }
 }
