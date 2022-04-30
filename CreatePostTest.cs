@@ -56,8 +56,7 @@ namespace GameFacePrototype
             }
             else
             {
-                System.IO.MemoryStream ms = new System.IO.MemoryStream();
-                da.SelectCommand.Parameters["@picture"].Value = ms;
+                da.SelectCommand.Parameters["@picture"].Value = DBNull.Value;
             }
             
             da.SelectCommand.Parameters["@idUsuario"].Value = Global.IdUser;

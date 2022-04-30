@@ -19,15 +19,14 @@ namespace GameFacePrototype
         private int position;
         //Variables de cada Comentario
         private int idPostComment;
-        private int idUserComment;
-        private int idComment;
+        public int idUserComment;
+        public int idComment;
 
         //Variables para generar Commentarios
         private PictureBox profilePictureComment = new PictureBox();
         private Label nameComments = new Label();
         private Label commentsWrite = new Label();
         private Button btnDeleteComment = new Button();
-        private Button btnComment = new Button();
         public Panel comment = new Panel();
         public Comments() { }
         public Comments(int idPost, int rowComment, int position)
@@ -55,7 +54,7 @@ namespace GameFacePrototype
             idComment = int.Parse(dt.Rows[rowComment][0].ToString());
             idPostComment = int.Parse(dt.Rows[rowComment][1].ToString());
             idUserComment = int.Parse(dt.Rows[rowComment][2].ToString());
-
+            int id = idComment;
             //Profile PictureComentarios
             profilePictureComment.SizeMode = PictureBoxSizeMode.StretchImage;
             profilePictureComment.BorderStyle = BorderStyle.FixedSingle;
@@ -70,14 +69,16 @@ namespace GameFacePrototype
 
             commentsWrite.Location = new Point(100, 30);
             commentsWrite.AutoSize = true;
-            commentsWrite.MaximumSize = new Size(370,70);
+            commentsWrite.MaximumSize = new Size(370, 70);
+
 
 
             //boton eliminar comentario
             btnDeleteComment.Click += BtnDeleteComment_Click;
             btnDeleteComment.Text = "delete";
             btnDeleteComment.Location = new Point(400, 10);
-            btnDeleteComment.Size = new Size(50, 20);
+            btnDeleteComment.AutoSize = true;
+            btnDeleteComment.MaximumSize = new Size(50, 20);
 
             //Panel del Comentario
             //comment.Size = new Size(450, 50);
@@ -90,7 +91,7 @@ namespace GameFacePrototype
             comment.Controls.Add(nameComments);
             comment.Controls.Add(commentsWrite);
 
-            if (Global.IdUser==idUserComment)
+            if (Global.IdUser == idUserComment)
             {
                 comment.Controls.Add(btnDeleteComment);
             }
@@ -144,16 +145,16 @@ namespace GameFacePrototype
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_DeleteComments", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
-            
-            
+
+
             da.SelectCommand.Parameters.Add("@IdComent", SqlDbType.Int);
 
             da.SelectCommand.Parameters["@IdComent"].Value = idComment;
-           
+
 
             da.Fill(dt);
 
-            
+
         }
 
     }

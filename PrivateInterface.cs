@@ -174,5 +174,11 @@ namespace GameFacePrototype
                 MessageBox.Show("Ha ocurrido un error", "Lo Sentimos :(");
             }
         }
+
+        private void btnRefresh_Click(object sender, EventArgs e)
+        {
+            mainPanel.Controls.Clear();
+            generarPost();
+        }
     }
 }
