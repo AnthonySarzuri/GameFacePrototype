@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -124,14 +125,14 @@ namespace GameFacePrototype
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            flowLayoutPanel1.Controls.Clear();
             lblNotFound.Text = "";
-            DataTable dt = new DataTable();
             string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
 
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_SearchPeople", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
-
+            DataSet dt = new DataSet();
             try
             {
                 da.SelectCommand.Parameters.Add("@ParamSearch", SqlDbType.NVarChar, 50);
@@ -139,15 +140,31 @@ namespace GameFacePrototype
                 da.SelectCommand.Parameters["@ParamSearch"].Value = tbSearch.Text;
 
                 da.Fill(dt);
-                if (dt.Rows.Count >= 1)
+                if (dt.Tables[0].Rows.Count >= 1)
                 {
-                    dgShowUsers.DataSource = dt;
+                    AddFriends[] listFriends = new AddFriends[dt.Tables[0].Rows.Count];
+
+                    for (int i = 0; i < dt.Tables[0].Rows.Count; i++)
+                    {
+                        listFriends[i] = new AddFriends();
+                        listFriends[i].nombre += dt.Tables[0].Rows[i]["UserName"].ToString();
+                        listFriends[i].username += dt.Tables[0].Rows[i]["IdUser"].ToString();
+
+
+                        Byte[] myByte = new byte[0];
+                        myByte = (Byte[])(dt.Tables[0].Rows[i]["ProfilePhoto"]);
+                        MemoryStream ms = new MemoryStream(myByte);
+                        Image imagen = Image.FromStream(ms);
+                        listFriends[i].profilepicture = imagen;
+
+                        flowLayoutPanel1.Controls.Add(listFriends[i]);
+                    }
                 }
                 else
                 {
                     lblNotFound.Text = "No se encontró a ningún usuario con ese nombre o id";
                     tbSearch.Text = "";
-                    dgShowUsers.Columns.Clear();
+                    flowLayoutPanel1.Controls.Clear();
                 }
 
 
@@ -156,11 +173,6 @@ namespace GameFacePrototype
             {
                 MessageBox.Show("Ha ocurrido un error", "Lo Sentimos :(");
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }
