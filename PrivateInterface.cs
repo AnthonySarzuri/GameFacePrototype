@@ -37,7 +37,7 @@ namespace GameFacePrototype
 
             
             int posicion = 0;
-            int aux = 900;
+            int aux = 1100;
             int count = int.Parse(dt.Rows[0][0].ToString());
 
             for (int i = 1; i <=count ; i++)

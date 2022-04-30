@@ -52,6 +52,7 @@
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="Comments.cs" />
     <Compile Include="CommentsTest.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -21,8 +21,48 @@ namespace GameFacePrototype
         public Profile()
         {
             InitializeComponent();
-            generarPost();
+            try
+            {
+                showUserData();
+                generarPost();
+
+            }
+            catch (Exception E)
+            {
+
+            }
         }
+        //Mostrar el usuaior
+        private void showUserData()
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_ShowUserId", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.Add("@id", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@id"].Value = Global.IdUser;
+            da.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                LBLShowUserId.Text = dt.Rows[0]["IdUser"].ToString();
+                LBLShowUser.Text = dt.Rows[0]["UserName"].ToString();
+                LBLShowBirthday.Text = dt.Rows[0]["Birthday"].ToString();
+                LBLShowBiography.Text = dt.Rows[0]["Biography"].ToString();
+                Byte[] myByte = new byte[0];
+                myByte = (Byte[])(dt.Rows[0]["ProfilePhoto"]);
+                MemoryStream ms = new MemoryStream(myByte);
+                PBProfilePicture.Image = Image.FromStream(ms);
+            }
+            else
+            {
+                MessageBox.Show("Datos No Encontrados");
+            }
+        }
+
+
         //Generar Posts
         private void generarPost()
         {
@@ -38,7 +78,7 @@ namespace GameFacePrototype
 
 
             int posicion = 0;
-            int aux = 900;
+            int aux = 1100;
 
             for (int i = 1; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {

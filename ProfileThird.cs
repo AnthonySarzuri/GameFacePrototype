@@ -76,7 +76,7 @@ namespace GameFacePrototype
 
 
             int posicion = 0;
-            int aux = 900;
+            int aux = 1100;
 
             for (int i = 1; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {

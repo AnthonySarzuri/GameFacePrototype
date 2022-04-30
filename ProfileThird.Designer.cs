@@ -49,7 +49,7 @@
             // 
             this.PBProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("PBProfilePicture.Image")));
             this.PBProfilePicture.Location = new System.Drawing.Point(11, 13);
-            this.PBProfilePicture.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PBProfilePicture.Margin = new System.Windows.Forms.Padding(2);
             this.PBProfilePicture.Name = "PBProfilePicture";
             this.PBProfilePicture.Size = new System.Drawing.Size(146, 141);
             this.PBProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -104,7 +104,7 @@
             // 
             // BTNBack
             // 
-            this.BTNBack.Location = new System.Drawing.Point(817, 8);
+            this.BTNBack.Location = new System.Drawing.Point(867, 7);
             this.BTNBack.Name = "BTNBack";
             this.BTNBack.Size = new System.Drawing.Size(31, 23);
             this.BTNBack.TabIndex = 13;
@@ -136,7 +136,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(860, 240);
+            this.panel1.Size = new System.Drawing.Size(910, 240);
             this.panel1.TabIndex = 15;
             // 
             // LBLLastTime
@@ -162,18 +162,17 @@
             // PanelPosts
             // 
             this.PanelPosts.AutoScroll = true;
-            this.PanelPosts.AutoSize = true;
             this.PanelPosts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelPosts.Location = new System.Drawing.Point(0, 240);
             this.PanelPosts.Name = "PanelPosts";
-            this.PanelPosts.Size = new System.Drawing.Size(860, 511);
+            this.PanelPosts.Size = new System.Drawing.Size(910, 895);
             this.PanelPosts.TabIndex = 16;
             // 
             // ProfileThird
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(860, 751);
+            this.ClientSize = new System.Drawing.Size(910, 1135);
             this.Controls.Add(this.PanelPosts);
             this.Controls.Add(this.panel1);
             this.Name = "ProfileThird";
@@ -183,7 +182,6 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
