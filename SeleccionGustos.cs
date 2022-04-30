@@ -33,7 +33,7 @@ namespace GameFacePrototype
 
         public static class Global1
         {
-            public static int cont;
+            public static int cont=0;
             public static string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
             public static SqlConnection dataConnection = new SqlConnection(sConexion);
             public static SqlDataAdapter da;
@@ -46,7 +46,6 @@ namespace GameFacePrototype
         public void contar()
         {
             Global1.cont++;
-            labelTitle.Text = Global1.cont.ToString();
             if (Global1.cont >= 3)
             {
                 btnconfirm.Enabled = true;
@@ -170,12 +169,14 @@ namespace GameFacePrototype
         public void arraySave(int id)
         {
             Global1.array[id] = 1;
+            Global.VectorGustos[id] = 1;
 
         }
 
         public void arrayDelete(int id)
         {
             Global1.array[id] = 0;
+            Global.VectorGustos[id] = 0;
 
         }
 
@@ -184,6 +185,7 @@ namespace GameFacePrototype
             for(int i = 0; i < 7; i++)
             {
                 Global1.array[i] = 0;
+                Global.VectorGustos[i] = 0;
             }
         }
 

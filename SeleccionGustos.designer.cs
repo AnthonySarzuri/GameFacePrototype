@@ -44,6 +44,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // labelTitle
@@ -78,7 +79,7 @@
             // 
             this.cbThriller.AutoSize = true;
             this.cbThriller.Image = ((System.Drawing.Image)(resources.GetObject("cbThriller.Image")));
-            this.cbThriller.Location = new System.Drawing.Point(295, 58);
+            this.cbThriller.Location = new System.Drawing.Point(326, 58);
             this.cbThriller.Name = "cbThriller";
             this.cbThriller.Size = new System.Drawing.Size(115, 100);
             this.cbThriller.TabIndex = 33;
@@ -89,7 +90,7 @@
             // 
             this.cbAction.AutoSize = true;
             this.cbAction.Image = ((System.Drawing.Image)(resources.GetObject("cbAction.Image")));
-            this.cbAction.Location = new System.Drawing.Point(416, 58);
+            this.cbAction.Location = new System.Drawing.Point(447, 58);
             this.cbAction.Name = "cbAction";
             this.cbAction.Size = new System.Drawing.Size(115, 100);
             this.cbAction.TabIndex = 34;
@@ -100,7 +101,7 @@
             // 
             this.cbArcade.AutoSize = true;
             this.cbArcade.Image = ((System.Drawing.Image)(resources.GetObject("cbArcade.Image")));
-            this.cbArcade.Location = new System.Drawing.Point(537, 58);
+            this.cbArcade.Location = new System.Drawing.Point(568, 58);
             this.cbArcade.Name = "cbArcade";
             this.cbArcade.Size = new System.Drawing.Size(115, 100);
             this.cbArcade.TabIndex = 35;
@@ -111,7 +112,7 @@
             // 
             this.cbSports.AutoSize = true;
             this.cbSports.Image = ((System.Drawing.Image)(resources.GetObject("cbSports.Image")));
-            this.cbSports.Location = new System.Drawing.Point(295, 187);
+            this.cbSports.Location = new System.Drawing.Point(326, 187);
             this.cbSports.Name = "cbSports";
             this.cbSports.Size = new System.Drawing.Size(115, 100);
             this.cbSports.TabIndex = 36;
@@ -122,7 +123,7 @@
             // 
             this.cbRPG.AutoSize = true;
             this.cbRPG.Image = ((System.Drawing.Image)(resources.GetObject("cbRPG.Image")));
-            this.cbRPG.Location = new System.Drawing.Point(416, 187);
+            this.cbRPG.Location = new System.Drawing.Point(447, 187);
             this.cbRPG.Name = "cbRPG";
             this.cbRPG.Size = new System.Drawing.Size(115, 100);
             this.cbRPG.TabIndex = 37;
@@ -133,7 +134,7 @@
             // 
             this.cbSimulators.AutoSize = true;
             this.cbSimulators.Image = ((System.Drawing.Image)(resources.GetObject("cbSimulators.Image")));
-            this.cbSimulators.Location = new System.Drawing.Point(537, 187);
+            this.cbSimulators.Location = new System.Drawing.Point(568, 187);
             this.cbSimulators.Name = "cbSimulators";
             this.cbSimulators.Size = new System.Drawing.Size(115, 100);
             this.cbSimulators.TabIndex = 38;
@@ -143,7 +144,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(333, 161);
+            this.label4.Location = new System.Drawing.Point(364, 161);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 39;
@@ -152,7 +153,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(454, 161);
+            this.label5.Location = new System.Drawing.Point(485, 161);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 40;
@@ -161,7 +162,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(581, 161);
+            this.label6.Location = new System.Drawing.Point(612, 161);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(41, 13);
             this.label6.TabIndex = 41;
@@ -170,7 +171,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(336, 294);
+            this.label7.Location = new System.Drawing.Point(367, 294);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(50, 13);
             this.label7.TabIndex = 42;
@@ -179,7 +180,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(457, 294);
+            this.label8.Location = new System.Drawing.Point(488, 294);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(30, 13);
             this.label8.TabIndex = 43;
@@ -188,32 +189,40 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(581, 290);
+            this.label9.Location = new System.Drawing.Point(612, 290);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 13);
             this.label9.TabIndex = 44;
             this.label9.Text = "Simulacion";
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(291, 317);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(424, 283);
+            this.panel1.TabIndex = 45;
+            // 
             // SeleccionGustos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(682, 421);
+            this.ClientSize = new System.Drawing.Size(727, 631);
+            this.Controls.Add(this.cbArcade);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.cbThriller);
             this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnconfirm);
+            this.Controls.Add(this.cbAction);
+            this.Controls.Add(this.labelTitle);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.cbSports);
+            this.Controls.Add(this.cbSimulators);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.cbSimulators);
             this.Controls.Add(this.cbRPG);
-            this.Controls.Add(this.cbSports);
-            this.Controls.Add(this.cbArcade);
-            this.Controls.Add(this.cbAction);
-            this.Controls.Add(this.cbThriller);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.btnconfirm);
-            this.Controls.Add(this.labelTitle);
             this.Name = "SeleccionGustos";
             this.Text = "Form2";
             this.ResumeLayout(false);
@@ -237,5 +246,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Panel panel1;
     }
 }

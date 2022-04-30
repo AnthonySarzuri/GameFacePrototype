@@ -45,6 +45,7 @@ namespace GameFacePrototype
             this.btnconfirm = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // label9
@@ -110,6 +111,7 @@ namespace GameFacePrototype
             this.cbSimulators.Size = new System.Drawing.Size(115, 100);
             this.cbSimulators.TabIndex = 53;
             this.cbSimulators.UseVisualStyleBackColor = true;
+            this.cbSimulators.CheckedChanged += new System.EventHandler(this.cbSimulators_CheckedChanged);
             // 
             // cbRPG
             // 
@@ -120,6 +122,7 @@ namespace GameFacePrototype
             this.cbRPG.Size = new System.Drawing.Size(115, 100);
             this.cbRPG.TabIndex = 52;
             this.cbRPG.UseVisualStyleBackColor = true;
+            this.cbRPG.CheckedChanged += new System.EventHandler(this.cbRPG_CheckedChanged);
             // 
             // cbSports
             // 
@@ -130,6 +133,7 @@ namespace GameFacePrototype
             this.cbSports.Size = new System.Drawing.Size(115, 100);
             this.cbSports.TabIndex = 51;
             this.cbSports.UseVisualStyleBackColor = true;
+            this.cbSports.CheckedChanged += new System.EventHandler(this.cbSports_CheckedChanged);
             // 
             // cbArcade
             // 
@@ -140,6 +144,7 @@ namespace GameFacePrototype
             this.cbArcade.Size = new System.Drawing.Size(115, 100);
             this.cbArcade.TabIndex = 50;
             this.cbArcade.UseVisualStyleBackColor = true;
+            this.cbArcade.CheckedChanged += new System.EventHandler(this.cbArcade_CheckedChanged);
             // 
             // cbAction
             // 
@@ -150,6 +155,7 @@ namespace GameFacePrototype
             this.cbAction.Size = new System.Drawing.Size(115, 100);
             this.cbAction.TabIndex = 49;
             this.cbAction.UseVisualStyleBackColor = true;
+            this.cbAction.CheckedChanged += new System.EventHandler(this.cbAction_CheckedChanged);
             // 
             // cbThriller
             // 
@@ -160,15 +166,17 @@ namespace GameFacePrototype
             this.cbThriller.Size = new System.Drawing.Size(115, 100);
             this.cbThriller.TabIndex = 48;
             this.cbThriller.UseVisualStyleBackColor = true;
+            this.cbThriller.CheckedChanged += new System.EventHandler(this.cbThriller_CheckedChanged);
             // 
             // btnconfirm
             // 
-            this.btnconfirm.Location = new System.Drawing.Point(711, 415);
+            this.btnconfirm.Location = new System.Drawing.Point(717, 378);
             this.btnconfirm.Name = "btnconfirm";
             this.btnconfirm.Size = new System.Drawing.Size(77, 23);
             this.btnconfirm.TabIndex = 46;
             this.btnconfirm.Text = "confirmar";
             this.btnconfirm.UseVisualStyleBackColor = true;
+            this.btnconfirm.Click += new System.EventHandler(this.btnconfirm_Click);
             // 
             // label1
             // 
@@ -188,11 +196,19 @@ namespace GameFacePrototype
             this.label2.TabIndex = 61;
             this.label2.Text = "Recuerda que debes seleccionar por lo menos 3 categorías";
             // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(355, 366);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(356, 72);
+            this.panel1.TabIndex = 62;
+            // 
             // EditPreferences
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label9);
@@ -232,5 +248,6 @@ namespace GameFacePrototype
         private System.Windows.Forms.Button btnconfirm;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel1;
     }
 }
