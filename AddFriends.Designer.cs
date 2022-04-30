@@ -73,6 +73,7 @@
             this.pbProfilePic.Margin = new System.Windows.Forms.Padding(4);
             this.pbProfilePic.Name = "pbProfilePic";
             this.pbProfilePic.Size = new System.Drawing.Size(87, 74);
+            this.pbProfilePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbProfilePic.TabIndex = 12;
             this.pbProfilePic.TabStop = false;
             // 
