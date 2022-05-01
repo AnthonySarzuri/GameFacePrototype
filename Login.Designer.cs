@@ -29,6 +29,7 @@ namespace GameFacePrototype
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tbUser = new System.Windows.Forms.TextBox();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@ namespace GameFacePrototype
             this.lblError = new System.Windows.Forms.Label();
             this.lblRegister = new System.Windows.Forms.Label();
             this.lblPasswordGet = new System.Windows.Forms.Label();
+            this.timerOut = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // tbUser
@@ -108,6 +110,11 @@ namespace GameFacePrototype
             this.lblPasswordGet.Text = "¿Olvidaste tu contraseña?";
             this.lblPasswordGet.Click += new System.EventHandler(this.lblPasswordGet_Click);
             // 
+            // timerOut
+            // 
+            this.timerOut.Interval = 1000;
+            this.timerOut.Tick += new System.EventHandler(this.timerOut_Tick);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -138,5 +145,6 @@ namespace GameFacePrototype
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Label lblRegister;
         private System.Windows.Forms.Label lblPasswordGet;
+        private System.Windows.Forms.Timer timerOut;
     }
 }

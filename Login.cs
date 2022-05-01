@@ -53,8 +53,17 @@ namespace GameFacePrototype
                 }
                 else
                 {
-                    lblError.Text = "Su usuario o con traseña son incorrectos, revise por favor";
+                    lblError.Text = "Su usuario o contraseña son incorrectos, revise por favor";
                     tbPassword.Text = "";
+                    Global.tries++;
+                }
+                if (Global.tries >= 3)
+                {
+                    MessageBox.Show("Número de intentos de inicio de sesión superado.");
+                    btnLogin.Enabled = false;
+                    timerOut.Start();
+                    //Global.sec = 5;
+                    Global.cont = 0;
                 }
 
 
@@ -80,7 +89,17 @@ namespace GameFacePrototype
             this.Hide();
         }
 
-
-      
+        private void timerOut_Tick(object sender, EventArgs e)
+        {
+            Global.cont += 1;
+            if (Global.cont == 5 * Global.cont2)
+            {
+                timerOut.Stop();
+                btnLogin.Enabled = true;
+                Global.cont2++;
+                Global.tries = 0;
+                Global.cont = 0;
+            }
+        }
     }
 }

@@ -15,6 +15,8 @@ namespace GameFacePrototype
         static public int IdPost;
         static public int IdComments;
         static public int IdComment;
-        static public int[] VectorGustos = new int[7]; 
+        static public int[] VectorGustos = new int[7];
+        static public int tries = 0;
+        static public int cont, cont2 = 1;
     }
 }
