@@ -34,7 +34,6 @@
             this.LBLShowUserId = new System.Windows.Forms.Label();
             this.LBLShowBirthday = new System.Windows.Forms.Label();
             this.BTNAddFriend = new System.Windows.Forms.Button();
-            this.BTNShowFriends = new System.Windows.Forms.Button();
             this.BTNBack = new System.Windows.Forms.Button();
             this.LBLShowBiography = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -93,15 +92,6 @@
             this.BTNAddFriend.UseVisualStyleBackColor = true;
             this.BTNAddFriend.Click += new System.EventHandler(this.BTNAddFriend_Click);
             // 
-            // BTNShowFriends
-            // 
-            this.BTNShowFriends.Location = new System.Drawing.Point(71, 159);
-            this.BTNShowFriends.Name = "BTNShowFriends";
-            this.BTNShowFriends.Size = new System.Drawing.Size(75, 23);
-            this.BTNShowFriends.TabIndex = 12;
-            this.BTNShowFriends.Text = "Amigos";
-            this.BTNShowFriends.UseVisualStyleBackColor = true;
-            // 
             // BTNBack
             // 
             this.BTNBack.Location = new System.Drawing.Point(867, 7);
@@ -130,7 +120,6 @@
             this.panel1.Controls.Add(this.LBLShowBiography);
             this.panel1.Controls.Add(this.LBLShowUser);
             this.panel1.Controls.Add(this.LBLShowUserId);
-            this.panel1.Controls.Add(this.BTNShowFriends);
             this.panel1.Controls.Add(this.LBLShowBirthday);
             this.panel1.Controls.Add(this.BTNAddFriend);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -165,14 +154,14 @@
             this.PanelPosts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelPosts.Location = new System.Drawing.Point(0, 240);
             this.PanelPosts.Name = "PanelPosts";
-            this.PanelPosts.Size = new System.Drawing.Size(910, 895);
+            this.PanelPosts.Size = new System.Drawing.Size(910, 821);
             this.PanelPosts.TabIndex = 16;
             // 
             // ProfileThird
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 1135);
+            this.ClientSize = new System.Drawing.Size(910, 1061);
             this.Controls.Add(this.PanelPosts);
             this.Controls.Add(this.panel1);
             this.Name = "ProfileThird";
@@ -192,7 +181,6 @@
         private System.Windows.Forms.Label LBLShowUserId;
         private System.Windows.Forms.Label LBLShowBirthday;
         private System.Windows.Forms.Button BTNAddFriend;
-        private System.Windows.Forms.Button BTNShowFriends;
         private System.Windows.Forms.Button BTNBack;
         private System.Windows.Forms.Label LBLShowBiography;
         private System.Windows.Forms.Panel panel1;
