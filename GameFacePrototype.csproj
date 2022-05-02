@@ -107,6 +107,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="FriendsandRequests.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FriendsandRequests.Designer.cs">
+      <DependentUpon>FriendsandRequests.cs</DependentUpon>
+    </Compile>
     <Compile Include="Global.cs" />
     <Compile Include="Posts.cs" />
     <Compile Include="ProfileThird.cs">
@@ -153,6 +159,18 @@
     <Compile Include="Profile.designer.cs">
       <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
+    <Compile Include="UCFriends.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCFriends.Designer.cs">
+      <DependentUpon>UCFriends.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UCRequests.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UCRequests.Designer.cs">
+      <DependentUpon>UCRequests.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddFriends.resx">
       <DependentUpon>AddFriends.cs</DependentUpon>
     </EmbeddedResource>
@@ -183,6 +201,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FriendsandRequests.resx">
+      <DependentUpon>FriendsandRequests.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PrivateInterface.resx">
       <DependentUpon>PrivateInterface.cs</DependentUpon>
     </EmbeddedResource>
@@ -212,6 +233,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Profile.resx">
       <DependentUpon>Profile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCFriends.resx">
+      <DependentUpon>UCFriends.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UCRequests.resx">
+      <DependentUpon>UCRequests.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

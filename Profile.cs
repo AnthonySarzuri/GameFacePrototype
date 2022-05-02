@@ -126,5 +126,11 @@ namespace GameFacePrototype
             this.Hide();
             createPostTest.FormClosing += Edit_FormClosing;
         }
+
+        private void BTNShowFriends_Click(object sender, EventArgs e)
+        {
+            FriendsandRequests FriendsR = new FriendsandRequests();
+            FriendsR.Show();
+        }
     }
 }

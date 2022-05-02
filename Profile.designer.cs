@@ -33,13 +33,13 @@
             this.btnEditProfilePicture = new System.Windows.Forms.Button();
             this.btnComentarioPrueba = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
-            this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.PBProfilePicture = new System.Windows.Forms.PictureBox();
             this.LBLShowBirthday = new System.Windows.Forms.Label();
             this.LBLShowUserId = new System.Windows.Forms.Label();
             this.LBLShowBiography = new System.Windows.Forms.Label();
             this.LBLShowUser = new System.Windows.Forms.Label();
             this.BTNShowFriends = new System.Windows.Forms.Button();
+            this.PanelPrincipal = new System.Windows.Forms.Panel();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).BeginInit();
             this.SuspendLayout();
@@ -90,16 +90,6 @@
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(1011, 301);
             this.panelLeft.TabIndex = 22;
-            // 
-            // PanelPrincipal
-            // 
-            this.PanelPrincipal.AutoScroll = true;
-            this.PanelPrincipal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelPrincipal.Location = new System.Drawing.Point(0, 301);
-            this.PanelPrincipal.Name = "PanelPrincipal";
-            this.PanelPrincipal.Size = new System.Drawing.Size(1011, 850);
-            this.PanelPrincipal.TabIndex = 26;
             // 
             // PBProfilePicture
             // 
@@ -156,12 +146,23 @@
             this.BTNShowFriends.TabIndex = 37;
             this.BTNShowFriends.Text = "Amigos";
             this.BTNShowFriends.UseVisualStyleBackColor = true;
+            this.BTNShowFriends.Click += new System.EventHandler(this.BTNShowFriends_Click);
+            // 
+            // PanelPrincipal
+            // 
+            this.PanelPrincipal.AutoScroll = true;
+            this.PanelPrincipal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelPrincipal.Location = new System.Drawing.Point(0, 301);
+            this.PanelPrincipal.Name = "PanelPrincipal";
+            this.PanelPrincipal.Size = new System.Drawing.Size(1011, 448);
+            this.PanelPrincipal.TabIndex = 26;
             // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 1151);
+            this.ClientSize = new System.Drawing.Size(1011, 749);
             this.Controls.Add(this.PanelPrincipal);
             this.Controls.Add(this.panelLeft);
             this.Name = "Profile";
