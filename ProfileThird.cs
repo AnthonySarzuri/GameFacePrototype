@@ -168,16 +168,16 @@ namespace GameFacePrototype
 
 
             da.Fill(dt);
-            if (int.Parse(da.SelectCommand.Parameters["@Status"].Value.ToString()) == 0)
-            {
-                lblConection.Text = "Desconectado";
-                showUserLastConnect();
-            }
-            else
+            if (int.Parse(da.SelectCommand.Parameters["@Status"].Value.ToString()) == 1)
             {
                 lblConection.Text = "Conectado";
                 LBLLastDay.Text = " ";
                 LBLLastTime.Text = " ";
+            }
+            else
+            {
+                lblConection.Text = "Desconectado";
+                showUserLastConnect();
             }
         }
     }

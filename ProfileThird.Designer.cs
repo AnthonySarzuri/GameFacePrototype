@@ -142,7 +142,7 @@
             // LBLLastTime
             // 
             this.LBLLastTime.AutoSize = true;
-            this.LBLLastTime.Location = new System.Drawing.Point(36, 258);
+            this.LBLLastTime.Location = new System.Drawing.Point(33, 295);
             this.LBLLastTime.Name = "LBLLastTime";
             this.LBLLastTime.Size = new System.Drawing.Size(46, 17);
             this.LBLLastTime.TabIndex = 16;
@@ -151,7 +151,7 @@
             // LBLLastDay
             // 
             this.LBLLastDay.AutoSize = true;
-            this.LBLLastDay.Location = new System.Drawing.Point(36, 231);
+            this.LBLLastDay.Location = new System.Drawing.Point(33, 268);
             this.LBLLastDay.Name = "LBLLastDay";
             this.LBLLastDay.Size = new System.Drawing.Size(46, 17);
             this.LBLLastDay.TabIndex = 15;
@@ -170,13 +170,13 @@
             // tmconected
             // 
             this.tmconected.Enabled = true;
-            this.tmconected.Interval = 90000;
+            this.tmconected.Interval = 50000;
             this.tmconected.Tick += new System.EventHandler(this.tmconected_Tick);
             // 
             // lblConection
             // 
             this.lblConection.AutoSize = true;
-            this.lblConection.Location = new System.Drawing.Point(36, 288);
+            this.lblConection.Location = new System.Drawing.Point(33, 238);
             this.lblConection.Name = "lblConection";
             this.lblConection.Size = new System.Drawing.Size(46, 17);
             this.lblConection.TabIndex = 17;
