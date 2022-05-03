@@ -56,7 +56,8 @@ namespace GameFacePrototype
 
        
         private void button1_Click(object sender, EventArgs e)
-        {          
+        {
+            conectedDOWN();
             Application.Exit();
         }
         private void lastConnected()
@@ -179,6 +180,23 @@ namespace GameFacePrototype
         {
             mainPanel.Controls.Clear();
             generarPost();
+        }
+
+        private void conectedDOWN()
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_ConectedDOWN", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand.Parameters.Add("@IdUser", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@IdUser"].Value = Global.IdUser;
+
+            da.Fill(dt);
+            Global.Status = 0;
         }
     }
 }

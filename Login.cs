@@ -45,6 +45,7 @@ namespace GameFacePrototype
                     iduser = (int)(dt.Rows[0][0]);
                     Global.IdUser = iduser;
 
+                    conectedUP();
 
                     PrivateInterface inter = new PrivateInterface();
                     inter.Show();
@@ -100,6 +101,23 @@ namespace GameFacePrototype
                 Global.tries = 0;
                 Global.cont = 0;
             }
+        }
+        private void conectedUP()
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_ConectedUP", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+                da.SelectCommand.Parameters.Add("@IdUser", SqlDbType.Int);
+
+                da.SelectCommand.Parameters["@IdUser"].Value = Global.IdUser;
+               
+                da.Fill(dt);
+
+            Global.Status = 1;
         }
     }
 }

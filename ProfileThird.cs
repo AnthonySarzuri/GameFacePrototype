@@ -22,7 +22,7 @@ namespace GameFacePrototype
             {
                 showUserData();
                 generarPost();
-                showUserLastConnect();
+                
             }
             catch (Exception E) 
             {
@@ -144,6 +144,35 @@ namespace GameFacePrototype
             da.SelectCommand.Parameters["@DestinyId"].Value = Global.IdUserThird;
 
             da.Fill(dt);
+        }
+
+        private void tmconected_Tick(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_CheckConection", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand.Parameters.Add("@IdUser", SqlDbType.Int);
+            da.SelectCommand.Parameters.Add("@Status", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            da.SelectCommand.Parameters["@IdUser"].Value = Global.IdUserThird;
+
+
+            da.Fill(dt);
+            if(int.Parse(da.SelectCommand.Parameters["@Status"].Value.ToString()) == 0)
+            {
+                lblConection.Text = "Desconectado";
+                showUserLastConnect();
+            }
+            else
+            {
+                lblConection.Text = "Conectado";
+                LBLLastDay.Text = " ";
+                LBLLastTime.Text = " ";
+            }
         }
     }
 }

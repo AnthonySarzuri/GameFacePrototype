@@ -783,6 +783,8 @@ namespace GameFacePrototype
 
             da.Fill(dt);
 
+            WriteComment.Clear();
+            WriteComment.Refresh();
             commentPanel.Controls.Clear();
             GenerarComment();
             PanelComment.Controls.Add(commentPanel);
