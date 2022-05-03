@@ -159,6 +159,7 @@
     <Compile Include="Profile.designer.cs">
       <DependentUpon>Profile.cs</DependentUpon>
     </Compile>
+    <Compile Include="SimpleDateFormat.cs" />
     <Compile Include="UCFriends.cs">
       <SubType>UserControl</SubType>
     </Compile>

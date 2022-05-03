@@ -4,10 +4,12 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace GameFacePrototype
 {
@@ -16,6 +18,7 @@ namespace GameFacePrototype
         public EditProfile()
         {
             InitializeComponent();
+            showUserData();
         }
 
         //Ir a cambiar contraseña
@@ -138,6 +141,48 @@ namespace GameFacePrototype
             EditPreferences editpref = new EditPreferences();
             editpref.Show();
             this.Close();
+        }
+
+        private void showUserData()
+        {
+            DataTable dt = new DataTable();
+            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_ShowUserId", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.Add("@id", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@id"].Value = Global.IdUser;
+            da.Fill(dt);
+            //string a = dt.Rows[0]["Birthday"].ToString();
+            //string dateString = a;
+            //string format = "dd/MM/yyyy hh:mm:ss.fffffff";
+            //DateTime fecha = DateTime.ParseExact(dateString, format, CultureInfo.InvariantCulture);
+            if (dt.Rows.Count > 0)
+            {
+                TBUserEdit.Text = dt.Rows[0]["UserName"].ToString();
+                TBMailEdit.Text = dt.Rows[0]["Mail"].ToString();
+                if (dt.Rows[0]["Birthday"].ToString() != "") 
+                {
+                    //DTPbirthday.Value = DateTime.Parse( dt.Rows[0]["Birthday"].ToString());
+                }
+                if (dt.Rows[0]["Biography"].ToString() != "") 
+                {
+                    TBBiographyEdit.Text = dt.Rows[0]["Biography"].ToString();
+                }
+                if (dt.Rows[0]["Mobile"].ToString() != "")
+                {
+                    TBPhoneEdit.Text = dt.Rows[0]["Mobile"].ToString();
+                }
+                Byte[] myByte = new byte[0];
+                myByte = (Byte[])(dt.Rows[0]["ProfilePhoto"]);
+                MemoryStream ms = new MemoryStream(myByte);
+                PBProfilePicture.Image = Image.FromStream(ms);
+            }
+            else
+            {
+                MessageBox.Show("Datos No Encontrados");
+            }
         }
     }
 }
