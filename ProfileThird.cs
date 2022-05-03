@@ -22,7 +22,8 @@ namespace GameFacePrototype
             {
                 showUserData();
                 generarPost();
-                
+                CheckConection();
+
             }
             catch (Exception E) 
             {
@@ -148,6 +149,11 @@ namespace GameFacePrototype
 
         private void tmconected_Tick(object sender, EventArgs e)
         {
+            CheckConection();
+        }
+
+        private void CheckConection()
+        {
             DataTable dt = new DataTable();
             string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
 
@@ -162,7 +168,7 @@ namespace GameFacePrototype
 
 
             da.Fill(dt);
-            if(int.Parse(da.SelectCommand.Parameters["@Status"].Value.ToString()) == 0)
+            if (int.Parse(da.SelectCommand.Parameters["@Status"].Value.ToString()) == 0)
             {
                 lblConection.Text = "Desconectado";
                 showUserLastConnect();
