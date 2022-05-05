@@ -42,6 +42,7 @@
             this.lblObligatoryField = new System.Windows.Forms.Label();
             this.btnRegisterUser = new System.Windows.Forms.Button();
             this.btnRegisterToSignIn = new System.Windows.Forms.Button();
+            this.guna2ComboBox1 = new Guna.UI2.WinForms.Guna2ComboBox();
             this.SuspendLayout();
             // 
             // btnCloseRegisterUser
@@ -179,11 +180,27 @@
             this.btnRegisterToSignIn.Text = "¿Tienes una cuenta? Inicia Sesion";
             this.btnRegisterToSignIn.UseVisualStyleBackColor = false;
             // 
+            // guna2ComboBox1
+            // 
+            this.guna2ComboBox1.BackColor = System.Drawing.Color.Transparent;
+            this.guna2ComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.guna2ComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.guna2ComboBox1.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.guna2ComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.guna2ComboBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
+            this.guna2ComboBox1.ItemHeight = 30;
+            this.guna2ComboBox1.Location = new System.Drawing.Point(79, 200);
+            this.guna2ComboBox1.Name = "guna2ComboBox1";
+            this.guna2ComboBox1.Size = new System.Drawing.Size(140, 36);
+            this.guna2ComboBox1.TabIndex = 14;
+            // 
             // RegisterUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.guna2ComboBox1);
             this.Controls.Add(this.btnRegisterToSignIn);
             this.Controls.Add(this.btnRegisterUser);
             this.Controls.Add(this.lblObligatoryField);
@@ -221,5 +238,6 @@
         private System.Windows.Forms.Label lblObligatoryField;
         private System.Windows.Forms.Button btnRegisterUser;
         private System.Windows.Forms.Button btnRegisterToSignIn;
+        private Guna.UI2.WinForms.Guna2ComboBox guna2ComboBox1;
     }
 }
