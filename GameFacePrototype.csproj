@@ -117,6 +117,12 @@
       <DependentUpon>FriendsandRequests.cs</DependentUpon>
     </Compile>
     <Compile Include="Global.cs" />
+    <Compile Include="Personalizado\Boton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Personalizado\PubPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Posts.cs" />
     <Compile Include="ProfileThird.cs">
       <SubType>Form</SubType>
@@ -124,6 +130,7 @@
     <Compile Include="ProfileThird.Designer.cs">
       <DependentUpon>ProfileThird.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProofScroll.cs" />
     <Compile Include="SeleccionGustos.cs">
       <SubType>Form</SubType>
     </Compile>
