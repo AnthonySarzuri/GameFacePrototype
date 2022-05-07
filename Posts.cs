@@ -71,7 +71,7 @@ namespace GameFacePrototype
         {
 
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_ShowPostUserProfile", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -225,9 +225,7 @@ namespace GameFacePrototype
 
             //Post Entero
             //post.Size = new Size(600, 900);
-
             post.AutoSize = true;
-            post.Margin = new Padding(50);
             post.Location = new Point(100, position);
             post.Visible = true;
             post.BorderStyle = BorderStyle.FixedSingle;
@@ -248,7 +246,7 @@ namespace GameFacePrototype
 
 
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_ShowPostUserFriends", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -409,7 +407,6 @@ namespace GameFacePrototype
             //post.Size = new Size(600, 900);
 
             post.AutoSize = true;
-            post.Margin = new Padding(50);
             post.Location = new Point(100, position);
             post.Visible = true;
             post.BorderStyle = BorderStyle.FixedSingle;
@@ -431,7 +428,7 @@ namespace GameFacePrototype
         public void RefreshPost()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_ShowPost", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -477,7 +474,7 @@ namespace GameFacePrototype
         private void profilePictureComment()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_ShowUserId", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -506,7 +503,7 @@ namespace GameFacePrototype
         {
 
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
 
             SqlDataAdapter da = new SqlDataAdapter("SP_ValidateReaction", dataConnection);
@@ -533,7 +530,7 @@ namespace GameFacePrototype
         private void ValidarShare()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
 
             SqlDataAdapter da = new SqlDataAdapter("SP_ValidateShare", dataConnection);
@@ -557,7 +554,7 @@ namespace GameFacePrototype
         private void addLike()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
 
             SqlDataAdapter da = new SqlDataAdapter("SP_Addlikes", dataConnection);
@@ -576,7 +573,7 @@ namespace GameFacePrototype
         private void removeLike()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_RemoveLikes", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -592,7 +589,7 @@ namespace GameFacePrototype
         private void addDislike()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
 
             SqlDataAdapter da = new SqlDataAdapter("SP_AddDislikes", dataConnection);
@@ -607,7 +604,7 @@ namespace GameFacePrototype
         private void removeDislike()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
 
             SqlDataAdapter da = new SqlDataAdapter("SP_RemoveDislikes", dataConnection);
@@ -622,7 +619,7 @@ namespace GameFacePrototype
         private void addShare()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
 
             SqlDataAdapter da = new SqlDataAdapter("SP_AddShare", dataConnection);
@@ -637,7 +634,7 @@ namespace GameFacePrototype
         private void removeShare()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
 
             SqlDataAdapter da = new SqlDataAdapter("SP_RemoveShare", dataConnection);
@@ -744,7 +741,7 @@ namespace GameFacePrototype
             commentPanel.AutoScroll = true;
 
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_CountComments", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -769,7 +766,7 @@ namespace GameFacePrototype
         private void BtnComment_Click1(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_CreateComments", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -791,6 +788,9 @@ namespace GameFacePrototype
 
         }
 
-
     }
+
+
+
 }
+

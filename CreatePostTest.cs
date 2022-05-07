@@ -34,7 +34,7 @@ namespace GameFacePrototype
         private void btnCreatePost_Click_1(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_CreatePost", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;

@@ -40,6 +40,7 @@
             this.LBLShowUser = new System.Windows.Forms.Label();
             this.BTNShowFriends = new System.Windows.Forms.Button();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
+            this.btnRefreshNewPosts = new System.Windows.Forms.Button();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).BeginInit();
             this.SuspendLayout();
@@ -48,7 +49,7 @@
             // 
             this.btnNewPost.Location = new System.Drawing.Point(802, 16);
             this.btnNewPost.Name = "btnNewPost";
-            this.btnNewPost.Size = new System.Drawing.Size(153, 76);
+            this.btnNewPost.Size = new System.Drawing.Size(153, 26);
             this.btnNewPost.TabIndex = 25;
             this.btnNewPost.Text = "Nueva Publicacion +";
             this.btnNewPost.UseVisualStyleBackColor = true;
@@ -56,9 +57,9 @@
             // 
             // btnEditProfilePicture
             // 
-            this.btnEditProfilePicture.Location = new System.Drawing.Point(802, 201);
+            this.btnEditProfilePicture.Location = new System.Drawing.Point(802, 90);
             this.btnEditProfilePicture.Name = "btnEditProfilePicture";
-            this.btnEditProfilePicture.Size = new System.Drawing.Size(153, 72);
+            this.btnEditProfilePicture.Size = new System.Drawing.Size(153, 27);
             this.btnEditProfilePicture.TabIndex = 24;
             this.btnEditProfilePicture.Text = "Editar perfil";
             this.btnEditProfilePicture.UseVisualStyleBackColor = true;
@@ -66,9 +67,9 @@
             // 
             // btnComentarioPrueba
             // 
-            this.btnComentarioPrueba.Location = new System.Drawing.Point(802, 119);
+            this.btnComentarioPrueba.Location = new System.Drawing.Point(802, 54);
             this.btnComentarioPrueba.Name = "btnComentarioPrueba";
-            this.btnComentarioPrueba.Size = new System.Drawing.Size(153, 59);
+            this.btnComentarioPrueba.Size = new System.Drawing.Size(153, 21);
             this.btnComentarioPrueba.TabIndex = 22;
             this.btnComentarioPrueba.Text = "Comentario Prueba";
             this.btnComentarioPrueba.UseVisualStyleBackColor = true;
@@ -76,6 +77,7 @@
             // 
             // panelLeft
             // 
+            this.panelLeft.Controls.Add(this.btnRefreshNewPosts);
             this.panelLeft.Controls.Add(this.PBProfilePicture);
             this.panelLeft.Controls.Add(this.LBLShowBirthday);
             this.panelLeft.Controls.Add(this.LBLShowUserId);
@@ -158,6 +160,16 @@
             this.PanelPrincipal.Size = new System.Drawing.Size(1011, 448);
             this.PanelPrincipal.TabIndex = 26;
             // 
+            // btnRefreshNewPosts
+            // 
+            this.btnRefreshNewPosts.Location = new System.Drawing.Point(802, 132);
+            this.btnRefreshNewPosts.Name = "btnRefreshNewPosts";
+            this.btnRefreshNewPosts.Size = new System.Drawing.Size(153, 24);
+            this.btnRefreshNewPosts.TabIndex = 39;
+            this.btnRefreshNewPosts.Text = "Cargar mas posts";
+            this.btnRefreshNewPosts.UseVisualStyleBackColor = true;
+            this.btnRefreshNewPosts.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,5 +198,6 @@
         private System.Windows.Forms.Label LBLShowBiography;
         private System.Windows.Forms.Label LBLShowUser;
         private System.Windows.Forms.Button BTNShowFriends;
+        private System.Windows.Forms.Button btnRefreshNewPosts;
     }
 }

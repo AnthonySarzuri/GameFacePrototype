@@ -24,7 +24,7 @@ namespace GameFacePrototype
         private void populateFriends()
         {
             flpFriends.Controls.Clear();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
 
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_GetFriendsList", dataConnection);
@@ -73,7 +73,7 @@ namespace GameFacePrototype
         private void populateRequests()
         {
             flpRequests.Controls.Clear();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
 
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_GetUsersPRequests", dataConnection);

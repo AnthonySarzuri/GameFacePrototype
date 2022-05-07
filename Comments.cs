@@ -39,7 +39,7 @@ namespace GameFacePrototype
         public Panel generarComentarios()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_ShowCommentsUser", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -105,7 +105,7 @@ namespace GameFacePrototype
         private void ShowComent()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_ShowComment", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -141,7 +141,7 @@ namespace GameFacePrototype
         private void BtnDeleteComment_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_DeleteComments", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;

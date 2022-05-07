@@ -25,7 +25,7 @@ namespace GameFacePrototype
 
         private void btnChangePassword_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs");
+            SqlConnection con = new SqlConnection(Global.Conexion);
             SqlDataAdapter Adpt = new SqlDataAdapter("SP_SelectPassById", con);
             con.Open();
             Adpt.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -66,7 +66,7 @@ namespace GameFacePrototype
                             {
                                 DataTable dt = new DataTable();
 
-                                SqlConnection dataConnection = new SqlConnection("Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs");
+                                SqlConnection dataConnection = new SqlConnection(Global.Conexion);
                                 SqlDataAdapter da = new SqlDataAdapter("SP_ChangePassword", dataConnection);
                                 dataConnection.Open();
                                 da.SelectCommand.CommandType = CommandType.StoredProcedure;

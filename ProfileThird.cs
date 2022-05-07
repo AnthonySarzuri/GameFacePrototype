@@ -14,6 +14,8 @@ namespace GameFacePrototype
 {
     public partial class ProfileThird : Form
     {
+        private int continuar;
+        private int pos;
         
         public ProfileThird()
         {
@@ -38,7 +40,7 @@ namespace GameFacePrototype
         private void showUserData() 
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_ShowUserId", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -67,7 +69,7 @@ namespace GameFacePrototype
         {
 
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_CountPostUser", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -86,13 +88,50 @@ namespace GameFacePrototype
                 publi.generarPostUser();
                 PanelPosts.Controls.Add(publi.post);
                 posicion = aux * i;
+                pos = posicion;
+                continuar = i + 1;
+                if (i == 10)
+                {
+                    break;
+                }
+            }
+        }
+        private void newPost()
+        {
+
+            DataTable dt = new DataTable();
+            string sConexion = Global.Conexion;
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_CountPostUser", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.Add("@idUser", SqlDbType.Int);
+            da.SelectCommand.Parameters["@idUser"].Value = Global.IdUserThird;
+
+            da.Fill(dt);
+
+            int posicion = pos;
+            int aux = 1100;
+            int count = int.Parse(dt.Rows[0][0].ToString());
+           
+            for (int i = continuar; i <= count; i++)
+            {
+                Posts publi = new Posts(Global.IdUserThird, (i - 1), posicion);
+                publi.generarPostUser();
+                PanelPosts.Controls.Add(publi.post);
+                posicion = aux * i;
+                pos = posicion;
+                continuar = i + 1;
+                if (i % 10 == 0)
+                {
+                    break;
+                }
             }
         }
 
         private void showUserLastConnect()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_LastConnectedShow", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -133,7 +172,7 @@ namespace GameFacePrototype
         private void AddFriend() 
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_AddFriendId", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -155,7 +194,7 @@ namespace GameFacePrototype
         private void CheckConection()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
 
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_CheckConection", dataConnection);
@@ -180,5 +219,15 @@ namespace GameFacePrototype
                 showUserLastConnect();
             }
         }
+
+        private void btnRefreshNewPosts_Click(object sender, EventArgs e)
+        {
+        
+            newPost();
+            
+        }
+
+        
+        
     }
 }

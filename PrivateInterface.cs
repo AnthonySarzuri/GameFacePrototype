@@ -14,7 +14,9 @@ namespace GameFacePrototype
 {
     public partial class PrivateInterface : Form
     {
-        
+        private int postCount;
+        private int continuar;
+        private int pos;
         public PrivateInterface()
         {
             
@@ -27,7 +29,7 @@ namespace GameFacePrototype
         {
 
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_CountPostFriends", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -36,17 +38,56 @@ namespace GameFacePrototype
 
             da.Fill(dt);
 
-            
+
             int posicion = 0;
             int aux = 1100;
             int count = int.Parse(dt.Rows[0][0].ToString());
-
-            for (int i = 1; i <=count ; i++)
+            postCount = int.Parse(dt.Rows[0][0].ToString());
+            for (int i = 1; i <= count; i++)
             {
-                Posts publi = new Posts(Global.IdUser,(i - 1), posicion);
+                Posts publi = new Posts(Global.IdUser, (i - 1), posicion);
                 publi.generarPostFriend();
                 mainPanel.Controls.Add(publi.post);
                 posicion = aux * i;
+                pos = posicion;
+                continuar = i + 1;
+                if (i == 10)
+                {
+                    break;
+                }
+
+            }
+        }
+        private void newPost()
+        {
+
+            DataTable dt = new DataTable();
+            string sConexion = Global.Conexion;
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_CountPostFriends", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.Add("@idUser", SqlDbType.Int);
+            da.SelectCommand.Parameters["@idUser"].Value = Global.IdUser;
+
+            da.Fill(dt);
+
+            int posicion = pos;
+            int aux = 1100;
+            int count = int.Parse(dt.Rows[0][0].ToString());
+            postCount = int.Parse(dt.Rows[0][0].ToString());
+            for (int i = continuar; i <= count; i++)
+            {
+                Posts publi = new Posts(Global.IdUser, (i - 1), posicion);
+                publi.generarPostFriend();
+                mainPanel.Controls.Add(publi.post);
+                posicion = aux * i;
+                pos = posicion;
+                continuar = i + 1;
+                if (i % 10 == 0)
+                {
+
+                    break;
+                }
             }
         }
         private void btnEditProfile_Click(object sender, EventArgs e)
@@ -68,7 +109,7 @@ namespace GameFacePrototype
         private void CreatePostTest_FormClosing(object sender, FormClosingEventArgs e)
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_LastConnected", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -128,7 +169,7 @@ namespace GameFacePrototype
         {
             flowLayoutPanel1.Controls.Clear();
             lblNotFound.Text = "";
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
 
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_SearchPeople", dataConnection);
@@ -185,7 +226,7 @@ namespace GameFacePrototype
         private void conectedDOWN()
         {
             DataTable dt = new DataTable();
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
 
             SqlConnection dataConnection = new SqlConnection(sConexion);
             SqlDataAdapter da = new SqlDataAdapter("SP_ConectedDOWN", dataConnection);
@@ -197,6 +238,38 @@ namespace GameFacePrototype
 
             da.Fill(dt);
             Global.Status = 0;
+        }
+
+        private void btnRefreshNewPost_Click(object sender, EventArgs e)
+        {
+            mainPanel.Controls.Clear();
+            generarPost();
+            btnRefreshNewPost.Visible = false;
+        }
+
+        private void tmrefreshNewPosts_Tick(object sender, EventArgs e)
+        {
+
+            DataTable dt = new DataTable();
+            string sConexion = Global.Conexion;
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_CountPostFriends", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.Add("@idUser", SqlDbType.Int);
+            da.SelectCommand.Parameters["@idUser"].Value = Global.IdUser;
+
+            da.Fill(dt);
+
+            if (postCount < int.Parse(dt.Rows[0][0].ToString()))
+            {
+                postCount = int.Parse(dt.Rows[0][0].ToString());
+                btnRefreshNewPost.Visible = true;
+            }
+        }
+
+        private void btnNewPosts_Click(object sender, EventArgs e)
+        {
+            newPost();
         }
     }
 }

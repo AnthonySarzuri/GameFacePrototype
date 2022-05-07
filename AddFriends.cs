@@ -39,7 +39,7 @@ namespace GameFacePrototype
 
         private void btnSeeProfile_Click(object sender, EventArgs e)
         {
-            string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            string sConexion = Global.Conexion;
 
             try
             {

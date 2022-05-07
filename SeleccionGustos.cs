@@ -34,7 +34,7 @@ namespace GameFacePrototype
         public static class Global1
         {
             public static int cont=0;
-            public static string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+            public static string sConexion = Global.Conexion;
             public static SqlConnection dataConnection = new SqlConnection(sConexion);
             public static SqlDataAdapter da;
             public static int idCategory = 0;

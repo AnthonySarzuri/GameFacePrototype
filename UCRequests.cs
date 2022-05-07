@@ -44,7 +44,7 @@ namespace GameFacePrototype
         {
             try
             {
-                string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+                string sConexion = Global.Conexion;
 
                 SqlConnection dataConnection = new SqlConnection(sConexion);
 
@@ -92,7 +92,7 @@ namespace GameFacePrototype
         {
             try
             {
-                string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
+                string sConexion = Global.Conexion;
 
                 SqlConnection dataConnection = new SqlConnection(sConexion);
 
