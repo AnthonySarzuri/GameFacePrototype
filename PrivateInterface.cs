@@ -23,7 +23,7 @@ namespace GameFacePrototype
             InitializeComponent();
             generarPost();
             lastConnected();
-            
+            verifySuperUser();
         }
         private void generarPost()
         {
@@ -277,6 +277,16 @@ namespace GameFacePrototype
             AdminMenu adminMenu = new AdminMenu();
             adminMenu.Show();
             this.Hide();
+        }
+
+        //Verificar si es super usuario - admin
+
+        private void verifySuperUser() 
+        {
+            if(Global.isSuperUser == true) 
+            {
+                btnAdminMenu.Visible = true;
+            }
         }
     }
 }

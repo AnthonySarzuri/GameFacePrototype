@@ -146,7 +146,7 @@ namespace GameFacePrototype
                     int iduser;
                     iduser = (int)(dt.Rows[0][0]);
                     Global.IdUser = iduser;
-
+                    Global.isSuperUser = (bool)(dt.Rows[0][11]);
                     conectedUP();
 
                     PrivateInterface inter = new PrivateInterface();

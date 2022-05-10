@@ -21,5 +21,6 @@ namespace GameFacePrototype
         static public int[] VectorGustos = new int[7];
         static public int tries = 0;
         static public int cont, cont2 = 1;
+        static public bool isSuperUser;
     }
 }

@@ -42,11 +42,11 @@ namespace GameFacePrototype
             this.btnRefreshNewPost = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panelRight = new System.Windows.Forms.Panel();
+            this.btnAdminMenu = new System.Windows.Forms.Button();
             this.btnNewPosts = new System.Windows.Forms.Button();
             this.lblNotFound = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.tmrefreshNewPosts = new System.Windows.Forms.Timer(this.components);
-            this.btnAdminMenu = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panelRight.SuspendLayout();
             this.SuspendLayout();
@@ -166,6 +166,17 @@ namespace GameFacePrototype
             this.panelRight.Size = new System.Drawing.Size(298, 757);
             this.panelRight.TabIndex = 11;
             // 
+            // btnAdminMenu
+            // 
+            this.btnAdminMenu.Location = new System.Drawing.Point(68, 105);
+            this.btnAdminMenu.Name = "btnAdminMenu";
+            this.btnAdminMenu.Size = new System.Drawing.Size(75, 23);
+            this.btnAdminMenu.TabIndex = 12;
+            this.btnAdminMenu.Text = "Menu Admin";
+            this.btnAdminMenu.UseVisualStyleBackColor = true;
+            this.btnAdminMenu.Visible = false;
+            this.btnAdminMenu.Click += new System.EventHandler(this.btnAdminMenu_Click);
+            // 
             // btnNewPosts
             // 
             this.btnNewPosts.Location = new System.Drawing.Point(101, 511);
@@ -199,16 +210,6 @@ namespace GameFacePrototype
             this.tmrefreshNewPosts.Enabled = true;
             this.tmrefreshNewPosts.Interval = 30000;
             this.tmrefreshNewPosts.Tick += new System.EventHandler(this.tmrefreshNewPosts_Tick);
-            // 
-            // btnAdminMenu
-            // 
-            this.btnAdminMenu.Location = new System.Drawing.Point(68, 105);
-            this.btnAdminMenu.Name = "btnAdminMenu";
-            this.btnAdminMenu.Size = new System.Drawing.Size(75, 23);
-            this.btnAdminMenu.TabIndex = 12;
-            this.btnAdminMenu.Text = "Menu Admin";
-            this.btnAdminMenu.UseVisualStyleBackColor = true;
-            this.btnAdminMenu.Click += new System.EventHandler(this.btnAdminMenu_Click);
             // 
             // PrivateInterface
             // 
