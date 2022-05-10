@@ -39,13 +39,14 @@ namespace GameFacePrototype
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.btnRefreshNewPost = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panelRight = new System.Windows.Forms.Panel();
+            this.btnNewPosts = new System.Windows.Forms.Button();
             this.lblNotFound = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
-            this.btnRefreshNewPost = new System.Windows.Forms.Button();
             this.tmrefreshNewPosts = new System.Windows.Forms.Timer(this.components);
-            this.btnNewPosts = new System.Windows.Forms.Button();
+            this.btnAdminMenu = new System.Windows.Forms.Button();
             this.panelTop.SuspendLayout();
             this.panelRight.SuspendLayout();
             this.SuspendLayout();
@@ -126,6 +127,17 @@ namespace GameFacePrototype
             this.panelTop.Size = new System.Drawing.Size(1443, 100);
             this.panelTop.TabIndex = 6;
             // 
+            // btnRefreshNewPost
+            // 
+            this.btnRefreshNewPost.Location = new System.Drawing.Point(595, 40);
+            this.btnRefreshNewPost.Name = "btnRefreshNewPost";
+            this.btnRefreshNewPost.Size = new System.Drawing.Size(216, 38);
+            this.btnRefreshNewPost.TabIndex = 0;
+            this.btnRefreshNewPost.Text = "Cargar mas comentarios";
+            this.btnRefreshNewPost.UseVisualStyleBackColor = true;
+            this.btnRefreshNewPost.Visible = false;
+            this.btnRefreshNewPost.Click += new System.EventHandler(this.btnRefreshNewPost_Click);
+            // 
             // panelLeft
             // 
             this.panelLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -138,6 +150,7 @@ namespace GameFacePrototype
             // panelRight
             // 
             this.panelRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelRight.Controls.Add(this.btnAdminMenu);
             this.panelRight.Controls.Add(this.btnNewPosts);
             this.panelRight.Controls.Add(this.lblNotFound);
             this.panelRight.Controls.Add(this.btnRefresh);
@@ -152,6 +165,16 @@ namespace GameFacePrototype
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(298, 757);
             this.panelRight.TabIndex = 11;
+            // 
+            // btnNewPosts
+            // 
+            this.btnNewPosts.Location = new System.Drawing.Point(101, 511);
+            this.btnNewPosts.Name = "btnNewPosts";
+            this.btnNewPosts.Size = new System.Drawing.Size(184, 23);
+            this.btnNewPosts.TabIndex = 11;
+            this.btnNewPosts.Text = "Cargar mas comentarios";
+            this.btnNewPosts.UseVisualStyleBackColor = true;
+            this.btnNewPosts.Click += new System.EventHandler(this.btnNewPosts_Click);
             // 
             // lblNotFound
             // 
@@ -171,32 +194,21 @@ namespace GameFacePrototype
             this.mainPanel.Size = new System.Drawing.Size(843, 757);
             this.mainPanel.TabIndex = 12;
             // 
-            // btnRefreshNewPost
-            // 
-            this.btnRefreshNewPost.Location = new System.Drawing.Point(595, 40);
-            this.btnRefreshNewPost.Name = "btnRefreshNewPost";
-            this.btnRefreshNewPost.Size = new System.Drawing.Size(216, 38);
-            this.btnRefreshNewPost.TabIndex = 0;
-            this.btnRefreshNewPost.Text = "Cargar mas comentarios";
-            this.btnRefreshNewPost.UseVisualStyleBackColor = true;
-            this.btnRefreshNewPost.Visible = false;
-            this.btnRefreshNewPost.Click += new System.EventHandler(this.btnRefreshNewPost_Click);
-            // 
             // tmrefreshNewPosts
             // 
             this.tmrefreshNewPosts.Enabled = true;
             this.tmrefreshNewPosts.Interval = 30000;
             this.tmrefreshNewPosts.Tick += new System.EventHandler(this.tmrefreshNewPosts_Tick);
             // 
-            // btnNewPosts
+            // btnAdminMenu
             // 
-            this.btnNewPosts.Location = new System.Drawing.Point(101, 511);
-            this.btnNewPosts.Name = "btnNewPosts";
-            this.btnNewPosts.Size = new System.Drawing.Size(184, 23);
-            this.btnNewPosts.TabIndex = 11;
-            this.btnNewPosts.Text = "Cargar mas comentarios";
-            this.btnNewPosts.UseVisualStyleBackColor = true;
-            this.btnNewPosts.Click += new System.EventHandler(this.btnNewPosts_Click);
+            this.btnAdminMenu.Location = new System.Drawing.Point(68, 105);
+            this.btnAdminMenu.Name = "btnAdminMenu";
+            this.btnAdminMenu.Size = new System.Drawing.Size(75, 23);
+            this.btnAdminMenu.TabIndex = 12;
+            this.btnAdminMenu.Text = "Menu Admin";
+            this.btnAdminMenu.UseVisualStyleBackColor = true;
+            this.btnAdminMenu.Click += new System.EventHandler(this.btnAdminMenu_Click);
             // 
             // PrivateInterface
             // 
@@ -235,5 +247,6 @@ namespace GameFacePrototype
         private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Timer tmrefreshNewPosts;
         private System.Windows.Forms.Button btnNewPosts;
+        private System.Windows.Forms.Button btnAdminMenu;
     }
 }

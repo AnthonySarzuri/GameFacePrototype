@@ -271,5 +271,12 @@ namespace GameFacePrototype
         {
             newPost();
         }
+
+        private void btnAdminMenu_Click(object sender, EventArgs e)
+        {
+            AdminMenu adminMenu = new AdminMenu();
+            adminMenu.Show();
+            this.Hide();
+        }
     }
 }
