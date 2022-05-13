@@ -31,6 +31,7 @@ namespace GameFacePrototype
             registerUser.Show();
             this.Hide();
         }
+
         private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
 
