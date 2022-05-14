@@ -31,6 +31,8 @@ namespace GameFacePrototype
             this.Hide();
         }
 
+        
+
         public static class Global1
         {
             public static int cont=0;
