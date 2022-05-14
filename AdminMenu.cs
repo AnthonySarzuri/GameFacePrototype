@@ -30,5 +30,12 @@ namespace GameFacePrototype
             addReaction.Show();
             this.Hide();
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            PrivateInterface privateInterface = new PrivateInterface();
+            privateInterface.Show();
+            this.Close();
+        }
     }
 }

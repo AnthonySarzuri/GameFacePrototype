@@ -62,5 +62,12 @@ namespace GameFacePrototype
 
             da.Fill(dt);
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            AdminMenu adminMenu = new AdminMenu();
+            adminMenu.Show();
+            this.Close();
+        }
     }
 }
