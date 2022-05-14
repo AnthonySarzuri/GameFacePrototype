@@ -11,33 +11,29 @@ using System.Windows.Forms;
 
 namespace GameFacePrototype
 {
-    public partial class AddCategory : Form
+    public partial class AddReaction : Form
     {
-        public AddCategory()
+        public AddReaction()
         {
             InitializeComponent();
         }
 
-        private void btnAddCategory_Click(object sender, EventArgs e)
+        private void BTNaddReaction_Click(object sender, EventArgs e)
         {
             try
             {
-                if (string.IsNullOrEmpty(TBCategoryName.Text) || string.IsNullOrEmpty(TBCategoryDescription.Text))
+                if (string.IsNullOrEmpty(TBreaction.Text))
                 {
                     MessageBox.Show("Ingrese todos los campos obligatorios.", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                else if (TBCategoryName.Text.Length < 3)
+                else if (TBreaction.Text.Length < 3)
                 {
                     MessageBox.Show("El nombre de la categoría ingresado es muy pequeño", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-                else if (TBCategoryDescription.Text.Length < 10)
-                {
-                    MessageBox.Show("La descripción ingresada es muy pequeña", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
                 else
                 {
-                    addCategory();
-                    MessageBox.Show("Categoría añadida con exito");
+                    addReaction();
+                    MessageBox.Show("Reacción añadida con exito");
                 }
             }
             catch (Exception ex)
@@ -46,19 +42,17 @@ namespace GameFacePrototype
             }
         }
 
-        private void addCategory()
+        private void addReaction()
         {
             DataTable dt = new DataTable();
             string sConexion = Global.Conexion;
             SqlConnection dataConnection = new SqlConnection(sConexion);
-            SqlDataAdapter da = new SqlDataAdapter("SP_AddCategory", dataConnection);
+            SqlDataAdapter da = new SqlDataAdapter("SP_AddReaction", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
-            da.SelectCommand.Parameters.Add("@Category", SqlDbType.NVarChar, 20);
-            da.SelectCommand.Parameters.Add("@Description", SqlDbType.NVarChar, 150);
+            da.SelectCommand.Parameters.Add("@reaction", SqlDbType.NVarChar, 10);
 
-            da.SelectCommand.Parameters["@Category"].Value = TBCategoryName.Text;
-            da.SelectCommand.Parameters["@Description"].Value = TBCategoryDescription.Text;
+            da.SelectCommand.Parameters["@reaction"].Value = TBreaction.Text;
 
             da.Fill(dt);
         }

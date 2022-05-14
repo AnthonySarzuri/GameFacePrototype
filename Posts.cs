@@ -33,6 +33,7 @@ namespace GameFacePrototype
         private int shareCount;
 
         //Atributos para Crear el post
+        private Button btnDeletePost = new Button();
         private Label name = new Label();
         private Label nickName = new Label();
         private Label creationDate = new Label();
@@ -91,6 +92,20 @@ namespace GameFacePrototype
             da.Fill(dt);
             idPost = int.Parse(dt.Rows[RowPost][0].ToString());
             idUserFriend = int.Parse(dt.Rows[RowPost][1].ToString());
+
+            //Botón para borrar post
+
+            btnDeletePost.Location = new Point(450, 10);
+            btnDeletePost.Text = "x";
+            btnDeletePost.Click += BtnDeletePost_Click;
+            if (Global.isSuperUser)
+            {
+                btnDeletePost.Visible = true;
+            }
+            else
+            {
+                btnDeletePost.Visible = false;
+            }
 
 
             //UserName
@@ -245,6 +260,7 @@ namespace GameFacePrototype
             post.Visible = true;
             post.BorderStyle = BorderStyle.FixedSingle;
             post.Controls.Add(name);
+            post.Controls.Add(btnDeletePost);
             post.Controls.Add(nickName);
             post.Controls.Add(creationDate);
             post.Controls.Add(picture);
@@ -257,7 +273,36 @@ namespace GameFacePrototype
 
         }
 
+        //Métodos para eliminar un post (modo admin)
 
+        private void BtnDeletePost_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                deletePost();
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show("Ocurrió un error");
+            }
+        }
+
+        private void deletePost() 
+        {
+            DataTable dt = new DataTable();
+            string sConexion = Global.Conexion;
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_DeletePost", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand.Parameters.Add("@IdPost", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@IdPost"].Value = idPost;
+
+            da.Fill(dt);
+        }
+
+        /*-----*/
 
         public Panel generarPostFriend()
         {
@@ -278,6 +323,20 @@ namespace GameFacePrototype
             da.Fill(dt);
             idPost = int.Parse(dt.Rows[RowPost][0].ToString());
             idUserFriend = int.Parse(dt.Rows[RowPost][1].ToString());
+
+            //Botón para borrar post
+
+            btnDeletePost.Location = new Point(450, 10);
+            btnDeletePost.Text = "x";
+            btnDeletePost.Click += BtnDeletePost_Click;
+            if (Global.isSuperUser)
+            {
+                btnDeletePost.Visible = true;
+            }
+            else
+            {
+                btnDeletePost.Visible = false;
+            }
 
 
             //UserName
@@ -448,6 +507,7 @@ namespace GameFacePrototype
             post.Controls.Add(profilePicture);
             post.Controls.Add(reactionPanel);
             post.Controls.Add(PanelComment);
+            post.Controls.Add(btnDeletePost);
             RefreshPost();
             return post;
 

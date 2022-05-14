@@ -61,6 +61,12 @@
     <Compile Include="AddFriends.Designer.cs">
       <DependentUpon>AddFriends.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddReaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddReaction.designer.cs">
+      <DependentUpon>AddReaction.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -199,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AddFriends.resx">
       <DependentUpon>AddFriends.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddReaction.resx">
+      <DependentUpon>AddReaction.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminMenu.resx">
       <DependentUpon>AdminMenu.cs</DependentUpon>

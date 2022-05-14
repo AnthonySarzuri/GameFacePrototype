@@ -23,5 +23,12 @@ namespace GameFacePrototype
             addCategory.Show();
             this.Hide();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AddReaction addReaction = new AddReaction();
+            addReaction.Show();
+            this.Hide();
+        }
     }
 }

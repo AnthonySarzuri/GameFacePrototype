@@ -90,7 +90,7 @@ namespace GameFacePrototype
             comment.Controls.Add(nameComments);
             comment.Controls.Add(commentsWrite);
 
-            if (Global.IdUser == idUserComment)
+            if (Global.IdUser == idUserComment || Global.isSuperUser)
             {
                 comment.Controls.Add(btnDeleteComment);
             }
