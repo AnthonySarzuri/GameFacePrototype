@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace GameFacePrototype
 {
-    public partial class Form1 : Form
+    public partial class PublicInterface : Form
     {
         
         private int continuar;
-        public Form1()
+        public PublicInterface()
         {
             InitializeComponent();
             generarPost();

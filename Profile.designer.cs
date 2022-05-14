@@ -33,6 +33,7 @@
             this.btnEditProfilePicture = new System.Windows.Forms.Button();
             this.btnComentarioPrueba = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.btnRefreshNewPosts = new System.Windows.Forms.Button();
             this.PBProfilePicture = new System.Windows.Forms.PictureBox();
             this.LBLShowBirthday = new System.Windows.Forms.Label();
             this.LBLShowUserId = new System.Windows.Forms.Label();
@@ -40,7 +41,7 @@
             this.LBLShowUser = new System.Windows.Forms.Label();
             this.BTNShowFriends = new System.Windows.Forms.Button();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
-            this.btnRefreshNewPosts = new System.Windows.Forms.Button();
+            this.btnchat = new System.Windows.Forms.Button();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).BeginInit();
             this.SuspendLayout();
@@ -77,6 +78,7 @@
             // 
             // panelLeft
             // 
+            this.panelLeft.Controls.Add(this.btnchat);
             this.panelLeft.Controls.Add(this.btnRefreshNewPosts);
             this.panelLeft.Controls.Add(this.PBProfilePicture);
             this.panelLeft.Controls.Add(this.LBLShowBirthday);
@@ -92,6 +94,16 @@
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(1011, 301);
             this.panelLeft.TabIndex = 22;
+            // 
+            // btnRefreshNewPosts
+            // 
+            this.btnRefreshNewPosts.Location = new System.Drawing.Point(802, 132);
+            this.btnRefreshNewPosts.Name = "btnRefreshNewPosts";
+            this.btnRefreshNewPosts.Size = new System.Drawing.Size(153, 24);
+            this.btnRefreshNewPosts.TabIndex = 39;
+            this.btnRefreshNewPosts.Text = "Cargar mas posts";
+            this.btnRefreshNewPosts.UseVisualStyleBackColor = true;
+            this.btnRefreshNewPosts.Click += new System.EventHandler(this.button1_Click);
             // 
             // PBProfilePicture
             // 
@@ -160,15 +172,15 @@
             this.PanelPrincipal.Size = new System.Drawing.Size(1011, 448);
             this.PanelPrincipal.TabIndex = 26;
             // 
-            // btnRefreshNewPosts
+            // btnchat
             // 
-            this.btnRefreshNewPosts.Location = new System.Drawing.Point(802, 132);
-            this.btnRefreshNewPosts.Name = "btnRefreshNewPosts";
-            this.btnRefreshNewPosts.Size = new System.Drawing.Size(153, 24);
-            this.btnRefreshNewPosts.TabIndex = 39;
-            this.btnRefreshNewPosts.Text = "Cargar mas posts";
-            this.btnRefreshNewPosts.UseVisualStyleBackColor = true;
-            this.btnRefreshNewPosts.Click += new System.EventHandler(this.button1_Click);
+            this.btnchat.Location = new System.Drawing.Point(30, 176);
+            this.btnchat.Name = "btnchat";
+            this.btnchat.Size = new System.Drawing.Size(47, 23);
+            this.btnchat.TabIndex = 41;
+            this.btnchat.Text = "chat";
+            this.btnchat.UseVisualStyleBackColor = true;
+            this.btnchat.Click += new System.EventHandler(this.btnchat_Click);
             // 
             // Profile
             // 
@@ -199,5 +211,6 @@
         private System.Windows.Forms.Label LBLShowUser;
         private System.Windows.Forms.Button BTNShowFriends;
         private System.Windows.Forms.Button btnRefreshNewPosts;
+        private System.Windows.Forms.Button btnchat;
     }
 }

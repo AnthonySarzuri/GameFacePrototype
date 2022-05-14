@@ -88,7 +88,7 @@ namespace GameFacePrototype
                 PanelPrincipal.Controls.Add(publi.post);
                 posicion = aux * i;
                 continuar = i + 1;
-                if (i == 10)
+                if (i == 2)
                 {
                     break;
                 }
@@ -119,7 +119,7 @@ namespace GameFacePrototype
                 count++;
                 posicion = aux * count;
                 continuar = i + 1;
-                if (i % 10 == 0)
+                if (i % 2 == 0)
                 {
                     break;
                 }
@@ -176,6 +176,10 @@ namespace GameFacePrototype
            
         }
 
-       
+        private void btnchat_Click(object sender, EventArgs e)
+        {
+            Chat Ochat = new Chat();
+            Ochat.Show();
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace GameFacePrototype
 {
-    partial class Form1
+    partial class PublicInterface
     {
         /// <summary>
         /// Variable del diseñador necesaria.

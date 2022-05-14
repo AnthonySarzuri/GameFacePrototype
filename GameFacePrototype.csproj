@@ -47,6 +47,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Transitions, Version=1.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\dot-net-transitions.1.2.1.0\lib\net40-full\Transitions.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AddCategory.cs">
@@ -78,6 +81,12 @@
     </Compile>
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Chat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Chat.designer.cs">
+      <DependentUpon>Chat.cs</DependentUpon>
     </Compile>
     <Compile Include="Comments.cs" />
     <Compile Include="CommentsTest.cs">
@@ -122,11 +131,17 @@
     <Compile Include="EnterEmail.Designer.cs">
       <DependentUpon>EnterEmail.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Conversation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Conversation.designer.cs">
+      <DependentUpon>Conversation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PublicInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PublicInterface.Designer.cs">
+      <DependentUpon>PublicInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="FriendsandRequests.cs">
       <SubType>Form</SubType>
@@ -200,6 +215,12 @@
     <Compile Include="UCRequests.Designer.cs">
       <DependentUpon>UCRequests.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserFriendsChat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserFriendsChat.designer.cs">
+      <DependentUpon>UserFriendsChat.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddCategory.resx">
       <DependentUpon>AddCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -214,6 +235,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Chat.resx">
+      <DependentUpon>Chat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CommentsTest.resx">
       <DependentUpon>CommentsTest.cs</DependentUpon>
@@ -236,8 +260,11 @@
     <EmbeddedResource Include="EnterEmail.resx">
       <DependentUpon>EnterEmail.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Conversation.resx">
+      <DependentUpon>Conversation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PublicInterface.resx">
+      <DependentUpon>PublicInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FriendsandRequests.resx">
       <DependentUpon>FriendsandRequests.cs</DependentUpon>
@@ -277,6 +304,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UCRequests.resx">
       <DependentUpon>UCRequests.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserFriendsChat.resx">
+      <DependentUpon>UserFriendsChat.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
