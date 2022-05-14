@@ -39,7 +39,7 @@
             // 
             this.tbNewPassword.Location = new System.Drawing.Point(311, 108);
             this.tbNewPassword.Name = "tbNewPassword";
-            this.tbNewPassword.PasswordChar = '+';
+            this.tbNewPassword.PasswordChar = '*';
             this.tbNewPassword.Size = new System.Drawing.Size(174, 20);
             this.tbNewPassword.TabIndex = 0;
             // 
@@ -47,7 +47,7 @@
             // 
             this.tbRepeatNewPassword.Location = new System.Drawing.Point(311, 215);
             this.tbRepeatNewPassword.Name = "tbRepeatNewPassword";
-            this.tbRepeatNewPassword.PasswordChar = '+';
+            this.tbRepeatNewPassword.PasswordChar = '*';
             this.tbRepeatNewPassword.Size = new System.Drawing.Size(174, 20);
             this.tbRepeatNewPassword.TabIndex = 1;
             // 

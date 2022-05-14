@@ -30,10 +30,10 @@ namespace GameFacePrototype
         private void InitializeComponent()
         {
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.panelChat = new System.Windows.Forms.Panel();
             this.lblNoFriends = new System.Windows.Forms.Label();
             this.flpFriends = new System.Windows.Forms.FlowLayoutPanel();
             this.tabControlFR = new System.Windows.Forms.TabControl();
-            this.panelChat = new System.Windows.Forms.Panel();
             this.tabPage1.SuspendLayout();
             this.tabControlFR.SuspendLayout();
             this.SuspendLayout();
@@ -51,6 +51,15 @@ namespace GameFacePrototype
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Amigos";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // panelChat
+            // 
+            this.panelChat.AutoScroll = true;
+            this.panelChat.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelChat.Location = new System.Drawing.Point(217, 2);
+            this.panelChat.Name = "panelChat";
+            this.panelChat.Size = new System.Drawing.Size(628, 525);
+            this.panelChat.TabIndex = 5;
             // 
             // lblNoFriends
             // 
@@ -81,15 +90,6 @@ namespace GameFacePrototype
             this.tabControlFR.Size = new System.Drawing.Size(855, 555);
             this.tabControlFR.TabIndex = 2;
             // 
-            // panelChat
-            // 
-            this.panelChat.AutoScroll = true;
-            this.panelChat.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelChat.Location = new System.Drawing.Point(217, 2);
-            this.panelChat.Name = "panelChat";
-            this.panelChat.Size = new System.Drawing.Size(628, 525);
-            this.panelChat.TabIndex = 5;
-            // 
             // Chat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -97,6 +97,7 @@ namespace GameFacePrototype
             this.ClientSize = new System.Drawing.Size(997, 592);
             this.Controls.Add(this.tabControlFR);
             this.Name = "Chat";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.tabPage1.ResumeLayout(false);

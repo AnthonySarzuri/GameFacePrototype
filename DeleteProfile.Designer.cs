@@ -73,6 +73,7 @@ namespace GameFacePrototype
             this.Controls.Add(this.btnConfirmar);
             this.Controls.Add(this.label1);
             this.Name = "DeleteProfile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "DeleteProfile";
             this.ResumeLayout(false);
             this.PerformLayout();

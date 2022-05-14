@@ -99,6 +99,7 @@ namespace GameFacePrototype
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.grbox1);
             this.Name = "CommentsTest";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.grbox1.ResumeLayout(false);
             this.grbox1.PerformLayout();

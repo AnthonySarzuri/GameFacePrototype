@@ -88,6 +88,7 @@
             this.Controls.Add(this.TBCategoryName);
             this.Controls.Add(this.btnAddCategory);
             this.Name = "AddCategory";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddCategory";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -218,6 +218,7 @@
             this.Controls.Add(this.btnCloseRegisterUser);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegisterUser";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterUser";
             this.ResumeLayout(false);
             this.PerformLayout();

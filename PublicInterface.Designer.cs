@@ -33,11 +33,11 @@ namespace GameFacePrototype
             this.btnRegister = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.leftPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.mainPanel = new System.Windows.Forms.Panel();
             this.btnShowMorePost = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.mainPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.topPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -83,6 +83,16 @@ namespace GameFacePrototype
             this.topPanel.Size = new System.Drawing.Size(1304, 100);
             this.topPanel.TabIndex = 4;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1265, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 32);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // leftPanel
             // 
             this.leftPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -102,15 +112,6 @@ namespace GameFacePrototype
             this.panel1.Size = new System.Drawing.Size(200, 685);
             this.panel1.TabIndex = 6;
             // 
-            // mainPanel
-            // 
-            this.mainPanel.AutoScroll = true;
-            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(200, 100);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(904, 685);
-            this.mainPanel.TabIndex = 7;
-            // 
             // btnShowMorePost
             // 
             this.btnShowMorePost.Location = new System.Drawing.Point(21, 641);
@@ -121,17 +122,16 @@ namespace GameFacePrototype
             this.btnShowMorePost.UseVisualStyleBackColor = true;
             this.btnShowMorePost.Click += new System.EventHandler(this.btnShowMorePost_Click);
             // 
-            // button1
+            // mainPanel
             // 
-            this.button1.Location = new System.Drawing.Point(1265, 2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(36, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.mainPanel.AutoScroll = true;
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.Location = new System.Drawing.Point(200, 100);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Size = new System.Drawing.Size(904, 685);
+            this.mainPanel.TabIndex = 7;
             // 
-            // Form1
+            // PublicInterface
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -141,7 +141,8 @@ namespace GameFacePrototype
             this.Controls.Add(this.leftPanel);
             this.Controls.Add(this.topPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form1";
+            this.Name = "PublicInterface";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.topPanel.ResumeLayout(false);

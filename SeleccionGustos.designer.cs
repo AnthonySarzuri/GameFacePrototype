@@ -224,6 +224,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbRPG);
             this.Name = "SeleccionGustos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();

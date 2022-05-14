@@ -10,6 +10,7 @@ namespace GameFacePrototype
     {
         //Se usan
         static public int IdUser;
+        static public string mailer;
         static public int IdUserThird;
         static public string Conexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
         //static public string Conexion = "Data Source=A403-17;Initial Catalog=dbgf;Integrated Security = True";

@@ -58,6 +58,7 @@ namespace GameFacePrototype
             this.Controls.Add(this.BTNaddReaction);
             this.Controls.Add(this.TBreaction);
             this.Name = "AddReaction";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AddReaction";
             this.ResumeLayout(false);
             this.PerformLayout();

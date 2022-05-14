@@ -253,6 +253,7 @@ namespace GameFacePrototype
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PrivateInterface";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PrivateInterface";
             this.Load += new System.EventHandler(this.PrivateInterface_Load);
             this.panelTop.ResumeLayout(false);

@@ -197,6 +197,7 @@
             this.Controls.Add(this.PanelPosts);
             this.Controls.Add(this.panel1);
             this.Name = "ProfileThird";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ProfileThird";
             this.Load += new System.EventHandler(this.ProfileThird_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).EndInit();

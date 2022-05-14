@@ -225,6 +225,7 @@ namespace GameFacePrototype
             this.Controls.Add(this.cbThriller);
             this.Controls.Add(this.btnconfirm);
             this.Name = "EditPreferences";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditPreferences";
             this.ResumeLayout(false);
             this.PerformLayout();

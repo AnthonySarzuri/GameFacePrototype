@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,18 +21,37 @@ namespace GameFacePrototype
         //cuando tengamos la base aumentare las demas validaciones
         private void btnSendCode_Click(object sender, EventArgs e)
         {
-            if (tbEnterEmail.Text !="")
+            Global.mailer = tbEnterEmail.Text;
+            DialogResult result = DialogResult.OK;
+            do
             {
-                EnterCode enterCode = new EnterCode();
-                enterCode.Show();
-                enterCode.enterEmail(tbEnterEmail.Text);
-                this.Hide();
-            }
-            else
-            {
-                MessageBox.Show("Rellene el campo con un correo electronico valido");
-            }
-            
+                SendMail mail = new SendMail();
+                int code = mail.Send(tbEnterEmail.Text, "happyfridayxd@gmail.com", "xdCOD234");
+                int resultado = 0;
+                if (code != 0)
+                {
+                    try
+                    {
+                        resultado = Convert.ToInt32(Interaction.InputBox("Ingrese el codigo que fue enviado a:" + Global.mailer, "VERIFICACION"));
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Ingrese una direccion de correo valida");
+                        result = MessageBox.Show("¿Desea reenviar el correo?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                    }
+                    if (code == resultado)
+                    {
+                        NewPassword neo = new NewPassword();
+                        this.Close();
+                        neo.Show();
+                    }
+                }
+                else
+                {
+                    result = MessageBox.Show("¿Desea reenviar el correo?", "ADVERTENCIA", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                }
+            } while (result == DialogResult.Yes);
+
         }
     }
 }

@@ -89,6 +89,7 @@
             this.Controls.Add(this.lblComplete);
             this.Controls.Add(this.lblSenEmailComplete);
             this.Name = "EnterCode";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EnterCode";
             this.Load += new System.EventHandler(this.EnterCode_Load);
             this.ResumeLayout(false);

@@ -33,6 +33,7 @@
             this.btnEditProfilePicture = new System.Windows.Forms.Button();
             this.btnComentarioPrueba = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
+            this.btnchat = new System.Windows.Forms.Button();
             this.btnRefreshNewPosts = new System.Windows.Forms.Button();
             this.PBProfilePicture = new System.Windows.Forms.PictureBox();
             this.LBLShowBirthday = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.LBLShowUser = new System.Windows.Forms.Label();
             this.BTNShowFriends = new System.Windows.Forms.Button();
             this.PanelPrincipal = new System.Windows.Forms.Panel();
-            this.btnchat = new System.Windows.Forms.Button();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).BeginInit();
             this.SuspendLayout();
@@ -94,6 +94,16 @@
             this.panelLeft.Name = "panelLeft";
             this.panelLeft.Size = new System.Drawing.Size(1011, 301);
             this.panelLeft.TabIndex = 22;
+            // 
+            // btnchat
+            // 
+            this.btnchat.Location = new System.Drawing.Point(30, 176);
+            this.btnchat.Name = "btnchat";
+            this.btnchat.Size = new System.Drawing.Size(47, 23);
+            this.btnchat.TabIndex = 41;
+            this.btnchat.Text = "chat";
+            this.btnchat.UseVisualStyleBackColor = true;
+            this.btnchat.Click += new System.EventHandler(this.btnchat_Click);
             // 
             // btnRefreshNewPosts
             // 
@@ -172,16 +182,6 @@
             this.PanelPrincipal.Size = new System.Drawing.Size(1011, 448);
             this.PanelPrincipal.TabIndex = 26;
             // 
-            // btnchat
-            // 
-            this.btnchat.Location = new System.Drawing.Point(30, 176);
-            this.btnchat.Name = "btnchat";
-            this.btnchat.Size = new System.Drawing.Size(47, 23);
-            this.btnchat.TabIndex = 41;
-            this.btnchat.Text = "chat";
-            this.btnchat.UseVisualStyleBackColor = true;
-            this.btnchat.Click += new System.EventHandler(this.btnchat_Click);
-            // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -190,6 +190,7 @@
             this.Controls.Add(this.PanelPrincipal);
             this.Controls.Add(this.panelLeft);
             this.Name = "Profile";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.panelLeft.ResumeLayout(false);
             this.panelLeft.PerformLayout();
