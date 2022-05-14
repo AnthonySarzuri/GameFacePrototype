@@ -76,12 +76,12 @@ namespace GameFacePrototype
             postCount = int.Parse(dt.Rows[0][0].ToString());
             for (int i = 1; i <= count; i++)
             {
-                Posts publi = new Posts(Global.IdUser, (i - 1), posicion);
+                Posts publi = new Posts(Global.IdUser, (i - 1), posicion,this);
                 publi.generarPostFriend();
                 mainPanel.Controls.Add(publi.post);
                 posicion = aux * i;
                 continuar = i + 1;
-                if (i == 10)
+                if (i == 2)
                 {
                     break;
                 }
@@ -108,13 +108,13 @@ namespace GameFacePrototype
             postCount = int.Parse(dt.Rows[0][0].ToString());
             for (int i = continuar; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {
-                Posts publi = new Posts(Global.IdUser, (i - 1), posicion);
+                Posts publi = new Posts(Global.IdUser, (i - 1), posicion,this);
                 publi.generarPostFriend();
                 mainPanel.Controls.Add(publi.post);
                 count++;
                 posicion = aux * count;
                 continuar = i + 1;
-                if (i % 10 == 0)
+                if (i % 2 == 0)
                 {
 
                     break;

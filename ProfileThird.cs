@@ -15,7 +15,7 @@ namespace GameFacePrototype
     public partial class ProfileThird : Form
     {
         private int continuar;
-        private int pos;
+        
         
         public ProfileThird()
         {
@@ -84,7 +84,7 @@ namespace GameFacePrototype
             for (int i = 1; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {
 
-                Posts publi = new Posts(Global.IdUserThird, (i - 1), posicion);
+                Posts publi = new Posts(Global.IdUserThird, (i - 1), posicion,this);
                 publi.generarPostUser();
                 PanelPosts.Controls.Add(publi.post);
                 posicion = aux * i;
@@ -115,7 +115,7 @@ namespace GameFacePrototype
 
             for (int i = continuar; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {
-                Posts publi = new Posts(Global.IdUserThird, (i - 1), posicion);
+                Posts publi = new Posts(Global.IdUserThird, (i - 1), posicion,this);
                 publi.generarPostUser();
                 PanelPosts.Controls.Add(publi.post);
                 count++;

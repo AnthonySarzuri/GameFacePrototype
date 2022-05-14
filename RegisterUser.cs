@@ -13,7 +13,7 @@ namespace GameFacePrototype
 {
     public partial class RegisterUser : Form
     {
-
+        Form formulario;
         static Random random = new Random();
         int numAuto = random.Next(0001,10000);
 
@@ -21,12 +21,16 @@ namespace GameFacePrototype
         {
             InitializeComponent();
         }
-
+        public RegisterUser(Form formulario)
+        {
+            InitializeComponent();
+            this.formulario = formulario;
+        }
         private void btnCloseRegisterUser_Click(object sender, EventArgs e)
         {
-            Form1 menu = new Form1();
+            formulario.Enabled = true;
             this.Close();
-            menu.Show();
+            
         }
 
         //Se agregaran más validaciones cuando usemos la BD
@@ -66,6 +70,14 @@ namespace GameFacePrototype
                 {
                     registarUsuario();
                     obtenerId();
+                    try
+                    {
+                        formulario.Hide();
+                    }
+                    catch
+                    {
+
+                    }
                     SeleccionGustos seleccionGustos = new SeleccionGustos();
                     seleccionGustos.Show();
                     this.Hide();
@@ -145,6 +157,13 @@ namespace GameFacePrototype
                 e.Handled = true;
                 return;
             }
+        }
+
+        private void btnRegisterToSignIn_Click(object sender, EventArgs e)
+        {
+            Login login = new Login(formulario);
+            login.Show();
+            this.Hide();
         }
     }
 }

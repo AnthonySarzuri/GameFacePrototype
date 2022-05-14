@@ -13,11 +13,17 @@ namespace GameFacePrototype
 {
     public partial class Login : Form
     {
+        Form formulario;
+        public Login(Form formulario)
+        {
+            InitializeComponent();
+            this.formulario = formulario;
+        }
         public Login()
         {
             InitializeComponent();
+            
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             DataTable dt = new DataTable();
@@ -46,10 +52,11 @@ namespace GameFacePrototype
                     Global.IdUser = iduser;
 
                     conectedUP();
-
+                    
                     PrivateInterface inter = new PrivateInterface();
                     inter.Show();
-                    this.Hide();                  
+                    this.Hide();   
+                    
                    
                 }
                 else
@@ -78,7 +85,7 @@ namespace GameFacePrototype
 
         private void label1_Click(object sender, EventArgs e)
         {
-            RegisterUser register = new RegisterUser();
+            RegisterUser register = new RegisterUser(formulario);
             register.Show();
             this.Hide();
         }
@@ -148,7 +155,16 @@ namespace GameFacePrototype
                     Global.IdUser = iduser;
                     Global.isSuperUser = (bool)(dt.Rows[0][11]);
                     conectedUP();
+                    try
+                    {
+                        
+                        formulario.Hide();
 
+                    }
+                    catch
+                    {
+
+                    }
                     PrivateInterface inter = new PrivateInterface();
                     inter.Show();
                     this.Hide();
@@ -175,6 +191,15 @@ namespace GameFacePrototype
             {
                 MessageBox.Show("Ha ocurrido un error", "Lo Sentimos :(");
             }
+        }
+
+
+
+        private void btnCloseLoginButton_Click(object sender, EventArgs e)
+        {
+            formulario.Enabled = true;
+            this.Close();
+            
         }
     }
 }

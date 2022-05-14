@@ -14,6 +14,8 @@ namespace GameFacePrototype
 {
     internal class Posts
     {
+        //Variables para obtener contexto
+        private Form formulario;
 
         //variables para validar
         private string condicionShare;
@@ -64,12 +66,12 @@ namespace GameFacePrototype
         public Panel PanelComment = new Panel();
         public Posts() { }
 
-        public Posts(int idUser, int RowPost, int posicion)
+        public Posts(int idUser, int RowPost, int posicion,Form formulario)
         {
             this.idUser = idUser;
             this.RowPost = RowPost;
             this.position = posicion;
-
+            this.formulario = formulario;
         }
 
         public Panel generarPostUser()
@@ -452,6 +454,203 @@ namespace GameFacePrototype
 
         }
 
+        public Panel generarPostMostLikes()
+        {
+
+
+            DataTable dt = new DataTable();
+            string sConexion = Global.Conexion;
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_PostMostLikes", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+
+            da.SelectCommand.Parameters.Add("@numLikes", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@numLikes"].Value = 5;
+
+
+
+            da.Fill(dt);
+            idPost = int.Parse(dt.Rows[RowPost][0].ToString());
+            idUserFriend = int.Parse(dt.Rows[RowPost][2].ToString());
+
+
+            //UserName
+
+            name.Cursor = Cursors.Hand;
+            name.Location = new Point(100, 10);
+            name.Click += Login_Click;
+
+            //User Nickname                   
+            nickName.Cursor = Cursors.Hand;
+            nickName.Location = new Point(100, 40);
+            nickName.Click += Login_Click;
+
+            //CreationDate
+
+
+            creationDate.Location = new Point(200, 10);
+
+            //Description
+
+
+            description.Location = new Point(20, 100);
+            description.Size = new Size(550, 100);
+            description.BorderStyle = BorderStyle.FixedSingle;
+
+            //pictureBoxProfile
+            profilePicture.Click += Login_Click;
+            profilePicture.Cursor = Cursors.Hand;
+            profilePicture.SizeMode = PictureBoxSizeMode.StretchImage;
+            profilePicture.Location = new Point(10, 10);
+            profilePicture.Size = new Size(70, 62);
+            profilePicture.BorderStyle = BorderStyle.FixedSingle;
+
+            //pictureBoxImagen
+            picture.BorderStyle = BorderStyle.FixedSingle;
+            picture.Location = new Point(40, 220);
+            picture.SizeMode = PictureBoxSizeMode.StretchImage;
+
+            if (dt.Rows[RowPost][3].ToString() != "")
+            {
+
+                picture.Size = new Size(500, 350);
+                PanelComment.Location = new Point(40, 700);
+                reactionPanel.Location = new Point(40, 600);
+            }
+            else
+            {
+                picture.Size = new Size(0, 0);
+                PanelComment.Location = new Point(40, 320);
+                reactionPanel.Location = new Point(40, 220);
+            }
+
+
+            //Panel de Botones de reacciones comentarios y shares
+            reactionPanel.Size = new Size(500, 100);
+            reactionPanel.BorderStyle = BorderStyle.FixedSingle;
+
+            //Panel de comentarios principal
+            PanelComment.Visible = false;
+            PanelComment.Size = new Size(500, 350);
+            PanelComment.BorderStyle = BorderStyle.FixedSingle;
+
+            //Megusta boton
+            like.Click += Login_Click;
+            like.Cursor = Cursors.Hand;
+            like.Text = "Like";
+            like.Location = new Point(60, 40);
+            like.Size = new Size(75, 45);
+
+            //Megusta label
+
+            likes.Location = new Point(40, 45);
+
+            //NoMegusta boton
+            dislike.Click += Login_Click;
+            dislike.Cursor = Cursors.Hand;
+            dislike.Text = "Dislike";
+            dislike.Location = new Point(160, 40);
+            dislike.Size = new Size(75, 45);
+
+            //NoMegusta label                
+            dislikes.Location = new Point(140, 45);
+
+            //Comentarios boton
+            btnComment.Click += BtnComment_Click;
+            btnComment.Cursor = Cursors.Hand;
+            btnComment.Text = "Comentarios";
+            btnComment.Location = new Point(260, 40);
+            btnComment.Size = new Size(75, 45);
+
+            //Comentarios label
+
+            lblComments.Location = new Point(240, 45);
+
+            //Share boton
+            share.Click += Login_Click;
+            share.Cursor = Cursors.Hand;
+            share.Text = "Share";
+            share.Location = new Point(360, 40);
+            share.Size = new Size(75, 45);
+
+            //Share label
+            shares.Location = new Point(340, 45);
+            //insertar al panel de reacciones
+            reactionPanel.Controls.Add(like);
+            reactionPanel.Controls.Add(likes);
+            reactionPanel.Controls.Add(dislike);
+            reactionPanel.Controls.Add(dislikes);
+            reactionPanel.Controls.Add(btnComment);
+            reactionPanel.Controls.Add(lblComments);
+            reactionPanel.Controls.Add(share);
+            reactionPanel.Controls.Add(shares);
+
+            //boton comentar
+            btnWriteComment.Click += Login_Click;
+            btnWriteComment.Text = "Comentar";
+            btnWriteComment.Location = new Point(370, 40);
+            btnComment.AutoSize = true;
+            btnWriteComment.MaximumSize = new Size(70, 40);
+
+            //Foto de perfil escribir comentario
+            profilePictureCommentWrite.BorderStyle = BorderStyle.FixedSingle;
+            profilePictureCommentWrite.Size = new Size(50, 32);
+            profilePictureCommentWrite.Location = new Point(10, 30);
+            profilePictureCommentWrite.SizeMode = PictureBoxSizeMode.StretchImage;
+            profilePictureComment();
+
+            //Ecribir Comentario
+            WriteComment.BorderStyle = BorderStyle.FixedSingle;
+            WriteComment.Location = new Point(70, 40);
+            WriteComment.Size = new Size(300, 30);
+
+
+            //Panel para escribir comentario
+            //Panel de Comentarios
+            panelWriteComment.Dock = DockStyle.Bottom;
+            panelWriteComment.MaximumSize = new Size(500, 90);
+            panelWriteComment.Controls.Add(btnWriteComment);
+            panelWriteComment.Controls.Add(profilePictureCommentWrite);
+            panelWriteComment.Controls.Add(WriteComment);
+
+            GenerarComment();
+            //insertar Coentarios
+            PanelComment.Controls.Add(commentPanel);
+            PanelComment.Controls.Add(panelWriteComment);
+
+            //timer para controlar los likes
+            timerReacition.Interval = 10000;
+            timerReacition.Enabled = true;
+            timerReacition.Tick += TimerReacition_Tick;
+
+            //Post Entero
+            //post.Size = new Size(600, 900);
+
+            post.Location = new Point(100, (position - Global.posicionPost));
+            if (dt.Rows[RowPost][3].ToString() == string.Empty)
+            {
+                Global.posicionPost = Global.posicionPost + 400;
+            }
+            post.AutoSize = true;
+            post.Visible = true;
+            post.BorderStyle = BorderStyle.FixedSingle;
+            post.Controls.Add(name);
+            post.Controls.Add(nickName);
+            post.Controls.Add(creationDate);
+            post.Controls.Add(picture);
+            post.Controls.Add(description);
+            post.Controls.Add(profilePicture);
+            post.Controls.Add(reactionPanel);
+            post.Controls.Add(PanelComment);
+            RefreshPost();
+            return post;
+
+
+        }
+
+
+
         //mostrar en el posts
 
         public void RefreshPost()
@@ -559,6 +758,20 @@ namespace GameFacePrototype
 
 
         }
+        private void Login_Click(object sender, EventArgs e)
+        {
+            Login login = new Login(formulario);
+            login.Show();
+            login.FormClosing += Formulario_FormClosing;
+            formulario.Enabled = false;
+            
+        }
+
+        private void Formulario_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            formulario.Enabled=true;
+        }
+
         private void ProfilePicture_Click(object sender, EventArgs e)
         {
             Global.IdUserThird = idUserFriend;

@@ -39,6 +39,7 @@ namespace GameFacePrototype
             this.lblPasswordGet = new System.Windows.Forms.Label();
             this.timerOut = new System.Windows.Forms.Timer(this.components);
             this.btnLogin = new GameFacePrototype.Personalizado.Boton();
+            this.btnCloseLoginButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tbUser
@@ -124,11 +125,23 @@ namespace GameFacePrototype
             this.btnLogin.UseVisualStyleBackColor = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
+            // btnCloseLoginButton
+            // 
+            this.btnCloseLoginButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCloseLoginButton.Location = new System.Drawing.Point(752, 12);
+            this.btnCloseLoginButton.Name = "btnCloseLoginButton";
+            this.btnCloseLoginButton.Size = new System.Drawing.Size(30, 30);
+            this.btnCloseLoginButton.TabIndex = 10;
+            this.btnCloseLoginButton.Text = "x";
+            this.btnCloseLoginButton.UseVisualStyleBackColor = true;
+            this.btnCloseLoginButton.Click += new System.EventHandler(this.btnCloseLoginButton_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(794, 496);
+            this.Controls.Add(this.btnCloseLoginButton);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblPasswordGet);
             this.Controls.Add(this.lblRegister);
@@ -137,6 +150,7 @@ namespace GameFacePrototype
             this.Controls.Add(this.lblPasswordEmpty);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.tbUser);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Login";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -155,5 +169,6 @@ namespace GameFacePrototype
         private System.Windows.Forms.Label lblPasswordGet;
         private System.Windows.Forms.Timer timerOut;
         private Personalizado.Boton btnLogin;
+        private System.Windows.Forms.Button btnCloseLoginButton;
     }
 }

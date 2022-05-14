@@ -17,8 +17,7 @@ namespace GameFacePrototype
     {
 
         private int continuar;
-        private int pos;
-        private int postCount;
+       
 
         public Profile()
         {
@@ -84,7 +83,7 @@ namespace GameFacePrototype
             for (int i = 1; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {
 
-                Posts publi = new Posts(Global.IdUser, (i - 1), posicion);
+                Posts publi = new Posts(Global.IdUser, (i - 1), posicion,this);
                 publi.generarPostUser();
                 PanelPrincipal.Controls.Add(publi.post);
                 posicion = aux * i;
@@ -114,7 +113,7 @@ namespace GameFacePrototype
             int count = 1;
             for (int i = continuar; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {
-                Posts publi = new Posts(Global.IdUser, (i - 1), posicion);
+                Posts publi = new Posts(Global.IdUser, (i - 1), posicion,this);
                 publi.generarPostUser();
                 PanelPrincipal.Controls.Add(publi.post);
                 count++;

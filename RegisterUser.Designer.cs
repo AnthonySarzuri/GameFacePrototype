@@ -179,6 +179,7 @@
             this.btnRegisterToSignIn.TabIndex = 13;
             this.btnRegisterToSignIn.Text = "¿Tienes una cuenta? Inicia Sesion";
             this.btnRegisterToSignIn.UseVisualStyleBackColor = false;
+            this.btnRegisterToSignIn.Click += new System.EventHandler(this.btnRegisterToSignIn_Click);
             // 
             // guna2ComboBox1
             // 
@@ -215,6 +216,7 @@
             this.Controls.Add(this.tbRegisterCellphoneNumber);
             this.Controls.Add(this.tbRegisterEmail);
             this.Controls.Add(this.btnCloseRegisterUser);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "RegisterUser";
             this.Text = "RegisterUser";
             this.ResumeLayout(false);

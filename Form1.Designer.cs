@@ -36,8 +36,11 @@ namespace GameFacePrototype
             this.leftPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.mainPanel = new System.Windows.Forms.Panel();
+            this.btnShowMorePost = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.topPanel.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // BTNIniciar
@@ -70,6 +73,7 @@ namespace GameFacePrototype
             // 
             // topPanel
             // 
+            this.topPanel.Controls.Add(this.button1);
             this.topPanel.Controls.Add(this.btnRegister);
             this.topPanel.Controls.Add(this.BTNIniciar);
             this.topPanel.Controls.Add(this.pictureBox1);
@@ -91,6 +95,7 @@ namespace GameFacePrototype
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnShowMorePost);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel1.Location = new System.Drawing.Point(1104, 100);
             this.panel1.Name = "panel1";
@@ -106,6 +111,26 @@ namespace GameFacePrototype
             this.mainPanel.Size = new System.Drawing.Size(904, 685);
             this.mainPanel.TabIndex = 7;
             // 
+            // btnShowMorePost
+            // 
+            this.btnShowMorePost.Location = new System.Drawing.Point(21, 641);
+            this.btnShowMorePost.Name = "btnShowMorePost";
+            this.btnShowMorePost.Size = new System.Drawing.Size(166, 31);
+            this.btnShowMorePost.TabIndex = 0;
+            this.btnShowMorePost.Text = "Mostrar mas posts";
+            this.btnShowMorePost.UseVisualStyleBackColor = true;
+            this.btnShowMorePost.Click += new System.EventHandler(this.btnShowMorePost_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1265, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(36, 32);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -115,10 +140,12 @@ namespace GameFacePrototype
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.leftPanel);
             this.Controls.Add(this.topPanel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.topPanel.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -132,6 +159,8 @@ namespace GameFacePrototype
         private System.Windows.Forms.Panel leftPanel;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel mainPanel;
+        private System.Windows.Forms.Button btnShowMorePost;
+        private System.Windows.Forms.Button button1;
     }
 }
 
