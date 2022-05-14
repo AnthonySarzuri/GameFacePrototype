@@ -25,6 +25,7 @@ namespace GameFacePrototype
             this.formulario = formulario;
             
         }
+        private int _id;
         private string _name;
         private string _user;
         private Image _profilePic;
@@ -47,6 +48,11 @@ namespace GameFacePrototype
             get { return _profilePic; }
             set { _profilePic = value; pbProfilePic.Image = value; }
         }
+        public int Id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
         private void lblUser_Click(object sender, EventArgs e)
         {
 
@@ -59,7 +65,7 @@ namespace GameFacePrototype
 
         private void btndelFriend_Click(object sender, EventArgs e)
         {
-            Conversation chats = new Conversation();
+            Conversation chats = new Conversation(Id);
             chats.Show();
            
         }

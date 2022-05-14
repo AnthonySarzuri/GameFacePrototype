@@ -17,7 +17,7 @@ namespace GameFacePrototype
         {
             InitializeComponent();
         }
-
+       
         private string _name;
         private string _user;
         private Image _profilePic;

@@ -138,6 +138,7 @@
     <Compile Include="Conversation.designer.cs">
       <DependentUpon>Conversation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Messages.cs" />
     <Compile Include="PublicInterface.cs">
       <SubType>Form</SubType>
     </Compile>

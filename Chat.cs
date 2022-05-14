@@ -26,7 +26,7 @@ namespace GameFacePrototype
             string sConexion = "Data Source=SQL8001.site4now.net;Initial Catalog=db_a85e89_gfdb;User Id=db_a85e89_gfdb_admin;Password=l05tvcvs";
 
             SqlConnection dataConnection = new SqlConnection(sConexion);
-            SqlDataAdapter da = new SqlDataAdapter("SP_GetFriendsList", dataConnection);
+            SqlDataAdapter da = new SqlDataAdapter("SP_GetFriendsandId", dataConnection);
             da.SelectCommand.CommandType = CommandType.StoredProcedure;
             DataSet dt = new DataSet();
             try
@@ -46,7 +46,8 @@ namespace GameFacePrototype
                         listFriends[i] = new UserFriendsChat(this);
                         listFriends[i].Nombre += dt.Tables[0].Rows[i]["UserName"].ToString();
                         listFriends[i].User += dt.Tables[0].Rows[i]["IdUser"].ToString();
-                        
+                        listFriends[i].Id += int.Parse(dt.Tables[0].Rows[i]["Id"].ToString());
+                        int id=int.Parse(dt.Tables[0].Rows[i]["Id"].ToString());
                         Byte[] myByte = new byte[0];
                         myByte = (Byte[])(dt.Tables[0].Rows[i]["ProfilePhoto"]);
                         MemoryStream ms = new MemoryStream(myByte);
