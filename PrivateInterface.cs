@@ -14,16 +14,47 @@ namespace GameFacePrototype
 {
     public partial class PrivateInterface : Form
     {
+        //Alb4331
+        //xdCOD234
         private int postCount;
         private int continuar;
-        private int pos;
+        
         public PrivateInterface()
         {
             
-            InitializeComponent();
+            InitializeComponent();           
             generarPost();
+            showUserData();
             lastConnected();
             verifySuperUser();
+            
+        }
+        private void showUserData()
+        {
+            DataTable dt = new DataTable();
+            string sConexion = Global.Conexion;
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_ShowUserId", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
+            da.SelectCommand.Parameters.Add("@id", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@id"].Value = Global.IdUser;
+            da.Fill(dt);
+
+            if (dt.Rows.Count > 0)
+            {
+                LBLShowUserId.Text = dt.Rows[0]["IdUser"].ToString();
+                LBLShowUser.Text = dt.Rows[0]["UserName"].ToString();
+
+                Byte[] myByte = new byte[0];
+                myByte = (Byte[])(dt.Rows[0]["ProfilePhoto"]);
+                MemoryStream ms = new MemoryStream(myByte);
+                PBProfilePicture.Image = Image.FromStream(ms);
+            }
+            else
+            {
+                MessageBox.Show("Datos No Encontrados");
+            }
         }
         private void generarPost()
         {
@@ -49,14 +80,14 @@ namespace GameFacePrototype
                 publi.generarPostFriend();
                 mainPanel.Controls.Add(publi.post);
                 posicion = aux * i;
-                pos = posicion;
                 continuar = i + 1;
                 if (i == 10)
                 {
                     break;
                 }
-
             }
+            Global.posicionPost = 0;
+
         }
         private void newPost()
         {
@@ -71,17 +102,17 @@ namespace GameFacePrototype
 
             da.Fill(dt);
 
-            int posicion = pos;
+            int posicion = 1100;
             int aux = 1100;
-            int count = int.Parse(dt.Rows[0][0].ToString());
+            int count = 1;
             postCount = int.Parse(dt.Rows[0][0].ToString());
-            for (int i = continuar; i <= count; i++)
+            for (int i = continuar; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {
                 Posts publi = new Posts(Global.IdUser, (i - 1), posicion);
                 publi.generarPostFriend();
                 mainPanel.Controls.Add(publi.post);
-                posicion = aux * i;
-                pos = posicion;
+                count++;
+                posicion = aux * count;
                 continuar = i + 1;
                 if (i % 10 == 0)
                 {
@@ -89,6 +120,7 @@ namespace GameFacePrototype
                     break;
                 }
             }
+            Global.posicionPost = 0;
         }
         private void btnEditProfile_Click(object sender, EventArgs e)
         {
@@ -118,14 +150,6 @@ namespace GameFacePrototype
             da.SelectCommand.Parameters["@IdUser"].Value = Global.IdUser;
 
             da.Fill(dt);
-        }
-
-        private void bntProfile_Click(object sender, EventArgs e)
-        {
-            Profile profile = new Profile();
-            profile.Show();
-            this.Hide();
-            profile.FormClosing += Profile_FormClosing;
         }
 
         private void Profile_FormClosing(object sender, FormClosingEventArgs e)
@@ -287,6 +311,30 @@ namespace GameFacePrototype
             {
                 btnAdminMenu.Visible = true;
             }
+        }
+
+        private void PBProfilePicture_Click(object sender, EventArgs e)
+        {
+            Profile profile = new Profile();
+            profile.Show();
+            this.Hide();
+            profile.FormClosing += Profile_FormClosing;
+        }
+
+        private void LBLShowUser_Click(object sender, EventArgs e)
+        {
+            Profile profile = new Profile();
+            profile.Show();
+            this.Hide();
+            profile.FormClosing += Profile_FormClosing;
+        }
+
+        private void LBLShowUserId_Click(object sender, EventArgs e)
+        {
+            Profile profile = new Profile();
+            profile.Show();
+            this.Hide();
+            profile.FormClosing += Profile_FormClosing;
         }
     }
 }

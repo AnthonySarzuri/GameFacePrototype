@@ -88,13 +88,13 @@ namespace GameFacePrototype
                 publi.generarPostUser();
                 PanelPrincipal.Controls.Add(publi.post);
                 posicion = aux * i;
-                pos = posicion;
                 continuar = i + 1;
                 if (i == 10)
                 {
                     break;
                 }
             }
+            Global.posicionPost = 0;
         }
         private void newPost()
         {
@@ -109,22 +109,23 @@ namespace GameFacePrototype
 
             da.Fill(dt);
 
-            int posicion = pos;
+            int posicion = 1100;
             int aux = 1100;
-            int count = int.Parse(dt.Rows[0][0].ToString());
-            for (int i = continuar; i <= count; i++)
+            int count = 1;
+            for (int i = continuar; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {
                 Posts publi = new Posts(Global.IdUser, (i - 1), posicion);
                 publi.generarPostUser();
                 PanelPrincipal.Controls.Add(publi.post);
-                posicion = aux * i;
-                pos = posicion;
+                count++;
+                posicion = aux * count;
                 continuar = i + 1;
                 if (i % 10 == 0)
                 {
                     break;
                 }
             }
+            Global.posicionPost = 0;
         }
 
 

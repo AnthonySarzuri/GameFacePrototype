@@ -32,44 +32,37 @@ namespace GameFacePrototype
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PrivateInterface));
             this.button1 = new System.Windows.Forms.Button();
-            this.bntProfile = new System.Windows.Forms.Button();
             this.btnRefresh = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.tbSearch = new System.Windows.Forms.TextBox();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.btnAdminMenu = new System.Windows.Forms.Button();
+            this.LBLShowUserId = new System.Windows.Forms.Label();
+            this.PBProfilePicture = new System.Windows.Forms.PictureBox();
+            this.LBLShowUser = new System.Windows.Forms.Label();
             this.btnRefreshNewPost = new System.Windows.Forms.Button();
             this.panelLeft = new System.Windows.Forms.Panel();
             this.panelRight = new System.Windows.Forms.Panel();
-            this.btnAdminMenu = new System.Windows.Forms.Button();
             this.btnNewPosts = new System.Windows.Forms.Button();
             this.lblNotFound = new System.Windows.Forms.Label();
             this.mainPanel = new System.Windows.Forms.Panel();
             this.tmrefreshNewPosts = new System.Windows.Forms.Timer(this.components);
             this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).BeginInit();
             this.panelRight.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(253, 64);
+            this.button1.Location = new System.Drawing.Point(1404, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(36, 32);
             this.button1.TabIndex = 2;
             this.button1.Text = "X";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // bntProfile
-            // 
-            this.bntProfile.Location = new System.Drawing.Point(161, 105);
-            this.bntProfile.Name = "bntProfile";
-            this.bntProfile.Size = new System.Drawing.Size(75, 23);
-            this.bntProfile.TabIndex = 3;
-            this.bntProfile.Text = "Perfil";
-            this.bntProfile.UseVisualStyleBackColor = true;
-            this.bntProfile.Click += new System.EventHandler(this.bntProfile_Click);
             // 
             // btnRefresh
             // 
@@ -120,12 +113,63 @@ namespace GameFacePrototype
             // 
             // panelTop
             // 
+            this.panelTop.Controls.Add(this.btnAdminMenu);
+            this.panelTop.Controls.Add(this.LBLShowUserId);
+            this.panelTop.Controls.Add(this.PBProfilePicture);
+            this.panelTop.Controls.Add(this.LBLShowUser);
             this.panelTop.Controls.Add(this.btnRefreshNewPost);
+            this.panelTop.Controls.Add(this.button1);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(1443, 100);
+            this.panelTop.Size = new System.Drawing.Size(1443, 127);
             this.panelTop.TabIndex = 6;
+            // 
+            // btnAdminMenu
+            // 
+            this.btnAdminMenu.Location = new System.Drawing.Point(1247, 98);
+            this.btnAdminMenu.Name = "btnAdminMenu";
+            this.btnAdminMenu.Size = new System.Drawing.Size(75, 23);
+            this.btnAdminMenu.TabIndex = 12;
+            this.btnAdminMenu.Text = "Menu Admin";
+            this.btnAdminMenu.UseVisualStyleBackColor = true;
+            this.btnAdminMenu.Visible = false;
+            this.btnAdminMenu.Click += new System.EventHandler(this.btnAdminMenu_Click);
+            // 
+            // LBLShowUserId
+            // 
+            this.LBLShowUserId.AutoSize = true;
+            this.LBLShowUserId.Location = new System.Drawing.Point(1244, 70);
+            this.LBLShowUserId.Name = "LBLShowUserId";
+            this.LBLShowUserId.Size = new System.Drawing.Size(35, 13);
+            this.LBLShowUserId.TabIndex = 41;
+            this.LBLShowUserId.Text = "label2";
+            this.LBLShowUserId.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.LBLShowUserId.Click += new System.EventHandler(this.LBLShowUserId_Click);
+            // 
+            // PBProfilePicture
+            // 
+            this.PBProfilePicture.Image = ((System.Drawing.Image)(resources.GetObject("PBProfilePicture.Image")));
+            this.PBProfilePicture.Location = new System.Drawing.Point(1345, 39);
+            this.PBProfilePicture.Margin = new System.Windows.Forms.Padding(2);
+            this.PBProfilePicture.Name = "PBProfilePicture";
+            this.PBProfilePicture.Size = new System.Drawing.Size(96, 83);
+            this.PBProfilePicture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PBProfilePicture.TabIndex = 39;
+            this.PBProfilePicture.TabStop = false;
+            this.PBProfilePicture.Click += new System.EventHandler(this.PBProfilePicture_Click);
+            // 
+            // LBLShowUser
+            // 
+            this.LBLShowUser.AutoSize = true;
+            this.LBLShowUser.Location = new System.Drawing.Point(1244, 45);
+            this.LBLShowUser.Name = "LBLShowUser";
+            this.LBLShowUser.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.LBLShowUser.Size = new System.Drawing.Size(35, 13);
+            this.LBLShowUser.TabIndex = 40;
+            this.LBLShowUser.Text = "label1";
+            this.LBLShowUser.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.LBLShowUser.Click += new System.EventHandler(this.LBLShowUser_Click);
             // 
             // btnRefreshNewPost
             // 
@@ -142,40 +186,26 @@ namespace GameFacePrototype
             // 
             this.panelLeft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeft.Location = new System.Drawing.Point(0, 100);
+            this.panelLeft.Location = new System.Drawing.Point(0, 127);
             this.panelLeft.Name = "panelLeft";
-            this.panelLeft.Size = new System.Drawing.Size(302, 757);
+            this.panelLeft.Size = new System.Drawing.Size(302, 730);
             this.panelLeft.TabIndex = 7;
             // 
             // panelRight
             // 
             this.panelRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelRight.Controls.Add(this.btnAdminMenu);
             this.panelRight.Controls.Add(this.btnNewPosts);
             this.panelRight.Controls.Add(this.lblNotFound);
             this.panelRight.Controls.Add(this.btnRefresh);
             this.panelRight.Controls.Add(this.flowLayoutPanel1);
-            this.panelRight.Controls.Add(this.bntProfile);
             this.panelRight.Controls.Add(this.tbSearch);
-            this.panelRight.Controls.Add(this.button1);
             this.panelRight.Controls.Add(this.btnBuscar);
             this.panelRight.Controls.Add(this.btnLimpiar);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRight.Location = new System.Drawing.Point(1145, 100);
+            this.panelRight.Location = new System.Drawing.Point(1145, 127);
             this.panelRight.Name = "panelRight";
-            this.panelRight.Size = new System.Drawing.Size(298, 757);
+            this.panelRight.Size = new System.Drawing.Size(298, 730);
             this.panelRight.TabIndex = 11;
-            // 
-            // btnAdminMenu
-            // 
-            this.btnAdminMenu.Location = new System.Drawing.Point(68, 105);
-            this.btnAdminMenu.Name = "btnAdminMenu";
-            this.btnAdminMenu.Size = new System.Drawing.Size(75, 23);
-            this.btnAdminMenu.TabIndex = 12;
-            this.btnAdminMenu.Text = "Menu Admin";
-            this.btnAdminMenu.UseVisualStyleBackColor = true;
-            this.btnAdminMenu.Visible = false;
-            this.btnAdminMenu.Click += new System.EventHandler(this.btnAdminMenu_Click);
             // 
             // btnNewPosts
             // 
@@ -200,9 +230,9 @@ namespace GameFacePrototype
             this.mainPanel.AutoScroll = true;
             this.mainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(302, 100);
+            this.mainPanel.Location = new System.Drawing.Point(302, 127);
             this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(843, 757);
+            this.mainPanel.Size = new System.Drawing.Size(843, 730);
             this.mainPanel.TabIndex = 12;
             // 
             // tmrefreshNewPosts
@@ -220,12 +250,14 @@ namespace GameFacePrototype
             this.Controls.Add(this.panelRight);
             this.Controls.Add(this.panelLeft);
             this.Controls.Add(this.panelTop);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PrivateInterface";
             this.Text = "PrivateInterface";
             this.Load += new System.EventHandler(this.PrivateInterface_Load);
             this.panelTop.ResumeLayout(false);
+            this.panelTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).EndInit();
             this.panelRight.ResumeLayout(false);
             this.panelRight.PerformLayout();
             this.ResumeLayout(false);
@@ -234,7 +266,6 @@ namespace GameFacePrototype
 
         #endregion
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button bntProfile;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.TextBox tbSearch;
@@ -249,5 +280,8 @@ namespace GameFacePrototype
         private System.Windows.Forms.Timer tmrefreshNewPosts;
         private System.Windows.Forms.Button btnNewPosts;
         private System.Windows.Forms.Button btnAdminMenu;
+        private System.Windows.Forms.Label LBLShowUserId;
+        private System.Windows.Forms.PictureBox PBProfilePicture;
+        private System.Windows.Forms.Label LBLShowUser;
     }
 }

@@ -66,7 +66,6 @@ namespace GameFacePrototype
             nameComments.AutoSize = true;
 
             //Comentario
-
             commentsWrite.Location = new Point(100, 30);
             commentsWrite.AutoSize = true;
             commentsWrite.MaximumSize = new Size(370, 70);
@@ -153,7 +152,6 @@ namespace GameFacePrototype
 
 
             da.Fill(dt);
-
 
         }
 

@@ -26,9 +26,13 @@ namespace GameFacePrototype
         private int RowPost;
         private int idPost;
         private int idUser;
+        private int likeCount;
+        private int dislikeCount;
+        private int shareCount;
 
         //Atributos para Crear el post
         private Label name = new Label();
+        private Label nickName = new Label();
         private Label creationDate = new Label();
         private Label description = new Label();
         private PictureBox profilePicture = new PictureBox();
@@ -41,6 +45,7 @@ namespace GameFacePrototype
         private Label lblComments = new Label();
         private Button share = new Button();
         private Label shares = new Label();
+        private Timer timerReacition = new Timer();
         private Panel reactionPanel = new Panel();
         public Panel post = new Panel();
 
@@ -89,6 +94,8 @@ namespace GameFacePrototype
             //UserName
             name.Location = new Point(100, 10);
 
+            //User Nickname
+            nickName.Location = new Point(100, 40);
 
             //CreationDate
             creationDate.Location = new Point(200, 10);
@@ -115,7 +122,6 @@ namespace GameFacePrototype
             string a = dt.Rows[RowPost][6].ToString();
             if (dt.Rows[RowPost][6].ToString() != "")
             {
-
                 picture.Size = new Size(500, 350);
                 PanelComment.Location = new Point(40, 700);
                 reactionPanel.Location = new Point(40, 600);
@@ -221,15 +227,23 @@ namespace GameFacePrototype
             PanelComment.Controls.Add(commentPanel);
             PanelComment.Controls.Add(panelWriteComment);
 
-
+            //timer para controlar los likes
+            timerReacition.Interval = 10000;
+            timerReacition.Enabled = true;
+            timerReacition.Tick += TimerReacition_Tick;
 
             //Post Entero
             //post.Size = new Size(600, 900);
+            post.Location = new Point(100, (position - Global.posicionPost));
+            if (dt.Rows[RowPost][6].ToString() == string.Empty)
+            {
+                Global.posicionPost = Global.posicionPost + 400;
+            }
             post.AutoSize = true;
-            post.Location = new Point(100, position);
             post.Visible = true;
             post.BorderStyle = BorderStyle.FixedSingle;
             post.Controls.Add(name);
+            post.Controls.Add(nickName);
             post.Controls.Add(creationDate);
             post.Controls.Add(picture);
             post.Controls.Add(description);
@@ -240,6 +254,8 @@ namespace GameFacePrototype
             return post;
 
         }
+
+
 
         public Panel generarPostFriend()
         {
@@ -268,6 +284,11 @@ namespace GameFacePrototype
             name.Location = new Point(100, 10);
             name.Click += Name_Click;
 
+            //User Nickname                   
+            nickName.Cursor = Cursors.Hand;
+            nickName.Location = new Point(100, 40);
+            nickName.Click += Name_Click;
+
             //CreationDate
 
 
@@ -281,7 +302,8 @@ namespace GameFacePrototype
             description.BorderStyle = BorderStyle.FixedSingle;
 
             //pictureBoxProfile
-
+            profilePicture.Click += ProfilePicture_Click;
+            profilePicture.Cursor = Cursors.Hand;
             profilePicture.SizeMode = PictureBoxSizeMode.StretchImage;
             profilePicture.Location = new Point(10, 10);
             profilePicture.Size = new Size(70, 62);
@@ -400,17 +422,24 @@ namespace GameFacePrototype
             PanelComment.Controls.Add(commentPanel);
             PanelComment.Controls.Add(panelWriteComment);
 
-
-
+            //timer para controlar los likes
+            timerReacition.Interval = 10000;
+            timerReacition.Enabled = true;
+            timerReacition.Tick += TimerReacition_Tick;
 
             //Post Entero
             //post.Size = new Size(600, 900);
 
+            post.Location = new Point(100, (position - Global.posicionPost));
+            if (dt.Rows[RowPost][6].ToString() == string.Empty)
+            {
+                Global.posicionPost = Global.posicionPost + 400;
+            }
             post.AutoSize = true;
-            post.Location = new Point(100, position);
             post.Visible = true;
             post.BorderStyle = BorderStyle.FixedSingle;
             post.Controls.Add(name);
+            post.Controls.Add(nickName);
             post.Controls.Add(creationDate);
             post.Controls.Add(picture);
             post.Controls.Add(description);
@@ -442,15 +471,20 @@ namespace GameFacePrototype
 
             da.Fill(dt);
             name.Text = dt.Rows[0][0].ToString();
-            creationDate.Text = dt.Rows[0][1].ToString();
-            description.Text = dt.Rows[0][2].ToString();
+            nickName.Text = dt.Rows[0][1].ToString();
+            creationDate.Text = dt.Rows[0][2].ToString();
+            description.Text = dt.Rows[0][3].ToString();
             likes.Text = da.SelectCommand.Parameters["@like"].Value.ToString();
             dislikes.Text = da.SelectCommand.Parameters["@dislike"].Value.ToString();
             shares.Text = da.SelectCommand.Parameters["@shares"].Value.ToString();
+            likeCount = int.Parse(da.SelectCommand.Parameters["@like"].Value.ToString());
+            dislikeCount = int.Parse(da.SelectCommand.Parameters["@dislike"].Value.ToString());
+            shareCount = int.Parse(da.SelectCommand.Parameters["@shares"].Value.ToString());
+
             try
             {
                 byte[] mybyte = new byte[0];
-                mybyte = (byte[])dt.Rows[0][3];
+                mybyte = (byte[])dt.Rows[0][4];
                 MemoryStream ms = new MemoryStream(mybyte);
                 profilePicture.Image = Image.FromStream(ms);
             }
@@ -461,7 +495,7 @@ namespace GameFacePrototype
             try
             {
                 byte[] mybyte = new byte[0];
-                mybyte = (byte[])dt.Rows[0][4];
+                mybyte = (byte[])dt.Rows[0][5];
                 MemoryStream ms = new MemoryStream(mybyte);
                 picture.Image = Image.FromStream(ms);
             }
@@ -485,7 +519,6 @@ namespace GameFacePrototype
 
             if (dt.Rows.Count > 0)
             {
-
                 Byte[] myByte = new byte[0];
                 myByte = (Byte[])(dt.Rows[0]["ProfilePhoto"]);
                 MemoryStream ms = new MemoryStream(myByte);
@@ -526,7 +559,12 @@ namespace GameFacePrototype
 
 
         }
-
+        private void ProfilePicture_Click(object sender, EventArgs e)
+        {
+            Global.IdUserThird = idUserFriend;
+            ProfileThird profileThird = new ProfileThird();
+            profileThird.Show();
+        }
         private void ValidarShare()
         {
             DataTable dt = new DataTable();
@@ -648,12 +686,7 @@ namespace GameFacePrototype
         }
 
 
-        private void ProfilePicture_Click(object sender, EventArgs e)
-        {
-            Global.IdUserThird = idUserFriend;
-            ProfileThird profileThird = new ProfileThird();
-            profileThird.Show();
-        }
+
         private void Name_Click(object sender, EventArgs e)
         {
             Global.IdUserThird = idUserFriend;
@@ -727,7 +760,37 @@ namespace GameFacePrototype
 
 
         }
+        //timer
+        private void TimerReacition_Tick(object sender, EventArgs e)
+        {
+            DataTable dt = new DataTable();
+            string sConexion = Global.Conexion;
+            SqlConnection dataConnection = new SqlConnection(sConexion);
+            SqlDataAdapter da = new SqlDataAdapter("SP_ShowPost", dataConnection);
+            da.SelectCommand.CommandType = CommandType.StoredProcedure;
 
+            da.SelectCommand.Parameters.Add("@idPost", SqlDbType.Int);
+
+            da.SelectCommand.Parameters["@idPost"].Value = idPost;
+            da.SelectCommand.Parameters.Add("@like", SqlDbType.Int).Direction = ParameterDirection.Output;
+            da.SelectCommand.Parameters.Add("@dislike", SqlDbType.Int).Direction = ParameterDirection.Output;
+            da.SelectCommand.Parameters.Add("@shares", SqlDbType.Int).Direction = ParameterDirection.Output;
+
+            da.Fill(dt);
+
+
+            if (likeCount != int.Parse(da.SelectCommand.Parameters["@like"].Value.ToString()) || dislikeCount != int.Parse(da.SelectCommand.Parameters["@dislike"].Value.ToString()) || shareCount != int.Parse(da.SelectCommand.Parameters["@shares"].Value.ToString()))
+            {
+
+                likes.Text = da.SelectCommand.Parameters["@like"].Value.ToString();
+                dislikes.Text = da.SelectCommand.Parameters["@dislike"].Value.ToString();
+                shares.Text = da.SelectCommand.Parameters["@shares"].Value.ToString();
+                likeCount = int.Parse(da.SelectCommand.Parameters["@like"].Value.ToString());
+                dislikeCount = int.Parse(da.SelectCommand.Parameters["@dislike"].Value.ToString());
+                shareCount = int.Parse(da.SelectCommand.Parameters["@shares"].Value.ToString());
+            }
+
+        }
 
         //comments
         private void GenerarComment()
@@ -787,10 +850,7 @@ namespace GameFacePrototype
             PanelComment.Controls.Add(commentPanel);
 
         }
-
     }
-
-
 
 }
 
