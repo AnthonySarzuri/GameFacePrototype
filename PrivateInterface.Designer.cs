@@ -47,8 +47,8 @@ namespace GameFacePrototype
             this.panelRight = new System.Windows.Forms.Panel();
             this.btnNewPosts = new System.Windows.Forms.Button();
             this.lblNotFound = new System.Windows.Forms.Label();
-            this.mainPanel = new System.Windows.Forms.Panel();
             this.tmrefreshNewPosts = new System.Windows.Forms.Timer(this.components);
+            this.mainPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).BeginInit();
             this.panelRight.SuspendLayout();
@@ -225,21 +225,23 @@ namespace GameFacePrototype
             this.lblNotFound.Size = new System.Drawing.Size(0, 13);
             this.lblNotFound.TabIndex = 7;
             // 
-            // mainPanel
-            // 
-            this.mainPanel.AutoScroll = true;
-            this.mainPanel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainPanel.Location = new System.Drawing.Point(302, 127);
-            this.mainPanel.Name = "mainPanel";
-            this.mainPanel.Size = new System.Drawing.Size(843, 730);
-            this.mainPanel.TabIndex = 12;
-            // 
             // tmrefreshNewPosts
             // 
             this.tmrefreshNewPosts.Enabled = true;
             this.tmrefreshNewPosts.Interval = 30000;
             this.tmrefreshNewPosts.Tick += new System.EventHandler(this.tmrefreshNewPosts_Tick);
+            // 
+            // mainPanel
+            // 
+            this.mainPanel.AutoScroll = true;
+            this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.mainPanel.Location = new System.Drawing.Point(302, 127);
+            this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Padding = new System.Windows.Forms.Padding(100, 0, 100, 0);
+            this.mainPanel.Size = new System.Drawing.Size(843, 730);
+            this.mainPanel.TabIndex = 12;
+            this.mainPanel.WrapContents = false;
             // 
             // PrivateInterface
             // 
@@ -277,12 +279,12 @@ namespace GameFacePrototype
         private System.Windows.Forms.Panel panelRight;
         private System.Windows.Forms.Label lblNotFound;
         private System.Windows.Forms.Button btnRefreshNewPost;
-        private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Timer tmrefreshNewPosts;
         private System.Windows.Forms.Button btnNewPosts;
         private System.Windows.Forms.Button btnAdminMenu;
         private System.Windows.Forms.Label LBLShowUserId;
         private System.Windows.Forms.PictureBox PBProfilePicture;
         private System.Windows.Forms.Label LBLShowUser;
+        private System.Windows.Forms.FlowLayoutPanel mainPanel;
     }
 }

@@ -42,8 +42,8 @@
             this.lblConection = new System.Windows.Forms.Label();
             this.LBLLastTime = new System.Windows.Forms.Label();
             this.LBLLastDay = new System.Windows.Forms.Label();
-            this.PanelPosts = new System.Windows.Forms.Panel();
             this.tmconected = new System.Windows.Forms.Timer(this.components);
+            this.PanelPosts = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -98,7 +98,7 @@
             // 
             // BTNBack
             // 
-            this.BTNBack.Location = new System.Drawing.Point(867, 7);
+            this.BTNBack.Location = new System.Drawing.Point(961, 7);
             this.BTNBack.Name = "BTNBack";
             this.BTNBack.Size = new System.Drawing.Size(31, 23);
             this.BTNBack.TabIndex = 13;
@@ -131,12 +131,12 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(910, 264);
+            this.panel1.Size = new System.Drawing.Size(1013, 264);
             this.panel1.TabIndex = 15;
             // 
             // btnRefreshNewPosts
             // 
-            this.btnRefreshNewPosts.Location = new System.Drawing.Point(730, 39);
+            this.btnRefreshNewPosts.Location = new System.Drawing.Point(833, 39);
             this.btnRefreshNewPosts.Name = "btnRefreshNewPosts";
             this.btnRefreshNewPosts.Size = new System.Drawing.Size(168, 37);
             this.btnRefreshNewPosts.TabIndex = 18;
@@ -174,26 +174,30 @@
             this.LBLLastDay.TabIndex = 15;
             this.LBLLastDay.Text = "label4";
             // 
-            // PanelPosts
-            // 
-            this.PanelPosts.AutoScroll = true;
-            this.PanelPosts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelPosts.Location = new System.Drawing.Point(0, 264);
-            this.PanelPosts.Name = "PanelPosts";
-            this.PanelPosts.Size = new System.Drawing.Size(910, 593);
-            this.PanelPosts.TabIndex = 16;
-            // 
             // tmconected
             // 
             this.tmconected.Enabled = true;
             this.tmconected.Interval = 50000;
             this.tmconected.Tick += new System.EventHandler(this.tmconected_Tick);
             // 
+            // PanelPosts
+            // 
+            this.PanelPosts.AutoScroll = true;
+            this.PanelPosts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelPosts.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.PanelPosts.Location = new System.Drawing.Point(0, 264);
+            this.PanelPosts.Margin = new System.Windows.Forms.Padding(0);
+            this.PanelPosts.Name = "PanelPosts";
+            this.PanelPosts.Padding = new System.Windows.Forms.Padding(100, 0, 100, 0);
+            this.PanelPosts.Size = new System.Drawing.Size(1013, 636);
+            this.PanelPosts.TabIndex = 17;
+            this.PanelPosts.WrapContents = false;
+            // 
             // ProfileThird
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(910, 857);
+            this.ClientSize = new System.Drawing.Size(1013, 900);
             this.Controls.Add(this.PanelPosts);
             this.Controls.Add(this.panel1);
             this.Name = "ProfileThird";
@@ -217,11 +221,11 @@
         private System.Windows.Forms.Button BTNBack;
         private System.Windows.Forms.Label LBLShowBiography;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel PanelPosts;
         private System.Windows.Forms.Label LBLLastDay;
         private System.Windows.Forms.Label LBLLastTime;
         private System.Windows.Forms.Timer tmconected;
         private System.Windows.Forms.Label lblConection;
         private System.Windows.Forms.Button btnRefreshNewPosts;
+        private System.Windows.Forms.FlowLayoutPanel PanelPosts;
     }
 }

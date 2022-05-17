@@ -13,7 +13,7 @@ using Guna.UI2.WinForms;
 
 namespace GameFacePrototype
 {
-    internal class Posts
+    public class Posts
     {
         //Variables para obtener contexto
         private Form formulario;
@@ -24,7 +24,6 @@ namespace GameFacePrototype
         private string idReaccion;
 
         //variables para generar un post
-        private int position;
         private int idUserFriend;
         private int RowPost;
         private int idPost;
@@ -55,11 +54,11 @@ namespace GameFacePrototype
 
         //Atributos para los comentarios
         //Atributo el panel de los comentarios
-        private Panel commentPanel = new Panel();
+        protected FlowLayoutPanel commentPanel = new FlowLayoutPanel();
 
         //Atributos para escribir comentario y borrar comentario
         private PictureBox profilePictureCommentWrite = new PictureBox();
-        private TextBox WriteComment = new TextBox();
+        protected TextBox WriteComment = new TextBox();
         private Button btnWriteComment = new Button();
 
         private Panel panelWriteComment = new Panel();
@@ -68,11 +67,10 @@ namespace GameFacePrototype
         public Panel PanelComment = new Panel();
         public Posts() { }
 
-        public Posts(int idUser, int RowPost, int posicion,Form formulario)
+        public Posts(int idUser, int RowPost,Form formulario)
         {
             this.idUser = idUser;
             this.RowPost = RowPost;
-            this.position = posicion;
             this.formulario = formulario;
         }
 
@@ -251,12 +249,7 @@ namespace GameFacePrototype
             timerReacition.Tick += TimerReacition_Tick;
 
             //Post Entero
-            //post.Size = new Size(600, 900);
-            post.Location = new Point(100, (position - Global.posicionPost));
-            if (dt.Rows[RowPost][6].ToString() == string.Empty)
-            {
-                Global.posicionPost = Global.posicionPost + 400;
-            }
+            post.Margin = new Padding(0,0,0,100);
             post.AutoSize = true;
             post.Visible = true;
             post.BorderStyle = BorderStyle.FixedSingle;
@@ -492,11 +485,7 @@ namespace GameFacePrototype
             //Post Entero
             //post.Size = new Size(600, 900);
 
-            post.Location = new Point(100, (position - Global.posicionPost));
-            if (dt.Rows[RowPost][6].ToString() == string.Empty)
-            {
-                Global.posicionPost = Global.posicionPost + 400;
-            }
+            post.Margin = new Padding(0, 0, 0, 100);
             post.AutoSize = true;
             post.Visible = true;
             post.BorderStyle = BorderStyle.FixedSingle;
@@ -688,11 +677,7 @@ namespace GameFacePrototype
             //Post Entero
             //post.Size = new Size(600, 900);
 
-            post.Location = new Point(100, (position - Global.posicionPost));
-            if (dt.Rows[RowPost][3].ToString() == string.Empty)
-            {
-                Global.posicionPost = Global.posicionPost + 400;
-            }
+            post.Margin = new Padding(0, 0, 0, 100);
             post.AutoSize = true;
             post.Visible = true;
             post.BorderStyle = BorderStyle.FixedSingle;
@@ -1067,14 +1052,17 @@ namespace GameFacePrototype
         }
 
         //comments
-        private void GenerarComment()
+        protected void GenerarComment()
         {
             int idpost = idPost;
 
             //Generar los Comentarios
             //Panel de Comentarios
+            commentPanel.FlowDirection = FlowDirection.TopDown;
+            commentPanel.WrapContents = false;
             commentPanel.Location = new Point(0, 0);
             commentPanel.Size = new Size(500, 260);
+            commentPanel.Padding = new Padding(5, 0, 0, 10);
             commentPanel.AutoScroll = true;
 
             DataTable dt = new DataTable();
@@ -1087,16 +1075,16 @@ namespace GameFacePrototype
             da.Fill(dt);
 
             int u = int.Parse(dt.Rows[0][0].ToString());
-            int posicion = 0;
-            int aux = 100;
+
 
             for (int i = 1; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {
-                Comments comentarios = new Comments(idPost, (i - 1), posicion);
+                Comments comentarios = new Comments(idPost, (i - 1));
                 comentarios.generarComentarios();
                 commentPanel.Controls.Add(comentarios.comment);
-                posicion = aux * i;
+
             }
+            
 
         }
 

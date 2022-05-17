@@ -25,11 +25,10 @@ namespace GameFacePrototype
         private Label commentsWrite = new Label();    
         public Panel comment = new Panel();
         public Messages() { }
-        public Messages( int rowComment, int position, int idFriend)
+        public Messages( int rowComment, int idFriend)
         {
           
             this.rowComment = rowComment;
-            this.position = position;
             this.idFriend = idFriend;
         }
 
@@ -60,7 +59,7 @@ namespace GameFacePrototype
             
                   
             //Comentario
-            commentsWrite.Location = new Point(100, 30);
+            commentsWrite.Location = new Point(10, 10);
             commentsWrite.AutoSize = true;
             commentsWrite.MaximumSize = new Size(370, 70);
 
@@ -73,22 +72,22 @@ namespace GameFacePrototype
             {
                 if (Global.IdUser == int.Parse(dt.Rows[rowComment][2].ToString()))
                 {
-                    comment.Location = new Point(200, position);
+                    comment.Margin = new Padding(200, 0, 0, 10);
                 }
                 else
                 {
-                    comment.Location = new Point(0, position);
+                    comment.Left = 0;
                 }
             }
             catch
             {
                 if (Global.IdUser == int.Parse(dt.Rows[0][2].ToString()))
                 {
-                    comment.Location = new Point(200, position);
+                    comment.Margin = new Padding(200, 0, 0, 10);
                 }
                 else
                 {
-                    comment.Location = new Point(0, position);
+                    comment.Left = 0;
                 }
             }
             

@@ -37,7 +37,7 @@ namespace GameFacePrototype
             this.leftPanel = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnShowMorePost = new System.Windows.Forms.Button();
-            this.mainPanel = new System.Windows.Forms.Panel();
+            this.mainPanel = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.topPanel.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -126,10 +126,14 @@ namespace GameFacePrototype
             // 
             this.mainPanel.AutoScroll = true;
             this.mainPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.mainPanel.Location = new System.Drawing.Point(200, 100);
+            this.mainPanel.Margin = new System.Windows.Forms.Padding(3, 3, 3, 50);
             this.mainPanel.Name = "mainPanel";
+            this.mainPanel.Padding = new System.Windows.Forms.Padding(200, 0, 0, 50);
             this.mainPanel.Size = new System.Drawing.Size(904, 685);
-            this.mainPanel.TabIndex = 7;
+            this.mainPanel.TabIndex = 8;
+            this.mainPanel.WrapContents = false;
             // 
             // PublicInterface
             // 
@@ -159,9 +163,9 @@ namespace GameFacePrototype
         private System.Windows.Forms.Panel topPanel;
         private System.Windows.Forms.Panel leftPanel;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel mainPanel;
         private System.Windows.Forms.Button btnShowMorePost;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.FlowLayoutPanel mainPanel;
     }
 }
 

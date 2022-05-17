@@ -16,7 +16,7 @@ namespace GameFacePrototype
         //Variables
         private int idPost;
         private int rowComment;
-        private int position;
+        
         //Variables de cada Comentario
         private int idPostComment;
         public int idUserComment;
@@ -29,11 +29,11 @@ namespace GameFacePrototype
         private Button btnDeleteComment = new Button();
         public Panel comment = new Panel();
         public Comments() { }
-        public Comments(int idPost, int rowComment, int position)
+        public Comments(int idPost, int rowComment)
         {
             this.idPost = idPost;
             this.rowComment = rowComment;
-            this.position = position;
+            
         }
 
         public Panel generarComentarios()
@@ -81,9 +81,9 @@ namespace GameFacePrototype
 
             //Panel del Comentario
             //comment.Size = new Size(450, 50);
+            comment.Margin = new Padding(0,0,0,10);
             comment.AutoSize = true;
             comment.MaximumSize = new Size(450, 90);
-            comment.Location = new Point(0, position);
 
             //comment.BorderStyle = BorderStyle.FixedSingle;
             comment.Controls.Add(profilePictureComment);
@@ -152,8 +152,10 @@ namespace GameFacePrototype
 
 
             da.Fill(dt);
+            
 
         }
+        
 
     }
 }

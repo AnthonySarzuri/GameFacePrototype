@@ -48,6 +48,7 @@ namespace GameFacePrototype
             this.tbUser.Name = "tbUser";
             this.tbUser.Size = new System.Drawing.Size(189, 20);
             this.tbUser.TabIndex = 0;
+            this.tbUser.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.login_KeyPress);
             // 
             // tbPassword
             // 
@@ -56,6 +57,7 @@ namespace GameFacePrototype
             this.tbPassword.PasswordChar = '*';
             this.tbPassword.Size = new System.Drawing.Size(189, 20);
             this.tbPassword.TabIndex = 1;
+            this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.login_KeyPress);
             // 
             // lblPasswordEmpty
             // 

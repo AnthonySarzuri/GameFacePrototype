@@ -82,7 +82,7 @@ namespace GameFacePrototype
             }
 
         }
-
+        
         private void label1_Click(object sender, EventArgs e)
         {
             RegisterUser register = new RegisterUser(formulario);
@@ -129,6 +129,11 @@ namespace GameFacePrototype
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            login();
+        }
+
+        private void login()
+        {
             DataTable dt = new DataTable();
             string sConexion = Global.Conexion;
 
@@ -157,7 +162,7 @@ namespace GameFacePrototype
                     conectedUP();
                     try
                     {
-                        
+
                         formulario.Hide();
 
                     }
@@ -193,13 +198,17 @@ namespace GameFacePrototype
             }
         }
 
-
-
         private void btnCloseLoginButton_Click(object sender, EventArgs e)
         {
             formulario.Enabled = true;
             this.Close();
             
+        }
+
+        private void login_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar==13)
+                login();
         }
     }
 }

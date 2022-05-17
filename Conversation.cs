@@ -63,7 +63,8 @@ namespace GameFacePrototype
         {
             try
             {
-                client.Connect("192.168.120.220", 8000);
+                //192.168.120.220
+                client.Connect("192.168.0.104", 8000);
                 if (client.Connected)
                 {
                     Thread t = new Thread(Listen);
@@ -110,18 +111,15 @@ namespace GameFacePrototype
             da.Fill(dt);
 
 
-            int posicion = pos;
-            int aux = 100;
             int count = int.Parse(dt.Rows[0][0].ToString());
            
             if(postCount< int.Parse(dt.Rows[0][0].ToString()))
             {
                 for (int i = continuar; i <= count; i++)
                 {
-                    Messages message = new Messages((i - 1), posicion, id);
+                    Messages message = new Messages((i - 1), id);
                     message.generarComentarios();
                     panelChat.Controls.Add(message.comment);
-                    posicion = aux * i;
                     continuar = i + 1;
                     postCount = int.Parse(dt.Rows[0][0].ToString());
                 }
@@ -148,17 +146,14 @@ namespace GameFacePrototype
             da.Fill(dt);
 
 
-            int posicion = 0;
-            int aux = 100;
             int count = int.Parse(dt.Rows[0][0].ToString());
             postCount = int.Parse(dt.Rows[0][0].ToString());
             for (int i = 1; i <= count; i++)
             {
-                Messages message = new Messages( (i - 1), posicion, id);
+                Messages message = new Messages( (i - 1), id);
                 message.generarComentarios();
                 panelChat.Controls.Add(message.comment);
-                posicion = aux * i;
-                pos = posicion;
+
                 continuar = i + 1;
             }
         }

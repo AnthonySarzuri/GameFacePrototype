@@ -41,7 +41,7 @@
             this.LBLShowBiography = new System.Windows.Forms.Label();
             this.LBLShowUser = new System.Windows.Forms.Label();
             this.BTNShowFriends = new System.Windows.Forms.Button();
-            this.PanelPrincipal = new System.Windows.Forms.Panel();
+            this.PanelPrincipal = new System.Windows.Forms.FlowLayoutPanel();
             this.panelLeft.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBProfilePicture)).BeginInit();
             this.SuspendLayout();
@@ -175,18 +175,20 @@
             // PanelPrincipal
             // 
             this.PanelPrincipal.AutoScroll = true;
-            this.PanelPrincipal.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.PanelPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelPrincipal.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.PanelPrincipal.Location = new System.Drawing.Point(0, 301);
             this.PanelPrincipal.Name = "PanelPrincipal";
-            this.PanelPrincipal.Size = new System.Drawing.Size(1011, 448);
-            this.PanelPrincipal.TabIndex = 26;
+            this.PanelPrincipal.Padding = new System.Windows.Forms.Padding(100, 0, 100, 0);
+            this.PanelPrincipal.Size = new System.Drawing.Size(1011, 701);
+            this.PanelPrincipal.TabIndex = 23;
+            this.PanelPrincipal.WrapContents = false;
             // 
             // Profile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 749);
+            this.ClientSize = new System.Drawing.Size(1011, 1002);
             this.Controls.Add(this.PanelPrincipal);
             this.Controls.Add(this.panelLeft);
             this.Name = "Profile";
@@ -204,7 +206,6 @@
         private System.Windows.Forms.Button btnEditProfilePicture;
         private System.Windows.Forms.Button btnNewPost;
         private System.Windows.Forms.Panel panelLeft;
-        private System.Windows.Forms.Panel PanelPrincipal;
         private System.Windows.Forms.PictureBox PBProfilePicture;
         private System.Windows.Forms.Label LBLShowBirthday;
         private System.Windows.Forms.Label LBLShowUserId;
@@ -213,5 +214,6 @@
         private System.Windows.Forms.Button BTNShowFriends;
         private System.Windows.Forms.Button btnRefreshNewPosts;
         private System.Windows.Forms.Button btnchat;
+        private System.Windows.Forms.FlowLayoutPanel PanelPrincipal;
     }
 }

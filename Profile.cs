@@ -77,23 +77,19 @@ namespace GameFacePrototype
             da.SelectCommand.Parameters["@idUser"].Value = Global.IdUser;
             da.Fill(dt);
 
-
-            int posicion = 0;
-            int aux = 1100;
             for (int i = 1; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {
 
-                Posts publi = new Posts(Global.IdUser, (i - 1), posicion,this);
+                Posts publi = new Posts(Global.IdUser, (i - 1),this);
                 publi.generarPostUser();
                 PanelPrincipal.Controls.Add(publi.post);
-                posicion = aux * i;
                 continuar = i + 1;
                 if (i == 2)
                 {
                     break;
                 }
             }
-            Global.posicionPost = 0;
+            
         }
         private void newPost()
         {
@@ -108,23 +104,20 @@ namespace GameFacePrototype
 
             da.Fill(dt);
 
-            int posicion = 1100;
-            int aux = 1100;
-            int count = 1;
+
+
             for (int i = continuar; i <= int.Parse(dt.Rows[0][0].ToString()); i++)
             {
-                Posts publi = new Posts(Global.IdUser, (i - 1), posicion,this);
+                Posts publi = new Posts(Global.IdUser, (i - 1),this);
                 publi.generarPostUser();
-                PanelPrincipal.Controls.Add(publi.post);
-                count++;
-                posicion = aux * count;
+                PanelPrincipal.Controls.Add(publi.post);             
                 continuar = i + 1;
                 if (i % 2 == 0)
                 {
                     break;
                 }
             }
-            Global.posicionPost = 0;
+            
         }
 
 
