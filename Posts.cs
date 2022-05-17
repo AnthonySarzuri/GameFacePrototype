@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.ComponentModel;
+using Guna.UI2.WinForms;
 
 namespace GameFacePrototype
 {
@@ -40,7 +41,7 @@ namespace GameFacePrototype
         private Label description = new Label();
         private PictureBox profilePicture = new PictureBox();
         private PictureBox picture = new PictureBox();
-        private Button like = new Button();
+        private Guna2Button like = new Guna2Button();
         private Label likes = new Label();
         private Button dislike = new Button();
         private Label dislikes = new Label();

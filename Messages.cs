@@ -49,8 +49,15 @@ namespace GameFacePrototype
 
 
             da.Fill(dt);
-
-            idMessage = int.Parse(dt.Rows[rowComment][0].ToString());
+            try
+            {
+                idMessage = int.Parse(dt.Rows[rowComment][0].ToString());
+            }
+            catch
+            {
+                idMessage = int.Parse(dt.Rows[0][0].ToString());
+            }
+            
                   
             //Comentario
             commentsWrite.Location = new Point(100, 30);
@@ -62,14 +69,29 @@ namespace GameFacePrototype
             comment.AutoSize = true;
             comment.MaximumSize = new Size(450, 90);
             comment.BorderStyle= BorderStyle.FixedSingle;
-            if(Global.IdUser== int.Parse(dt.Rows[rowComment][2].ToString()))
+            try
             {
-                comment.Location = new Point(200, position);
+                if (Global.IdUser == int.Parse(dt.Rows[rowComment][2].ToString()))
+                {
+                    comment.Location = new Point(200, position);
+                }
+                else
+                {
+                    comment.Location = new Point(0, position);
+                }
             }
-            else
+            catch
             {
-                comment.Location = new Point(0, position);
+                if (Global.IdUser == int.Parse(dt.Rows[0][2].ToString()))
+                {
+                    comment.Location = new Point(200, position);
+                }
+                else
+                {
+                    comment.Location = new Point(0, position);
+                }
             }
+            
            
 
             //comment.BorderStyle = BorderStyle.FixedSingle;

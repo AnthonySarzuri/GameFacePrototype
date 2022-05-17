@@ -93,7 +93,6 @@ namespace GameFacePrototype
             Login login = new Login(this);
             login.Show();
             this.Enabled = false;
-            login.FormClosing += LoginRegister_FormClosing;
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
@@ -101,13 +100,6 @@ namespace GameFacePrototype
             RegisterUser registerUser = new RegisterUser(this);
             registerUser.Show();
             this.Enabled=false;
-            registerUser.FormClosing += LoginRegister_FormClosing;
-        }
-
-        private void LoginRegister_FormClosing(object sender, FormClosingEventArgs e)
-        {
-
-            this.Enabled=true;
         }
 
         private void btnShowMorePost_Click(object sender, EventArgs e)
